@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>auxiliar.io — AI & Web Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0c;
+    --surface: #111115;
+    --border: #1e1e25;
+    --text: #e8e6e1;
+    --muted: #7a7880;
+    --accent: #c8ff2e;
+    --accent-dim: rgba(200, 255, 46, 0.08);
+    --radius: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* GRAIN OVERLAY */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 12, 0.7);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-mark img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    filter: invert(1);
+  }
+
+  .logo-mark span {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200,255,46,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    animation: drift 20s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-80px, 60px); }
+  }
+
+  .hero-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero h1 .accent {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--muted);
+    max-width: 580px;
+    margin-top: 32px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .btn-primary {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 16px 36px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,255,46,0.25);
+  }
+
+  .btn-ghost {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 16px 36px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--muted);
+    background: var(--accent-dim);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-track span {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 32px;
+  }
+
+  .marquee-track span::before {
+    content: '◆';
+    margin-right: 32px;
+    color: var(--accent);
+    font-size: 0.5rem;
+    vertical-align: middle;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SERVICES */
+  section {
+    padding: 100px 40px;
+  }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 600px;
+    margin-bottom: 56px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .service-card:hover {
+    border-color: rgba(200,255,46,0.2);
+    transform: translateY(-4px);
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 1.4rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* PROCESS */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 1200px;
+  }
+
+  .process-step {
+    background: var(--surface);
+    padding: 40px 32px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .process-step h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .process-step p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 300;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 120px 40px;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200,255,46,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-section .section-title {
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+
+  .cta-section .hero-sub {
+    margin: 0 auto 40px;
+    animation: none;
+    opacity: 1;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  footer span {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 300;
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: var(--accent);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 120px 20px 60px; }
+    section { padding: 60px 20px; }
+    .cta-section { padding: 80px 20px; }
+    footer { padding: 24px 20px; }
+    .hero-cta { flex-direction: column; }
+    .btn-primary, .btn-ghost { text-align: center; }
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-mark" href="#">
+    <img src="data:image/jpeg;base64,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" alt="auxiliar.io">
+    <span>auxiliar.io</span>
+  </a>
+  <div class="nav-right">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label" data-i18n="heroLabel"></div>
+  <h1 data-i18n="heroTitle"></h1>
+  <p class="hero-sub" data-i18n="heroSub"></p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary" data-i18n="ctaStart"></a>
+    <a href="#services" class="btn-ghost" data-i18n="ctaLearn"></a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Web Applications</span><span>AI Agents</span><span>Process Automation</span><span>Scalable Platforms</span><span>Custom Solutions</span><span>Strategy & Deployment</span><span>Continuous Maintenance</span><span>Intelligent Systems</span>
+    <span>Web Applications</span><span>AI Agents</span><span>Process Automation</span><span>Scalable Platforms</span><span>Custom Solutions</span><span>Strategy & Deployment</span><span>Continuous Maintenance</span><span>Intelligent Systems</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label" data-i18n="servicesLabel"></div>
+  <h2 class="section-title" data-i18n="servicesTitle"></h2>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-icon">⚡</div>
+      <h3 data-i18n="s1Title"></h3>
+      <p data-i18n="s1Desc"></p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🧠</div>
+      <h3 data-i18n="s2Title"></h3>
+      <p data-i18n="s2Desc"></p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🤖</div>
+      <h3 data-i18n="s3Title"></h3>
+      <p data-i18n="s3Desc"></p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🔧</div>
+      <h3 data-i18n="s4Title"></h3>
+      <p data-i18n="s4Desc"></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="section-label" data-i18n="processLabel"></div>
+  <h2 class="section-title" data-i18n="processTitle"></h2>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="step-num">01</div>
+      <h3 data-i18n="p1Title"></h3>
+      <p data-i18n="p1Desc"></p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num">02</div>
+      <h3 data-i18n="p2Title"></h3>
+      <p data-i18n="p2Desc"></p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num">03</div>
+      <h3 data-i18n="p3Title"></h3>
+      <p data-i18n="p3Desc"></p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num">04</div>
+      <h3 data-i18n="p4Title"></h3>
+      <p data-i18n="p4Desc"></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-label" data-i18n="ctaLabel"></div>
+  <h2 class="section-title" data-i18n="ctaTitle"></h2>
+  <p class="hero-sub" data-i18n="ctaSub"></p>
+  <a href="mailto:hello@auxiliar.io" class="btn-primary" data-i18n="ctaBtn"></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 auxiliar.io</span>
+  <div class="footer-links">
+    <a href="mailto:hello@auxiliar.io">hello@auxiliar.io</a>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  en: {
+    heroLabel: "AI-Powered Development Studio",
+    heroTitle: 'We build the <span class="accent">intelligent systems</span> that power your business.',
+    heroSub: "Modern web applications and tailored AI solutions. From scalable platforms to smart automations and AI agents that optimize processes and boost productivity.",
+    ctaStart: "Start a project",
+    ctaLearn: "Explore services",
+    servicesLabel: "What we do",
+    servicesTitle: "End-to-end solutions, from strategy to scale.",
+    s1Title: "Web Applications",
+    s1Desc: "Modern, scalable platforms built with cutting-edge technologies. Tailored architecture designed for performance and growth.",
+    s2Title: "Artificial Intelligence",
+    s2Desc: "Custom AI solutions that transform your data into actionable insights. Machine learning models designed for your specific needs.",
+    s3Title: "AI Agents & Automation",
+    s3Desc: "Intelligent agents and smart automations that streamline operations, reduce manual work, and accelerate decision-making.",
+    s4Title: "Maintenance & Support",
+    s4Desc: "Continuous monitoring, updates, and optimization. We ensure your systems perform at their best, around the clock.",
+    processLabel: "How we work",
+    processTitle: "From vision to production, with you at every step.",
+    p1Title: "Strategy",
+    p1Desc: "We analyze your needs and define the optimal technical roadmap.",
+    p2Title: "Design & Build",
+    p2Desc: "Iterative development with continuous feedback and transparency.",
+    p3Title: "Deploy",
+    p3Desc: "Production-grade deployment with robust infrastructure.",
+    p4Title: "Evolve",
+    p4Desc: "Ongoing maintenance, monitoring, and continuous improvement.",
+    ctaLabel: "Let's talk",
+    ctaTitle: "Ready to build something exceptional?",
+    ctaSub: "Tell us about your project. We'll craft the right solution together.",
+    ctaBtn: "Get in touch"
+  },
+  es: {
+    heroLabel: "Estudio de Desarrollo con IA",
+    heroTitle: 'Construimos los <span class="accent">sistemas inteligentes</span> que impulsan tu negocio.',
+    heroSub: "Aplicaciones web modernas y soluciones de inteligencia artificial a medida. Plataformas escalables, automatizaciones inteligentes y agentes AI que optimizan procesos y mejoran la productividad.",
+    ctaStart: "Iniciar un proyecto",
+    ctaLearn: "Explorar servicios",
+    servicesLabel: "Qué hacemos",
+    servicesTitle: "Soluciones integrales, de la estrategia a la escala.",
+    s1Title: "Aplicaciones Web",
+    s1Desc: "Plataformas modernas y escalables construidas con tecnologías de vanguardia. Arquitectura a medida diseñada para el rendimiento y el crecimiento.",
+    s2Title: "Inteligencia Artificial",
+    s2Desc: "Soluciones de IA personalizadas que transforman tus datos en decisiones accionables. Modelos de aprendizaje automático para tus necesidades específicas.",
+    s3Title: "Agentes AI y Automatización",
+    s3Desc: "Agentes inteligentes y automatizaciones que simplifican operaciones, reducen el trabajo manual y aceleran la toma de decisiones.",
+    s4Title: "Mantenimiento y Soporte",
+    s4Desc: "Monitoreo continuo, actualizaciones y optimización. Aseguramos que tus sistemas funcionen al máximo, las 24 horas.",
+    processLabel: "Cómo trabajamos",
+    processTitle: "De la visión a la producción, contigo en cada paso.",
+    p1Title: "Estrategia",
+    p1Desc: "Analizamos tus necesidades y definimos la hoja de ruta técnica óptima.",
+    p2Title: "Diseño y Desarrollo",
+    p2Desc: "Desarrollo iterativo con retroalimentación continua y transparencia.",
+    p3Title: "Despliegue",
+    p3Desc: "Despliegue en producción con infraestructura robusta.",
+    p4Title: "Evolución",
+    p4Desc: "Mantenimiento continuo, monitoreo y mejora constante.",
+    ctaLabel: "Hablemos",
+    ctaTitle: "¿Listo para construir algo excepcional?",
+    ctaSub: "Cuéntanos sobre tu proyecto. Diseñaremos juntos la solución ideal.",
+    ctaBtn: "Contáctanos"
+  },
+  fr: {
+    heroLabel: "Studio de Développement IA",
+    heroTitle: 'Nous construisons les <span class="accent">systèmes intelligents</span> qui propulsent votre entreprise.',
+    heroSub: "Applications web modernes et solutions d'intelligence artificielle sur mesure. Plateformes évolutives, automatisations intelligentes et agents IA qui optimisent vos processus et améliorent la productivité.",
+    ctaStart: "Démarrer un projet",
+    ctaLearn: "Explorer nos services",
+    servicesLabel: "Ce que nous faisons",
+    servicesTitle: "Des solutions complètes, de la stratégie au déploiement.",
+    s1Title: "Applications Web",
+    s1Desc: "Plateformes modernes et évolutives construites avec des technologies de pointe. Architecture sur mesure conçue pour la performance et la croissance.",
+    s2Title: "Intelligence Artificielle",
+    s2Desc: "Solutions IA personnalisées qui transforment vos données en décisions éclairées. Modèles d'apprentissage automatique adaptés à vos besoins.",
+    s3Title: "Agents IA et Automatisation",
+    s3Desc: "Agents intelligents et automatisations qui simplifient les opérations, réduisent le travail manuel et accélèrent la prise de décision.",
+    s4Title: "Maintenance et Support",
+    s4Desc: "Surveillance continue, mises à jour et optimisation. Nous garantissons que vos systèmes fonctionnent au maximum, 24h/24.",
+    processLabel: "Notre méthode",
+    processTitle: "De la vision à la production, à vos côtés à chaque étape.",
+    p1Title: "Stratégie",
+    p1Desc: "Nous analysons vos besoins et définissons la feuille de route technique optimale.",
+    p2Title: "Conception et Développement",
+    p2Desc: "Développement itératif avec retours continus et transparence totale.",
+    p3Title: "Déploiement",
+    p3Desc: "Mise en production avec une infrastructure robuste et fiable.",
+    p4Title: "Évolution",
+    p4Desc: "Maintenance continue, surveillance et amélioration permanente.",
+    ctaLabel: "Parlons-en",
+    ctaTitle: "Prêt à construire quelque chose d'exceptionnel ?",
+    ctaSub: "Parlez-nous de votre projet. Nous concevrons ensemble la solution idéale.",
+    ctaBtn: "Nous contacter"
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  document.documentElement.lang = lang;
+}
+
+// Init
+setLang('en');
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
