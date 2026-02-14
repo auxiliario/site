@@ -56,18 +56,20 @@
 
   .logo-mark {
     display: flex; align-items: center; gap: 12px; text-decoration: none;
+    min-width: 0; flex-shrink: 1;
   }
 
   .logo-mark img {
-    width: 36px; height: 36px; border-radius: 8px;
+    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
   }
 
   .logo-mark span {
     font-family: var(--font-display);
     font-size: 1.35rem; color: var(--text);
+    white-space: nowrap;
   }
 
-  .nav-right { display: flex; align-items: center; gap: 8px; }
+  .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
   .lang-btn {
     background: transparent; border: 1px solid var(--border);
@@ -276,7 +278,10 @@
   .footer-links { display: flex; gap: 24px; }
 
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
+    nav { padding: 16px 20px; gap: 8px; }
+    .logo-mark span { display: none; }
+    .nav-right { gap: 4px; }
+    .lang-btn { padding: 5px 10px; font-size: 0.75rem; }
     .hero { padding: 120px 20px 60px; }
     section { padding: 60px 20px; }
     .cta-section { padding: 80px 20px; }
@@ -318,8 +323,8 @@
 
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span>Web Applications</span><span>AI Agents</span><span>Process Automation</span><span>Scalable Platforms</span><span>Custom Solutions</span><span>Strategy & Deployment</span><span>Continuous Maintenance</span><span>Intelligent Systems</span>
-    <span>Web Applications</span><span>AI Agents</span><span>Process Automation</span><span>Scalable Platforms</span><span>Custom Solutions</span><span>Strategy & Deployment</span><span>Continuous Maintenance</span><span>Intelligent Systems</span>
+    <span>Web Applications</span><span>AI Agents</span><span>Process Automation</span><span>Scalable Platforms</span><span>Custom Solutions</span><span>Strategy &amp; Deployment</span><span>Continuous Maintenance</span><span>Intelligent Systems</span>
+    <span>Web Applications</span><span>AI Agents</span><span>Process Automation</span><span>Scalable Platforms</span><span>Custom Solutions</span><span>Strategy &amp; Deployment</span><span>Continuous Maintenance</span><span>Intelligent Systems</span>
   </div>
 </div>
 
@@ -328,22 +333,22 @@
   <h2 class="section-title" data-i18n="servicesTitle"></h2>
   <div class="services-grid">
     <div class="service-card reveal">
-      <div class="service-icon">⚡</div>
+      <div class="service-icon">&#9889;</div>
       <h3 data-i18n="s1Title"></h3>
       <p data-i18n="s1Desc"></p>
     </div>
     <div class="service-card reveal">
-      <div class="service-icon">🧠</div>
+      <div class="service-icon">&#129504;</div>
       <h3 data-i18n="s2Title"></h3>
       <p data-i18n="s2Desc"></p>
     </div>
     <div class="service-card reveal">
-      <div class="service-icon">🤖</div>
+      <div class="service-icon">&#129302;</div>
       <h3 data-i18n="s3Title"></h3>
       <p data-i18n="s3Desc"></p>
     </div>
     <div class="service-card reveal">
-      <div class="service-icon">🔧</div>
+      <div class="service-icon">&#128295;</div>
       <h3 data-i18n="s4Title"></h3>
       <p data-i18n="s4Desc"></p>
     </div>
@@ -381,18 +386,17 @@
   <div class="section-label" data-i18n="ctaLabel"></div>
   <h2 class="section-title" data-i18n="ctaTitle"></h2>
   <p class="hero-sub" data-i18n="ctaSub"></p>
-  <a href="/cdn-cgi/l/email-protection#5038353c3c3f10312528393c3931227e393f" class="btn-primary" data-i18n="ctaBtn"></a>
+  <a href="mailto:hello@auxiliar.io" class="btn-primary" data-i18n="ctaBtn"></a>
 </section>
 
 <footer>
-  <span>© 2026 auxiliar.io</span>
+  <span>&copy; 2026 auxiliar.io</span>
   <div class="footer-links">
-    <a href="/cdn-cgi/l/email-protection#056d6069696a4564707d6c696c64772b6c6a"><span class="__cf_email__" data-cfemail="87efe2ebebe8c7e6f2ffeeebeee6f5a9eee8">[email&#160;protected]</span></a>
+    <a href="mailto:hello@auxiliar.io">hello@auxiliar.io</a>
   </div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const translations = {
+<script>
+var translations = {
   en: {
     heroLabel: "AI-Powered Development Studio",
     heroTitle: 'We build the <span class="accent">intelligent systems</span> that power your business.',
@@ -430,87 +434,94 @@ const translations = {
     heroSub: "Aplicaciones web modernas y soluciones de inteligencia artificial a medida. Plataformas escalables, automatizaciones inteligentes y agentes AI que optimizan procesos y mejoran la productividad.",
     ctaStart: "Iniciar un proyecto",
     ctaLearn: "Explorar servicios",
-    servicesLabel: "Qué hacemos",
+    servicesLabel: "Qu\u00e9 hacemos",
     servicesTitle: "Soluciones integrales, de la estrategia a la escala.",
     s1Title: "Aplicaciones Web",
-    s1Desc: "Plataformas modernas y escalables construidas con tecnologías de vanguardia. Arquitectura a medida diseñada para el rendimiento y el crecimiento.",
+    s1Desc: "Plataformas modernas y escalables construidas con tecnolog\u00edas de vanguardia. Arquitectura a medida dise\u00f1ada para el rendimiento y el crecimiento.",
     s2Title: "Inteligencia Artificial",
-    s2Desc: "Soluciones de IA personalizadas que transforman tus datos en decisiones accionables. Modelos de aprendizaje automático para tus necesidades específicas.",
-    s3Title: "Agentes AI y Automatización",
+    s2Desc: "Soluciones de IA personalizadas que transforman tus datos en decisiones accionables. Modelos de aprendizaje autom\u00e1tico para tus necesidades espec\u00edficas.",
+    s3Title: "Agentes AI y Automatizaci\u00f3n",
     s3Desc: "Agentes inteligentes y automatizaciones que simplifican operaciones, reducen el trabajo manual y aceleran la toma de decisiones.",
     s4Title: "Mantenimiento y Soporte",
-    s4Desc: "Monitoreo continuo, actualizaciones y optimización. Aseguramos que tus sistemas funcionen al máximo, las 24 horas.",
-    processLabel: "Cómo trabajamos",
-    processTitle: "De la visión a la producción, contigo en cada paso.",
+    s4Desc: "Monitoreo continuo, actualizaciones y optimizaci\u00f3n. Aseguramos que tus sistemas funcionen al m\u00e1ximo, las 24 horas.",
+    processLabel: "C\u00f3mo trabajamos",
+    processTitle: "De la visi\u00f3n a la producci\u00f3n, contigo en cada paso.",
     p1Title: "Estrategia",
-    p1Desc: "Analizamos tus necesidades y definimos la hoja de ruta técnica óptima.",
-    p2Title: "Diseño y Desarrollo",
-    p2Desc: "Desarrollo iterativo con retroalimentación continua y transparencia.",
+    p1Desc: "Analizamos tus necesidades y definimos la hoja de ruta t\u00e9cnica \u00f3ptima.",
+    p2Title: "Dise\u00f1o y Desarrollo",
+    p2Desc: "Desarrollo iterativo con retroalimentaci\u00f3n continua y transparencia.",
     p3Title: "Despliegue",
-    p3Desc: "Despliegue en producción con infraestructura robusta.",
-    p4Title: "Evolución",
+    p3Desc: "Despliegue en producci\u00f3n con infraestructura robusta.",
+    p4Title: "Evoluci\u00f3n",
     p4Desc: "Mantenimiento continuo, monitoreo y mejora constante.",
     ctaLabel: "Hablemos",
-    ctaTitle: "¿Listo para construir algo excepcional?",
-    ctaSub: "Cuéntanos sobre tu proyecto. Diseñaremos juntos la solución ideal.",
-    ctaBtn: "Contáctanos"
+    ctaTitle: "\u00bfListo para construir algo excepcional?",
+    ctaSub: "Cu\u00e9ntanos sobre tu proyecto. Dise\u00f1aremos juntos la soluci\u00f3n ideal.",
+    ctaBtn: "Cont\u00e1ctanos"
   },
   fr: {
-    heroLabel: "Studio de Développement IA",
-    heroTitle: 'Nous construisons les <span class="accent">systèmes intelligents</span> qui propulsent votre entreprise.',
-    heroSub: "Applications web modernes et solutions d'intelligence artificielle sur mesure. Plateformes évolutives, automatisations intelligentes et agents IA qui optimisent vos processus et améliorent la productivité.",
-    ctaStart: "Démarrer un projet",
+    heroLabel: "Studio de D\u00e9veloppement IA",
+    heroTitle: 'Nous construisons les <span class="accent">syst\u00e8mes intelligents</span> qui propulsent votre entreprise.',
+    heroSub: "Applications web modernes et solutions d'intelligence artificielle sur mesure. Plateformes \u00e9volutives, automatisations intelligentes et agents IA qui optimisent vos processus et am\u00e9liorent la productivit\u00e9.",
+    ctaStart: "D\u00e9marrer un projet",
     ctaLearn: "Explorer nos services",
     servicesLabel: "Ce que nous faisons",
-    servicesTitle: "Des solutions complètes, de la stratégie au déploiement.",
+    servicesTitle: "Des solutions compl\u00e8tes, de la strat\u00e9gie au d\u00e9ploiement.",
     s1Title: "Applications Web",
-    s1Desc: "Plateformes modernes et évolutives construites avec des technologies de pointe. Architecture sur mesure conçue pour la performance et la croissance.",
+    s1Desc: "Plateformes modernes et \u00e9volutives construites avec des technologies de pointe. Architecture sur mesure con\u00e7ue pour la performance et la croissance.",
     s2Title: "Intelligence Artificielle",
-    s2Desc: "Solutions IA personnalisées qui transforment vos données en décisions éclairées. Modèles d'apprentissage automatique adaptés à vos besoins.",
+    s2Desc: "Solutions IA personnalis\u00e9es qui transforment vos donn\u00e9es en d\u00e9cisions \u00e9clair\u00e9es. Mod\u00e8les d'apprentissage automatique adapt\u00e9s \u00e0 vos besoins.",
     s3Title: "Agents IA et Automatisation",
-    s3Desc: "Agents intelligents et automatisations qui simplifient les opérations, réduisent le travail manuel et accélèrent la prise de décision.",
+    s3Desc: "Agents intelligents et automatisations qui simplifient les op\u00e9rations, r\u00e9duisent le travail manuel et acc\u00e9l\u00e8rent la prise de d\u00e9cision.",
     s4Title: "Maintenance et Support",
-    s4Desc: "Surveillance continue, mises à jour et optimisation. Nous garantissons que vos systèmes fonctionnent au maximum, 24h/24.",
-    processLabel: "Notre méthode",
-    processTitle: "De la vision à la production, à vos côtés à chaque étape.",
-    p1Title: "Stratégie",
-    p1Desc: "Nous analysons vos besoins et définissons la feuille de route technique optimale.",
-    p2Title: "Conception et Développement",
-    p2Desc: "Développement itératif avec retours continus et transparence totale.",
-    p3Title: "Déploiement",
+    s4Desc: "Surveillance continue, mises \u00e0 jour et optimisation. Nous garantissons que vos syst\u00e8mes fonctionnent au maximum, 24h/24.",
+    processLabel: "Notre m\u00e9thode",
+    processTitle: "De la vision \u00e0 la production, \u00e0 vos c\u00f4t\u00e9s \u00e0 chaque \u00e9tape.",
+    p1Title: "Strat\u00e9gie",
+    p1Desc: "Nous analysons vos besoins et d\u00e9finissons la feuille de route technique optimale.",
+    p2Title: "Conception et D\u00e9veloppement",
+    p2Desc: "D\u00e9veloppement it\u00e9ratif avec retours continus et transparence totale.",
+    p3Title: "D\u00e9ploiement",
     p3Desc: "Mise en production avec une infrastructure robuste et fiable.",
-    p4Title: "Évolution",
-    p4Desc: "Maintenance continue, surveillance et amélioration permanente.",
+    p4Title: "\u00c9volution",
+    p4Desc: "Maintenance continue, surveillance et am\u00e9lioration permanente.",
     ctaLabel: "Parlons-en",
-    ctaTitle: "Prêt à construire quelque chose d'exceptionnel ?",
-    ctaSub: "Parlez-nous de votre projet. Nous concevrons ensemble la solution idéale.",
+    ctaTitle: "Pr\u00eat \u00e0 construire quelque chose d'exceptionnel ?",
+    ctaSub: "Parlez-nous de votre projet. Nous concevrons ensemble la solution id\u00e9ale.",
     ctaBtn: "Nous contacter"
   }
 };
 
-let currentLang = 'en';
+var currentLang = 'en';
 
 function setLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
-  });
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) el.innerHTML = translations[lang][key];
-  });
+  var btns = document.querySelectorAll('.lang-btn');
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].textContent.trim().toLowerCase() === lang) {
+      btns[i].classList.add('active');
+    } else {
+      btns[i].classList.remove('active');
+    }
+  }
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var j = 0; j < els.length; j++) {
+    var key = els[j].getAttribute('data-i18n');
+    if (translations[lang][key]) els[j].innerHTML = translations[lang][key];
+  }
   document.documentElement.lang = lang;
 }
 
 setLang('en');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
+var observer = new IntersectionObserver(function(entries) {
+  for (var k = 0; k < entries.length; k++) {
+    if (entries[k].isIntersecting) entries[k].target.classList.add('visible');
+  }
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+var reveals = document.querySelectorAll('.reveal');
+for (var m = 0; m < reveals.length; m++) { observer.observe(reveals[m]); }
 </script>
 </body>
 </html>
