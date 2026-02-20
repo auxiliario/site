@@ -4,13 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>auxiliar.io — AI & Web Solutions</title>
-<link rel="icon" href="favicon.ico" sizes="48x48">
-<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- html, body { overflow-x: clip; }
+  html, body { overflow-x: clip; }
 
   :root {
     --bg: #0a0a0c;
@@ -58,10 +56,6 @@
   .logo-mark {
     display: flex; align-items: center; gap: 12px; text-decoration: none;
     min-width: 0; flex-shrink: 1;
-  }
-
-  .logo-mark img {
-    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
   }
 
   .logo-mark span {
@@ -269,14 +263,15 @@
 
   footer {
     border-top: 1px solid var(--border); padding: 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 16px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 24px;
   }
 
-  footer span { color: var(--muted); font-size: 0.82rem; font-weight: 300; }
+  .footer-info { display: flex; flex-direction: column; gap: 4px; }
+  .footer-legal { color: var(--muted); font-size: 0.82rem; font-weight: 300; }
+  .footer-links { display: flex; gap: 24px; align-items: flex-start; }
   footer a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.3s ease; }
   footer a:hover { color: var(--accent); }
-  .footer-links { display: flex; gap: 24px; }
 
   @media (max-width: 768px) {
     nav { padding: 16px 20px; gap: 8px; }
@@ -302,7 +297,7 @@
 
 <nav>
   <a class="logo-mark" href="#">
-    <img src="logo.png" alt="auxiliar.io">
+    <img src="logo.png" alt="auxiliar.io" style="width:36px;height:36px;border-radius:8px;">
     <span>auxiliar.io</span>
   </a>
   <div class="nav-right">
@@ -387,15 +382,21 @@
   <div class="section-label" data-i18n="ctaLabel"></div>
   <h2 class="section-title" data-i18n="ctaTitle"></h2>
   <p class="hero-sub" data-i18n="ctaSub"></p>
-  <a href="mailto:hello@auxiliar.io" class="btn-primary" data-i18n="ctaBtn"></a>
+  <a href="mailto:contact@auxiliar.io" class="btn-primary" data-i18n="ctaBtn"></a>
 </section>
 
 <footer>
-  <span>&copy; 2026 auxiliar.io</span>
+  <div class="footer-info">
+    <span class="footer-legal">&copy; 2026 auxiliar.io</span>
+    <span class="footer-legal">9292-1022 Qu&eacute;bec inc.</span>
+    <span class="footer-legal">1140 3e Rang, Saint-Luc-de-Vincennes, QC, Canada G0X 3K0</span>
+    <span class="footer-legal">+1 (438) 527-1981</span>
+  </div>
   <div class="footer-links">
-    <a href="mailto:hello@auxiliar.io">hello@auxiliar.io</a>
+    <a href="mailto:contact@auxiliar.io">contact@auxiliar.io</a>
   </div>
 </footer>
+
 <script>
 var translations = {
   en: {
@@ -517,12 +518,16 @@ setLang('en');
 
 var observer = new IntersectionObserver(function(entries) {
   for (var k = 0; k < entries.length; k++) {
-    if (entries[k].isIntersecting) entries[k].target.classList.add('visible');
+    if (entries[k].isIntersecting) {
+      entries[k].target.classList.add('visible');
+    }
   }
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
 var reveals = document.querySelectorAll('.reveal');
-for (var m = 0; m < reveals.length; m++) { observer.observe(reveals[m]); }
+for (var r = 0; r < reveals.length; r++) {
+  observer.observe(reveals[r]);
+}
 </script>
 </body>
 </html>
