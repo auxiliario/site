@@ -148,6 +148,14 @@ FROM fact a
 JOIN fact b
   ON  b.reference_year = a.reference_year
   AND b.measure        = a.measure
+  -- The dimension NAMES must match, not just the values. Without this the
+  -- view pairs any two 'Total' counts from different editions -- it was
+  -- comparing the Atlas's feminicide totals against Cuadro 1.12's birth
+  -- registrations purely because both are measure='count', dim1_value=
+  -- 'Total', geo_id=1 and the same reference year.
+  AND COALESCE(b.dim1_name,'')  = COALESCE(a.dim1_name,'')
+  AND COALESCE(b.dim2_name,'')  = COALESCE(a.dim2_name,'')
+  AND COALESCE(b.vital_event,'') = COALESCE(a.vital_event,'')
   AND COALESCE(b.dim1_value,'') = COALESCE(a.dim1_value,'')
   AND COALESCE(b.dim2_value,'') = COALESCE(a.dim2_value,'')
   AND COALESCE(b.geo_id,-1)     = COALESCE(a.geo_id,-1)
