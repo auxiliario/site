@@ -25,18 +25,21 @@ direct evidence here on how union status varies with age.
 import csv
 
 DIM_FOR_GEO_ROWS = {
+    "4.4": "divorce_cause",
     "3.6": "month", "3.7": "bride_age_band", "4.6": "month",
     "1.1": "mother_nationality", "1.9": "mother_birth_country",
     "1.11": "month", "2.2": "month", "2.5": "deceased_nationality",
 }
-EVENT = {"2.6": "death", "1.10": "birth", "3.6": "marriage", "3.7": "marriage",
+EVENT = {"4.4": "divorce", "2.6": "death", "1.10": "birth", "3.6": "marriage", "3.7": "marriage",
          "4.6": "divorce", "1.1": "birth", "1.9": "birth", "1.11": "birth",
          "1.12": "birth", "2.2": "death", "2.5": "death"}
-BASIS = {"2.6": "registro", "1.10": "ocurrencia", "3.6": "registro", "3.7": "registro",
+BASIS = {"4.4": "registro", "2.6": "registro", "1.10": "ocurrencia", "3.6": "registro", "3.7": "registro",
          "4.6": "registro", "1.1": "registro", "1.9": "registro",
          "1.11": "ocurrencia", "1.12": "registro", "2.2": "ocurrencia",
          "2.5": "registro"}
 TITLES = {
+    "4.4": ("Divorcios registrados por causa, segun region y provincia de "
+            "registro, 2025", 95),
     "2.6": ("Defunciones ocurridas por grupo de edad del fallecido, segun el "
             "sexo, region y provincia de registro, 2025", 72),
     "1.1": ("Nacimientos registrados por pais de nacionalidad de la madre, "

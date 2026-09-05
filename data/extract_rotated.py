@@ -84,6 +84,14 @@ SPEC = {
                        "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
                        "Noviembre", "Diciembre"]),
 
+    # Not rotated -- included here to reuse the row parser, geography
+    # handling and total check. Fills the 2025 provincial divorce gap:
+    # Dominicana en Cifras covers 2016-2020 only.
+    "4.4":  dict(pages=[95, 96], event="divorce", row_dim=None,
+                 col_dim="divorce_cause", rows_are_geo=True, rotated=False,
+                 cols=["TOTAL", "Incompatibilidad de caracteres",
+                       "Mutuo consentimiento"]),
+
     "2.5":  dict(pages=[70, 71], event="death", row_dim=None,
                  col_dim="deceased_nationality", rows_are_geo=True,
                  cols=["TOTAL", "Republica Dominicana", "Haiti", "Italia",
@@ -255,7 +263,9 @@ def extract(pdf_path, only=None):
                 continue
             seen = set()
             for p in spec["pages"]:
-                lines = derotate(pdf.pages[p - 1])
+                lines = (derotate(pdf.pages[p - 1])
+                         if spec.get("rotated", True)
+                         else (pdf.pages[p - 1].extract_text() or "").split("\n"))
                 for label, vals in parse_rows(lines, len(spec["cols"]),
                                              spec.get("numeric_labels", False)):
                     if label in seen:
