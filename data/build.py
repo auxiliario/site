@@ -26,6 +26,7 @@ import reference as R                      # noqa: E402
 import acquisition as ACQ                  # noqa: E402
 import anuario_2025 as A25                 # noqa: E402
 import anuario_2025_births as BIRTHS       # noqa: E402
+import anuario_2025_rotated as ROT         # noqa: E402
 import one_proyecciones as PROJ            # noqa: E402
 import one_subnacional as SUBNAC           # noqa: E402
 import one_cifras as CIFRAS                # noqa: E402
@@ -560,6 +561,49 @@ def ingest_births_2025(b):
     print(f"  Anuario 2025 births: {n} facts across {len(tids)} cuadros")
 
 
+def ingest_rotated_2025(b):
+    """Cuadros on rotated pages -- see anuario_2025_rotated for why they
+    were invisible until now."""
+    path = os.path.join(HERE, "raw", "anuario-2025-rotated.csv")
+    if not os.path.exists(path):
+        print(f"  note: {path} absent; rotated cuadros skipped")
+        return
+    b.edition = 2025
+    tids, n, unmapped = {}, 0, set()
+    for cuadro, d1n, d1v, d2n, d2v, value in ROT.read(path):
+        if cuadro not in tids:
+            title, page = ROT.TITLES[cuadro]
+            tids[cuadro] = b.table(
+                1, f"Cuadro {cuadro}", title, page, ROT.EVENT[cuadro],
+                "rotated-page de-rotation via extract_rotated.py",
+                notes="Printed on a rotated page with character-reversed "
+                      "word storage; invisible to plain text extraction. "
+                      "Every row total verified against its cells.")
+        t = tids[cuadro]
+        if d1n == "geography":
+            g = b.geo_id(d1v)
+            if g is None:
+                unmapped.add(d1v)
+                continue
+            lvl = b.c.execute("SELECT level FROM geography WHERE geo_id=?",
+                              (g,)).fetchone()[0]
+            dim = ROT.DIM_FOR_GEO_ROWS[cuadro]
+            b.fact(t, "count", value, ROT.EVENT[cuadro], year=2025,
+                   basis=ROT.BASIS[cuadro], geo=g, dims=(dim, d2v),
+                   marginal=1 if (lvl != "province" or d2v == "TOTAL") else 0)
+        else:
+            b.fact(t, "count", value, ROT.EVENT[cuadro], year=2025,
+                   basis=ROT.BASIS[cuadro], geo=1,
+                   dims=(d1n, "TOTAL" if d1v.lower().startswith("total")
+                         else d1v, d2n, d2v),
+                   marginal=1 if (d1v.lower().startswith("total")
+                                  or d2v == "TOTAL") else 0)
+        n += 1
+    if unmapped:
+        raise SystemExit(f"rotated: unmapped geographies {sorted(unmapped)}")
+    print(f"  Anuario 2025 rotated: {n} facts across {len(tids)} cuadros")
+
+
 def ingest_atlas(b):
     """Atlas de Genero violence cuadros -- couple CONTEXT, not couplings."""
     d = ATLAS.DOCUMENT
@@ -1018,6 +1062,7 @@ def main():
     b.load_reference()
     ingest_anuario_2025(b)
     ingest_births_2025(b)
+    ingest_rotated_2025(b)
     ingest_proyecciones(b)
     ingest_subnacional(b)
     ingest_cifras(b)

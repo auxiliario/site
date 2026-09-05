@@ -1,0 +1,1636 @@
+cuadro,vital_event,dim1_name,dim1_value,dim2_name,dim2_value,value
+1.10,birth,mother_age_band,No declarada,marital_status,TOTAL,736
+1.10,birth,mother_age_band,No declarada,marital_status,Soltera,685
+1.10,birth,mother_age_band,No declarada,marital_status,Casada,4
+1.10,birth,mother_age_band,No declarada,marital_status,No declarado,47
+1.10,birth,mother_age_band,50 años y más,marital_status,TOTAL,7
+1.10,birth,mother_age_band,50 años y más,marital_status,Soltera,5
+1.10,birth,mother_age_band,50 años y más,marital_status,Casada,2
+1.10,birth,mother_age_band,50 años y más,marital_status,No declarado,0
+1.10,birth,mother_age_band,45-49,marital_status,TOTAL,158
+1.10,birth,mother_age_band,45-49,marital_status,Soltera,107
+1.10,birth,mother_age_band,45-49,marital_status,Casada,51
+1.10,birth,mother_age_band,45-49,marital_status,No declarado,0
+1.10,birth,mother_age_band,40-44,marital_status,TOTAL,2920
+1.10,birth,mother_age_band,40-44,marital_status,Soltera,2149
+1.10,birth,mother_age_band,40-44,marital_status,Casada,747
+1.10,birth,mother_age_band,40-44,marital_status,No declarado,24
+1.10,birth,mother_age_band,35-39,marital_status,TOTAL,12829
+1.10,birth,mother_age_band,35-39,marital_status,Soltera,9405
+1.10,birth,mother_age_band,35-39,marital_status,Casada,3342
+1.10,birth,mother_age_band,35-39,marital_status,No declarado,82
+1.10,birth,mother_age_band,30-34,marital_status,TOTAL,27276
+1.10,birth,mother_age_band,30-34,marital_status,Soltera,20880
+1.10,birth,mother_age_band,30-34,marital_status,Casada,6249
+1.10,birth,mother_age_band,30-34,marital_status,No declarado,147
+1.10,birth,mother_age_band,25-29,marital_status,TOTAL,34041
+1.10,birth,mother_age_band,25-29,marital_status,Soltera,28896
+1.10,birth,mother_age_band,25-29,marital_status,Casada,4944
+1.10,birth,mother_age_band,25-29,marital_status,No declarado,201
+1.10,birth,mother_age_band,20-24,marital_status,TOTAL,31594
+1.10,birth,mother_age_band,20-24,marital_status,Soltera,29757
+1.10,birth,mother_age_band,20-24,marital_status,Casada,1725
+1.10,birth,mother_age_band,20-24,marital_status,No declarado,112
+1.10,birth,mother_age_band,15-19,marital_status,TOTAL,13661
+1.10,birth,mother_age_band,15-19,marital_status,Soltera,13526
+1.10,birth,mother_age_band,15-19,marital_status,Casada,74
+1.10,birth,mother_age_band,15-19,marital_status,No declarado,61
+1.10,birth,mother_age_band,Menos de 15 años,marital_status,TOTAL,537
+1.10,birth,mother_age_band,Menos de 15 años,marital_status,Soltera,533
+1.10,birth,mother_age_band,Menos de 15 años,marital_status,Casada,0
+1.10,birth,mother_age_band,Menos de 15 años,marital_status,No declarado,4
+1.10,birth,mother_age_band,Total en el país,marital_status,TOTAL,123759
+1.10,birth,mother_age_band,Total en el país,marital_status,Soltera,105943
+1.10,birth,mother_age_band,Total en el país,marital_status,Casada,17138
+1.10,birth,mother_age_band,Total en el país,marital_status,No declarado,678
+3.6,marriage,geography,San José de Ocoa,month,TOTAL,208
+3.6,marriage,geography,San José de Ocoa,month,Enero,24
+3.6,marriage,geography,San José de Ocoa,month,Febrero,20
+3.6,marriage,geography,San José de Ocoa,month,Marzo,20
+3.6,marriage,geography,San José de Ocoa,month,Abril,24
+3.6,marriage,geography,San José de Ocoa,month,Mayo,21
+3.6,marriage,geography,San José de Ocoa,month,Junio,18
+3.6,marriage,geography,San José de Ocoa,month,Julio,18
+3.6,marriage,geography,San José de Ocoa,month,Agosto,17
+3.6,marriage,geography,San José de Ocoa,month,Septiembre,10
+3.6,marriage,geography,San José de Ocoa,month,Octubre,9
+3.6,marriage,geography,San José de Ocoa,month,Noviembre,11
+3.6,marriage,geography,San José de Ocoa,month,Diciembre,16
+3.6,marriage,geography,San Cristóbal,month,TOTAL,2270
+3.6,marriage,geography,San Cristóbal,month,Enero,283
+3.6,marriage,geography,San Cristóbal,month,Febrero,189
+3.6,marriage,geography,San Cristóbal,month,Marzo,181
+3.6,marriage,geography,San Cristóbal,month,Abril,192
+3.6,marriage,geography,San Cristóbal,month,Mayo,188
+3.6,marriage,geography,San Cristóbal,month,Junio,184
+3.6,marriage,geography,San Cristóbal,month,Julio,158
+3.6,marriage,geography,San Cristóbal,month,Agosto,166
+3.6,marriage,geography,San Cristóbal,month,Septiembre,149
+3.6,marriage,geography,San Cristóbal,month,Octubre,157
+3.6,marriage,geography,San Cristóbal,month,Noviembre,143
+3.6,marriage,geography,San Cristóbal,month,Diciembre,280
+3.6,marriage,geography,Peravia,month,TOTAL,673
+3.6,marriage,geography,Peravia,month,Enero,87
+3.6,marriage,geography,Peravia,month,Febrero,50
+3.6,marriage,geography,Peravia,month,Marzo,65
+3.6,marriage,geography,Peravia,month,Abril,60
+3.6,marriage,geography,Peravia,month,Mayo,61
+3.6,marriage,geography,Peravia,month,Junio,57
+3.6,marriage,geography,Peravia,month,Julio,63
+3.6,marriage,geography,Peravia,month,Agosto,51
+3.6,marriage,geography,Peravia,month,Septiembre,29
+3.6,marriage,geography,Peravia,month,Octubre,38
+3.6,marriage,geography,Peravia,month,Noviembre,42
+3.6,marriage,geography,Peravia,month,Diciembre,70
+3.6,marriage,geography,Región Valdesia,month,TOTAL,3151
+3.6,marriage,geography,Región Valdesia,month,Enero,394
+3.6,marriage,geography,Región Valdesia,month,Febrero,259
+3.6,marriage,geography,Región Valdesia,month,Marzo,266
+3.6,marriage,geography,Región Valdesia,month,Abril,276
+3.6,marriage,geography,Región Valdesia,month,Mayo,270
+3.6,marriage,geography,Región Valdesia,month,Junio,259
+3.6,marriage,geography,Región Valdesia,month,Julio,239
+3.6,marriage,geography,Región Valdesia,month,Agosto,234
+3.6,marriage,geography,Región Valdesia,month,Septiembre,188
+3.6,marriage,geography,Región Valdesia,month,Octubre,204
+3.6,marriage,geography,Región Valdesia,month,Noviembre,196
+3.6,marriage,geography,Región Valdesia,month,Diciembre,366
+3.6,marriage,geography,Valverde,month,TOTAL,675
+3.6,marriage,geography,Valverde,month,Enero,95
+3.6,marriage,geography,Valverde,month,Febrero,52
+3.6,marriage,geography,Valverde,month,Marzo,72
+3.6,marriage,geography,Valverde,month,Abril,37
+3.6,marriage,geography,Valverde,month,Mayo,51
+3.6,marriage,geography,Valverde,month,Junio,37
+3.6,marriage,geography,Valverde,month,Julio,55
+3.6,marriage,geography,Valverde,month,Agosto,62
+3.6,marriage,geography,Valverde,month,Septiembre,52
+3.6,marriage,geography,Valverde,month,Octubre,35
+3.6,marriage,geography,Valverde,month,Noviembre,40
+3.6,marriage,geography,Valverde,month,Diciembre,87
+3.6,marriage,geography,Santiago Rodríguez,month,TOTAL,236
+3.6,marriage,geography,Santiago Rodríguez,month,Enero,42
+3.6,marriage,geography,Santiago Rodríguez,month,Febrero,15
+3.6,marriage,geography,Santiago Rodríguez,month,Marzo,17
+3.6,marriage,geography,Santiago Rodríguez,month,Abril,11
+3.6,marriage,geography,Santiago Rodríguez,month,Mayo,16
+3.6,marriage,geography,Santiago Rodríguez,month,Junio,31
+3.6,marriage,geography,Santiago Rodríguez,month,Julio,19
+3.6,marriage,geography,Santiago Rodríguez,month,Agosto,22
+3.6,marriage,geography,Santiago Rodríguez,month,Septiembre,15
+3.6,marriage,geography,Santiago Rodríguez,month,Octubre,11
+3.6,marriage,geography,Santiago Rodríguez,month,Noviembre,16
+3.6,marriage,geography,Santiago Rodríguez,month,Diciembre,21
+3.6,marriage,geography,Monte Cristi,month,TOTAL,432
+3.6,marriage,geography,Monte Cristi,month,Enero,74
+3.6,marriage,geography,Monte Cristi,month,Febrero,33
+3.6,marriage,geography,Monte Cristi,month,Marzo,40
+3.6,marriage,geography,Monte Cristi,month,Abril,47
+3.6,marriage,geography,Monte Cristi,month,Mayo,38
+3.6,marriage,geography,Monte Cristi,month,Junio,32
+3.6,marriage,geography,Monte Cristi,month,Julio,32
+3.6,marriage,geography,Monte Cristi,month,Agosto,43
+3.6,marriage,geography,Monte Cristi,month,Septiembre,17
+3.6,marriage,geography,Monte Cristi,month,Octubre,17
+3.6,marriage,geography,Monte Cristi,month,Noviembre,19
+3.6,marriage,geography,Monte Cristi,month,Diciembre,40
+3.6,marriage,geography,Dajabón,month,TOTAL,159
+3.6,marriage,geography,Dajabón,month,Enero,23
+3.6,marriage,geography,Dajabón,month,Febrero,14
+3.6,marriage,geography,Dajabón,month,Marzo,9
+3.6,marriage,geography,Dajabón,month,Abril,15
+3.6,marriage,geography,Dajabón,month,Mayo,13
+3.6,marriage,geography,Dajabón,month,Junio,14
+3.6,marriage,geography,Dajabón,month,Julio,13
+3.6,marriage,geography,Dajabón,month,Agosto,12
+3.6,marriage,geography,Dajabón,month,Septiembre,5
+3.6,marriage,geography,Dajabón,month,Octubre,11
+3.6,marriage,geography,Dajabón,month,Noviembre,14
+3.6,marriage,geography,Dajabón,month,Diciembre,16
+3.6,marriage,geography,Región Cibao Noroeste,month,TOTAL,1502
+3.6,marriage,geography,Región Cibao Noroeste,month,Enero,234
+3.6,marriage,geography,Región Cibao Noroeste,month,Febrero,114
+3.6,marriage,geography,Región Cibao Noroeste,month,Marzo,138
+3.6,marriage,geography,Región Cibao Noroeste,month,Abril,110
+3.6,marriage,geography,Región Cibao Noroeste,month,Mayo,118
+3.6,marriage,geography,Región Cibao Noroeste,month,Junio,114
+3.6,marriage,geography,Región Cibao Noroeste,month,Julio,119
+3.6,marriage,geography,Región Cibao Noroeste,month,Agosto,139
+3.6,marriage,geography,Región Cibao Noroeste,month,Septiembre,89
+3.6,marriage,geography,Región Cibao Noroeste,month,Octubre,74
+3.6,marriage,geography,Región Cibao Noroeste,month,Noviembre,89
+3.6,marriage,geography,Región Cibao Noroeste,month,Diciembre,164
+3.6,marriage,geography,Samaná,month,TOTAL,470
+3.6,marriage,geography,Samaná,month,Enero,42
+3.6,marriage,geography,Samaná,month,Febrero,55
+3.6,marriage,geography,Samaná,month,Marzo,33
+3.6,marriage,geography,Samaná,month,Abril,38
+3.6,marriage,geography,Samaná,month,Mayo,32
+3.6,marriage,geography,Samaná,month,Junio,44
+3.6,marriage,geography,Samaná,month,Julio,33
+3.6,marriage,geography,Samaná,month,Agosto,36
+3.6,marriage,geography,Samaná,month,Septiembre,26
+3.6,marriage,geography,Samaná,month,Octubre,55
+3.6,marriage,geography,Samaná,month,Noviembre,24
+3.6,marriage,geography,Samaná,month,Diciembre,52
+3.6,marriage,geography,Hermanas Mirabal,month,TOTAL,473
+3.6,marriage,geography,Hermanas Mirabal,month,Enero,64
+3.6,marriage,geography,Hermanas Mirabal,month,Febrero,47
+3.6,marriage,geography,Hermanas Mirabal,month,Marzo,34
+3.6,marriage,geography,Hermanas Mirabal,month,Abril,42
+3.6,marriage,geography,Hermanas Mirabal,month,Mayo,38
+3.6,marriage,geography,Hermanas Mirabal,month,Junio,46
+3.6,marriage,geography,Hermanas Mirabal,month,Julio,45
+3.6,marriage,geography,Hermanas Mirabal,month,Agosto,38
+3.6,marriage,geography,Hermanas Mirabal,month,Septiembre,31
+3.6,marriage,geography,Hermanas Mirabal,month,Octubre,28
+3.6,marriage,geography,Hermanas Mirabal,month,Noviembre,18
+3.6,marriage,geography,Hermanas Mirabal,month,Diciembre,42
+3.6,marriage,geography,María Trinidad Sánchez,month,TOTAL,588
+3.6,marriage,geography,María Trinidad Sánchez,month,Enero,78
+3.6,marriage,geography,María Trinidad Sánchez,month,Febrero,50
+3.6,marriage,geography,María Trinidad Sánchez,month,Marzo,54
+3.6,marriage,geography,María Trinidad Sánchez,month,Abril,39
+3.6,marriage,geography,María Trinidad Sánchez,month,Mayo,47
+3.6,marriage,geography,María Trinidad Sánchez,month,Junio,47
+3.6,marriage,geography,María Trinidad Sánchez,month,Julio,56
+3.6,marriage,geography,María Trinidad Sánchez,month,Agosto,37
+3.6,marriage,geography,María Trinidad Sánchez,month,Septiembre,31
+3.6,marriage,geography,María Trinidad Sánchez,month,Octubre,38
+3.6,marriage,geography,María Trinidad Sánchez,month,Noviembre,33
+3.6,marriage,geography,María Trinidad Sánchez,month,Diciembre,78
+3.6,marriage,geography,Duarte,month,TOTAL,1121
+3.6,marriage,geography,Duarte,month,Enero,161
+3.6,marriage,geography,Duarte,month,Febrero,80
+3.6,marriage,geography,Duarte,month,Marzo,95
+3.6,marriage,geography,Duarte,month,Abril,83
+3.6,marriage,geography,Duarte,month,Mayo,65
+3.6,marriage,geography,Duarte,month,Junio,103
+3.6,marriage,geography,Duarte,month,Julio,95
+3.6,marriage,geography,Duarte,month,Agosto,73
+3.6,marriage,geography,Duarte,month,Septiembre,66
+3.6,marriage,geography,Duarte,month,Octubre,66
+3.6,marriage,geography,Duarte,month,Noviembre,79
+3.6,marriage,geography,Duarte,month,Diciembre,155
+3.6,marriage,geography,Región Cibao Nordeste,month,TOTAL,2652
+3.6,marriage,geography,Región Cibao Nordeste,month,Enero,345
+3.6,marriage,geography,Región Cibao Nordeste,month,Febrero,232
+3.6,marriage,geography,Región Cibao Nordeste,month,Marzo,216
+3.6,marriage,geography,Región Cibao Nordeste,month,Abril,202
+3.6,marriage,geography,Región Cibao Nordeste,month,Mayo,182
+3.6,marriage,geography,Región Cibao Nordeste,month,Junio,240
+3.6,marriage,geography,Región Cibao Nordeste,month,Julio,229
+3.6,marriage,geography,Región Cibao Nordeste,month,Agosto,184
+3.6,marriage,geography,Región Cibao Nordeste,month,Septiembre,154
+3.6,marriage,geography,Región Cibao Nordeste,month,Octubre,187
+3.6,marriage,geography,Región Cibao Nordeste,month,Noviembre,154
+3.6,marriage,geography,Región Cibao Nordeste,month,Diciembre,327
+3.6,marriage,geography,Monseñor Nouel,month,TOTAL,992
+3.6,marriage,geography,Monseñor Nouel,month,Enero,117
+3.6,marriage,geography,Monseñor Nouel,month,Febrero,84
+3.6,marriage,geography,Monseñor Nouel,month,Marzo,71
+3.6,marriage,geography,Monseñor Nouel,month,Abril,85
+3.6,marriage,geography,Monseñor Nouel,month,Mayo,80
+3.6,marriage,geography,Monseñor Nouel,month,Junio,96
+3.6,marriage,geography,Monseñor Nouel,month,Julio,94
+3.6,marriage,geography,Monseñor Nouel,month,Agosto,81
+3.6,marriage,geography,Monseñor Nouel,month,Septiembre,49
+3.6,marriage,geography,Monseñor Nouel,month,Octubre,44
+3.6,marriage,geography,Monseñor Nouel,month,Noviembre,68
+3.6,marriage,geography,Monseñor Nouel,month,Diciembre,123
+3.6,marriage,geography,Sánchez Ramírez,month,TOTAL,558
+3.6,marriage,geography,Sánchez Ramírez,month,Enero,66
+3.6,marriage,geography,Sánchez Ramírez,month,Febrero,46
+3.6,marriage,geography,Sánchez Ramírez,month,Marzo,49
+3.6,marriage,geography,Sánchez Ramírez,month,Abril,40
+3.6,marriage,geography,Sánchez Ramírez,month,Mayo,51
+3.6,marriage,geography,Sánchez Ramírez,month,Junio,37
+3.6,marriage,geography,Sánchez Ramírez,month,Julio,47
+3.6,marriage,geography,Sánchez Ramírez,month,Agosto,38
+3.6,marriage,geography,Sánchez Ramírez,month,Septiembre,34
+3.6,marriage,geography,Sánchez Ramírez,month,Octubre,42
+3.6,marriage,geography,Sánchez Ramírez,month,Noviembre,34
+3.6,marriage,geography,Sánchez Ramírez,month,Diciembre,74
+3.6,marriage,geography,La Vega,month,TOTAL,1753
+3.6,marriage,geography,La Vega,month,Enero,186
+3.6,marriage,geography,La Vega,month,Febrero,176
+3.6,marriage,geography,La Vega,month,Marzo,152
+3.6,marriage,geography,La Vega,month,Abril,125
+3.6,marriage,geography,La Vega,month,Mayo,112
+3.6,marriage,geography,La Vega,month,Junio,135
+3.6,marriage,geography,La Vega,month,Julio,162
+3.6,marriage,geography,La Vega,month,Agosto,144
+3.6,marriage,geography,La Vega,month,Septiembre,121
+3.6,marriage,geography,La Vega,month,Octubre,108
+3.6,marriage,geography,La Vega,month,Noviembre,112
+3.6,marriage,geography,La Vega,month,Diciembre,220
+3.6,marriage,geography,Región Cibao Sur,month,TOTAL,3303
+3.6,marriage,geography,Región Cibao Sur,month,Enero,369
+3.6,marriage,geography,Región Cibao Sur,month,Febrero,306
+3.6,marriage,geography,Región Cibao Sur,month,Marzo,272
+3.6,marriage,geography,Región Cibao Sur,month,Abril,250
+3.6,marriage,geography,Región Cibao Sur,month,Mayo,243
+3.6,marriage,geography,Región Cibao Sur,month,Junio,268
+3.6,marriage,geography,Región Cibao Sur,month,Julio,303
+3.6,marriage,geography,Región Cibao Sur,month,Agosto,263
+3.6,marriage,geography,Región Cibao Sur,month,Septiembre,204
+3.6,marriage,geography,Región Cibao Sur,month,Octubre,194
+3.6,marriage,geography,Región Cibao Sur,month,Noviembre,214
+3.6,marriage,geography,Región Cibao Sur,month,Diciembre,417
+3.6,marriage,geography,Santiago,month,TOTAL,4186
+3.6,marriage,geography,Santiago,month,Enero,524
+3.6,marriage,geography,Santiago,month,Febrero,361
+3.6,marriage,geography,Santiago,month,Marzo,322
+3.6,marriage,geography,Santiago,month,Abril,302
+3.6,marriage,geography,Santiago,month,Mayo,335
+3.6,marriage,geography,Santiago,month,Junio,304
+3.6,marriage,geography,Santiago,month,Julio,387
+3.6,marriage,geography,Santiago,month,Agosto,373
+3.6,marriage,geography,Santiago,month,Septiembre,272
+3.6,marriage,geography,Santiago,month,Octubre,271
+3.6,marriage,geography,Santiago,month,Noviembre,271
+3.6,marriage,geography,Santiago,month,Diciembre,464
+3.6,marriage,geography,Puerto Plata,month,TOTAL,1507
+3.6,marriage,geography,Puerto Plata,month,Enero,155
+3.6,marriage,geography,Puerto Plata,month,Febrero,139
+3.6,marriage,geography,Puerto Plata,month,Marzo,122
+3.6,marriage,geography,Puerto Plata,month,Abril,142
+3.6,marriage,geography,Puerto Plata,month,Mayo,122
+3.6,marriage,geography,Puerto Plata,month,Junio,110
+3.6,marriage,geography,Puerto Plata,month,Julio,126
+3.6,marriage,geography,Puerto Plata,month,Agosto,124
+3.6,marriage,geography,Puerto Plata,month,Septiembre,95
+3.6,marriage,geography,Puerto Plata,month,Octubre,88
+3.6,marriage,geography,Puerto Plata,month,Noviembre,95
+3.6,marriage,geography,Puerto Plata,month,Diciembre,189
+3.6,marriage,geography,Espaillat,month,TOTAL,1142
+3.6,marriage,geography,Espaillat,month,Enero,153
+3.6,marriage,geography,Espaillat,month,Febrero,101
+3.6,marriage,geography,Espaillat,month,Marzo,85
+3.6,marriage,geography,Espaillat,month,Abril,78
+3.6,marriage,geography,Espaillat,month,Mayo,76
+3.6,marriage,geography,Espaillat,month,Junio,96
+3.6,marriage,geography,Espaillat,month,Julio,109
+3.6,marriage,geography,Espaillat,month,Agosto,105
+3.6,marriage,geography,Espaillat,month,Septiembre,60
+3.6,marriage,geography,Espaillat,month,Octubre,69
+3.6,marriage,geography,Espaillat,month,Noviembre,77
+3.6,marriage,geography,Espaillat,month,Diciembre,133
+3.6,marriage,geography,Región Cibao Norte,month,TOTAL,6835
+3.6,marriage,geography,Región Cibao Norte,month,Enero,832
+3.6,marriage,geography,Región Cibao Norte,month,Febrero,601
+3.6,marriage,geography,Región Cibao Norte,month,Marzo,529
+3.6,marriage,geography,Región Cibao Norte,month,Abril,522
+3.6,marriage,geography,Región Cibao Norte,month,Mayo,533
+3.6,marriage,geography,Región Cibao Norte,month,Junio,510
+3.6,marriage,geography,Región Cibao Norte,month,Julio,622
+3.6,marriage,geography,Región Cibao Norte,month,Agosto,602
+3.6,marriage,geography,Región Cibao Norte,month,Septiembre,427
+3.6,marriage,geography,Región Cibao Norte,month,Octubre,428
+3.6,marriage,geography,Región Cibao Norte,month,Noviembre,443
+3.6,marriage,geography,Región Cibao Norte,month,Diciembre,786
+3.6,marriage,geography,Santo Domingo,month,TOTAL,9860
+3.6,marriage,geography,Santo Domingo,month,Enero,1109
+3.6,marriage,geography,Santo Domingo,month,Febrero,834
+3.6,marriage,geography,Santo Domingo,month,Marzo,859
+3.6,marriage,geography,Santo Domingo,month,Abril,791
+3.6,marriage,geography,Santo Domingo,month,Mayo,831
+3.6,marriage,geography,Santo Domingo,month,Junio,791
+3.6,marriage,geography,Santo Domingo,month,Julio,828
+3.6,marriage,geography,Santo Domingo,month,Agosto,729
+3.6,marriage,geography,Santo Domingo,month,Septiembre,633
+3.6,marriage,geography,Santo Domingo,month,Octubre,624
+3.6,marriage,geography,Santo Domingo,month,Noviembre,720
+3.6,marriage,geography,Santo Domingo,month,Diciembre,1111
+3.6,marriage,geography,Distrito Nacional,month,TOTAL,5574
+3.6,marriage,geography,Distrito Nacional,month,Enero,615
+3.6,marriage,geography,Distrito Nacional,month,Febrero,436
+3.6,marriage,geography,Distrito Nacional,month,Marzo,464
+3.6,marriage,geography,Distrito Nacional,month,Abril,433
+3.6,marriage,geography,Distrito Nacional,month,Mayo,465
+3.6,marriage,geography,Distrito Nacional,month,Junio,445
+3.6,marriage,geography,Distrito Nacional,month,Julio,452
+3.6,marriage,geography,Distrito Nacional,month,Agosto,459
+3.6,marriage,geography,Distrito Nacional,month,Septiembre,376
+3.6,marriage,geography,Distrito Nacional,month,Octubre,381
+3.6,marriage,geography,Distrito Nacional,month,Noviembre,418
+3.6,marriage,geography,Distrito Nacional,month,Diciembre,630
+3.6,marriage,geography,Región Ozama,month,TOTAL,15434
+3.6,marriage,geography,Región Ozama,month,Enero,1724
+3.6,marriage,geography,Región Ozama,month,Febrero,1270
+3.6,marriage,geography,Región Ozama,month,Marzo,1323
+3.6,marriage,geography,Región Ozama,month,Abril,1224
+3.6,marriage,geography,Región Ozama,month,Mayo,1296
+3.6,marriage,geography,Región Ozama,month,Junio,1236
+3.6,marriage,geography,Región Ozama,month,Julio,1280
+3.6,marriage,geography,Región Ozama,month,Agosto,1188
+3.6,marriage,geography,Región Ozama,month,Septiembre,1009
+3.6,marriage,geography,Región Ozama,month,Octubre,1005
+3.6,marriage,geography,Región Ozama,month,Noviembre,1138
+3.6,marriage,geography,Región Ozama,month,Diciembre,1741
+3.6,marriage,geography,Total en el país,month,TOTAL,40750
+3.6,marriage,geography,Total en el país,month,Enero,4777
+3.6,marriage,geography,Total en el país,month,Febrero,3433
+3.6,marriage,geography,Total en el país,month,Marzo,3411
+3.6,marriage,geography,Total en el país,month,Abril,3229
+3.6,marriage,geography,Total en el país,month,Mayo,3312
+3.6,marriage,geography,Total en el país,month,Junio,3297
+3.6,marriage,geography,Total en el país,month,Julio,3432
+3.6,marriage,geography,Total en el país,month,Agosto,3229
+3.6,marriage,geography,Total en el país,month,Septiembre,2589
+3.6,marriage,geography,Total en el país,month,Octubre,2578
+3.6,marriage,geography,Total en el país,month,Noviembre,2739
+3.6,marriage,geography,Total en el país,month,Diciembre,4724
+3.6,marriage,geography,Hato Mayor,month,TOTAL,309
+3.6,marriage,geography,Hato Mayor,month,Enero,26
+3.6,marriage,geography,Hato Mayor,month,Febrero,34
+3.6,marriage,geography,Hato Mayor,month,Marzo,20
+3.6,marriage,geography,Hato Mayor,month,Abril,19
+3.6,marriage,geography,Hato Mayor,month,Mayo,27
+3.6,marriage,geography,Hato Mayor,month,Junio,26
+3.6,marriage,geography,Hato Mayor,month,Julio,25
+3.6,marriage,geography,Hato Mayor,month,Agosto,28
+3.6,marriage,geography,Hato Mayor,month,Septiembre,17
+3.6,marriage,geography,Hato Mayor,month,Octubre,21
+3.6,marriage,geography,Hato Mayor,month,Noviembre,17
+3.6,marriage,geography,Hato Mayor,month,Diciembre,49
+3.6,marriage,geography,Monte Plata,month,TOTAL,545
+3.6,marriage,geography,Monte Plata,month,Enero,66
+3.6,marriage,geography,Monte Plata,month,Febrero,47
+3.6,marriage,geography,Monte Plata,month,Marzo,57
+3.6,marriage,geography,Monte Plata,month,Abril,56
+3.6,marriage,geography,Monte Plata,month,Mayo,41
+3.6,marriage,geography,Monte Plata,month,Junio,39
+3.6,marriage,geography,Monte Plata,month,Julio,50
+3.6,marriage,geography,Monte Plata,month,Agosto,34
+3.6,marriage,geography,Monte Plata,month,Septiembre,27
+3.6,marriage,geography,Monte Plata,month,Octubre,30
+3.6,marriage,geography,Monte Plata,month,Noviembre,41
+3.6,marriage,geography,Monte Plata,month,Diciembre,57
+3.6,marriage,geography,San Pedro de Macorís,month,TOTAL,1396
+3.6,marriage,geography,San Pedro de Macorís,month,Enero,143
+3.6,marriage,geography,San Pedro de Macorís,month,Febrero,100
+3.6,marriage,geography,San Pedro de Macorís,month,Marzo,106
+3.6,marriage,geography,San Pedro de Macorís,month,Abril,104
+3.6,marriage,geography,San Pedro de Macorís,month,Mayo,116
+3.6,marriage,geography,San Pedro de Macorís,month,Junio,130
+3.6,marriage,geography,San Pedro de Macorís,month,Julio,113
+3.6,marriage,geography,San Pedro de Macorís,month,Agosto,113
+3.6,marriage,geography,San Pedro de Macorís,month,Septiembre,113
+3.6,marriage,geography,San Pedro de Macorís,month,Octubre,84
+3.6,marriage,geography,San Pedro de Macorís,month,Noviembre,70
+3.6,marriage,geography,San Pedro de Macorís,month,Diciembre,204
+3.6,marriage,geography,Región Higuamo,month,TOTAL,2250
+3.6,marriage,geography,Región Higuamo,month,Enero,235
+3.6,marriage,geography,Región Higuamo,month,Febrero,181
+3.6,marriage,geography,Región Higuamo,month,Marzo,183
+3.6,marriage,geography,Región Higuamo,month,Abril,179
+3.6,marriage,geography,Región Higuamo,month,Mayo,184
+3.6,marriage,geography,Región Higuamo,month,Junio,195
+3.6,marriage,geography,Región Higuamo,month,Julio,188
+3.6,marriage,geography,Región Higuamo,month,Agosto,175
+3.6,marriage,geography,Región Higuamo,month,Septiembre,157
+3.6,marriage,geography,Región Higuamo,month,Octubre,135
+3.6,marriage,geography,Región Higuamo,month,Noviembre,128
+3.6,marriage,geography,Región Higuamo,month,Diciembre,310
+3.6,marriage,geography,La Romana,month,TOTAL,1132
+3.6,marriage,geography,La Romana,month,Enero,136
+3.6,marriage,geography,La Romana,month,Febrero,90
+3.6,marriage,geography,La Romana,month,Marzo,80
+3.6,marriage,geography,La Romana,month,Abril,79
+3.6,marriage,geography,La Romana,month,Mayo,98
+3.6,marriage,geography,La Romana,month,Junio,116
+3.6,marriage,geography,La Romana,month,Julio,85
+3.6,marriage,geography,La Romana,month,Agosto,89
+3.6,marriage,geography,La Romana,month,Septiembre,66
+3.6,marriage,geography,La Romana,month,Octubre,78
+3.6,marriage,geography,La Romana,month,Noviembre,82
+3.6,marriage,geography,La Romana,month,Diciembre,133
+3.6,marriage,geography,La Altagracia,month,TOTAL,1958
+3.6,marriage,geography,La Altagracia,month,Enero,172
+3.6,marriage,geography,La Altagracia,month,Febrero,163
+3.6,marriage,geography,La Altagracia,month,Marzo,172
+3.6,marriage,geography,La Altagracia,month,Abril,154
+3.6,marriage,geography,La Altagracia,month,Mayo,191
+3.6,marriage,geography,La Altagracia,month,Junio,158
+3.6,marriage,geography,La Altagracia,month,Julio,169
+3.6,marriage,geography,La Altagracia,month,Agosto,150
+3.6,marriage,geography,La Altagracia,month,Septiembre,128
+3.6,marriage,geography,La Altagracia,month,Octubre,139
+3.6,marriage,geography,La Altagracia,month,Noviembre,151
+3.6,marriage,geography,La Altagracia,month,Diciembre,211
+3.6,marriage,geography,El Seibo,month,TOTAL,206
+3.6,marriage,geography,El Seibo,month,Enero,21
+3.6,marriage,geography,El Seibo,month,Febrero,15
+3.6,marriage,geography,El Seibo,month,Marzo,19
+3.6,marriage,geography,El Seibo,month,Abril,14
+3.6,marriage,geography,El Seibo,month,Mayo,14
+3.6,marriage,geography,El Seibo,month,Junio,23
+3.6,marriage,geography,El Seibo,month,Julio,18
+3.6,marriage,geography,El Seibo,month,Agosto,16
+3.6,marriage,geography,El Seibo,month,Septiembre,13
+3.6,marriage,geography,El Seibo,month,Octubre,10
+3.6,marriage,geography,El Seibo,month,Noviembre,16
+3.6,marriage,geography,El Seibo,month,Diciembre,27
+3.6,marriage,geography,Región Yuma,month,TOTAL,3296
+3.6,marriage,geography,Región Yuma,month,Enero,329
+3.6,marriage,geography,Región Yuma,month,Febrero,268
+3.6,marriage,geography,Región Yuma,month,Marzo,271
+3.6,marriage,geography,Región Yuma,month,Abril,247
+3.6,marriage,geography,Región Yuma,month,Mayo,303
+3.6,marriage,geography,Región Yuma,month,Junio,297
+3.6,marriage,geography,Región Yuma,month,Julio,272
+3.6,marriage,geography,Región Yuma,month,Agosto,255
+3.6,marriage,geography,Región Yuma,month,Septiembre,207
+3.6,marriage,geography,Región Yuma,month,Octubre,227
+3.6,marriage,geography,Región Yuma,month,Noviembre,249
+3.6,marriage,geography,Región Yuma,month,Diciembre,371
+3.6,marriage,geography,San Juan,month,TOTAL,430
+3.6,marriage,geography,San Juan,month,Enero,56
+3.6,marriage,geography,San Juan,month,Febrero,35
+3.6,marriage,geography,San Juan,month,Marzo,36
+3.6,marriage,geography,San Juan,month,Abril,43
+3.6,marriage,geography,San Juan,month,Mayo,30
+3.6,marriage,geography,San Juan,month,Junio,23
+3.6,marriage,geography,San Juan,month,Julio,35
+3.6,marriage,geography,San Juan,month,Agosto,36
+3.6,marriage,geography,San Juan,month,Septiembre,25
+3.6,marriage,geography,San Juan,month,Octubre,32
+3.6,marriage,geography,San Juan,month,Noviembre,25
+3.6,marriage,geography,San Juan,month,Diciembre,54
+3.6,marriage,geography,Elías Piña,month,TOTAL,58
+3.6,marriage,geography,Elías Piña,month,Enero,5
+3.6,marriage,geography,Elías Piña,month,Febrero,4
+3.6,marriage,geography,Elías Piña,month,Marzo,7
+3.6,marriage,geography,Elías Piña,month,Abril,5
+3.6,marriage,geography,Elías Piña,month,Mayo,2
+3.6,marriage,geography,Elías Piña,month,Junio,5
+3.6,marriage,geography,Elías Piña,month,Julio,2
+3.6,marriage,geography,Elías Piña,month,Agosto,1
+3.6,marriage,geography,Elías Piña,month,Septiembre,4
+3.6,marriage,geography,Elías Piña,month,Octubre,6
+3.6,marriage,geography,Elías Piña,month,Noviembre,8
+3.6,marriage,geography,Elías Piña,month,Diciembre,9
+3.6,marriage,geography,Azua,month,TOTAL,749
+3.6,marriage,geography,Azua,month,Enero,110
+3.6,marriage,geography,Azua,month,Febrero,72
+3.6,marriage,geography,Azua,month,Marzo,83
+3.6,marriage,geography,Azua,month,Abril,69
+3.6,marriage,geography,Azua,month,Mayo,51
+3.6,marriage,geography,Azua,month,Junio,50
+3.6,marriage,geography,Azua,month,Julio,47
+3.6,marriage,geography,Azua,month,Agosto,59
+3.6,marriage,geography,Azua,month,Septiembre,58
+3.6,marriage,geography,Azua,month,Octubre,36
+3.6,marriage,geography,Azua,month,Noviembre,41
+3.6,marriage,geography,Azua,month,Diciembre,73
+3.6,marriage,geography,Región El Valle,month,TOTAL,1237
+3.6,marriage,geography,Región El Valle,month,Enero,171
+3.6,marriage,geography,Región El Valle,month,Febrero,111
+3.6,marriage,geography,Región El Valle,month,Marzo,126
+3.6,marriage,geography,Región El Valle,month,Abril,117
+3.6,marriage,geography,Región El Valle,month,Mayo,83
+3.6,marriage,geography,Región El Valle,month,Junio,78
+3.6,marriage,geography,Región El Valle,month,Julio,84
+3.6,marriage,geography,Región El Valle,month,Agosto,96
+3.6,marriage,geography,Región El Valle,month,Septiembre,87
+3.6,marriage,geography,Región El Valle,month,Octubre,74
+3.6,marriage,geography,Región El Valle,month,Noviembre,74
+3.6,marriage,geography,Región El Valle,month,Diciembre,136
+3.6,marriage,geography,Pedernales,month,TOTAL,38
+3.6,marriage,geography,Pedernales,month,Enero,4
+3.6,marriage,geography,Pedernales,month,Febrero,3
+3.6,marriage,geography,Pedernales,month,Marzo,2
+3.6,marriage,geography,Pedernales,month,Abril,3
+3.6,marriage,geography,Pedernales,month,Mayo,5
+3.6,marriage,geography,Pedernales,month,Junio,8
+3.6,marriage,geography,Pedernales,month,Julio,3
+3.6,marriage,geography,Pedernales,month,Agosto,3
+3.6,marriage,geography,Pedernales,month,Septiembre,1
+3.6,marriage,geography,Pedernales,month,Octubre,1
+3.6,marriage,geography,Pedernales,month,Noviembre,2
+3.6,marriage,geography,Pedernales,month,Diciembre,3
+3.6,marriage,geography,Independencia,month,TOTAL,137
+3.6,marriage,geography,Independencia,month,Enero,27
+3.6,marriage,geography,Independencia,month,Febrero,17
+3.6,marriage,geography,Independencia,month,Marzo,12
+3.6,marriage,geography,Independencia,month,Abril,12
+3.6,marriage,geography,Independencia,month,Mayo,8
+3.6,marriage,geography,Independencia,month,Junio,15
+3.6,marriage,geography,Independencia,month,Julio,10
+3.6,marriage,geography,Independencia,month,Agosto,8
+3.6,marriage,geography,Independencia,month,Septiembre,4
+3.6,marriage,geography,Independencia,month,Octubre,5
+3.6,marriage,geography,Independencia,month,Noviembre,9
+3.6,marriage,geography,Independencia,month,Diciembre,10
+3.6,marriage,geography,Barahona,month,TOTAL,604
+3.6,marriage,geography,Barahona,month,Enero,73
+3.6,marriage,geography,Barahona,month,Febrero,48
+3.6,marriage,geography,Barahona,month,Marzo,59
+3.6,marriage,geography,Barahona,month,Abril,61
+3.6,marriage,geography,Barahona,month,Mayo,58
+3.6,marriage,geography,Barahona,month,Junio,45
+3.6,marriage,geography,Barahona,month,Julio,58
+3.6,marriage,geography,Barahona,month,Agosto,55
+3.6,marriage,geography,Barahona,month,Septiembre,37
+3.6,marriage,geography,Barahona,month,Octubre,25
+3.6,marriage,geography,Barahona,month,Noviembre,30
+3.6,marriage,geography,Barahona,month,Diciembre,55
+3.6,marriage,geography,Baoruco,month,TOTAL,311
+3.6,marriage,geography,Baoruco,month,Enero,40
+3.6,marriage,geography,Baoruco,month,Febrero,23
+3.6,marriage,geography,Baoruco,month,Marzo,14
+3.6,marriage,geography,Baoruco,month,Abril,26
+3.6,marriage,geography,Baoruco,month,Mayo,29
+3.6,marriage,geography,Baoruco,month,Junio,32
+3.6,marriage,geography,Baoruco,month,Julio,25
+3.6,marriage,geography,Baoruco,month,Agosto,27
+3.6,marriage,geography,Baoruco,month,Septiembre,25
+3.6,marriage,geography,Baoruco,month,Octubre,19
+3.6,marriage,geography,Baoruco,month,Noviembre,13
+3.6,marriage,geography,Baoruco,month,Diciembre,38
+3.6,marriage,geography,Región Enriquillo,month,TOTAL,1090
+3.6,marriage,geography,Región Enriquillo,month,Enero,144
+3.6,marriage,geography,Región Enriquillo,month,Febrero,91
+3.6,marriage,geography,Región Enriquillo,month,Marzo,87
+3.6,marriage,geography,Región Enriquillo,month,Abril,102
+3.6,marriage,geography,Región Enriquillo,month,Mayo,100
+3.6,marriage,geography,Región Enriquillo,month,Junio,100
+3.6,marriage,geography,Región Enriquillo,month,Julio,96
+3.6,marriage,geography,Región Enriquillo,month,Agosto,93
+3.6,marriage,geography,Región Enriquillo,month,Septiembre,67
+3.6,marriage,geography,Región Enriquillo,month,Octubre,50
+3.6,marriage,geography,Región Enriquillo,month,Noviembre,54
+3.6,marriage,geography,Región Enriquillo,month,Diciembre,106
+3.7,marriage,geography,San José de Ocoa,bride_age_band,TOTAL,208
+3.7,marriage,geography,San José de Ocoa,bride_age_band,0-14,0
+3.7,marriage,geography,San José de Ocoa,bride_age_band,15-19,12
+3.7,marriage,geography,San José de Ocoa,bride_age_band,20-24,39
+3.7,marriage,geography,San José de Ocoa,bride_age_band,25-29,37
+3.7,marriage,geography,San José de Ocoa,bride_age_band,30-34,18
+3.7,marriage,geography,San José de Ocoa,bride_age_band,35-39,23
+3.7,marriage,geography,San José de Ocoa,bride_age_band,40-44,22
+3.7,marriage,geography,San José de Ocoa,bride_age_band,45-49,24
+3.7,marriage,geography,San José de Ocoa,bride_age_band,50+,32
+3.7,marriage,geography,San José de Ocoa,bride_age_band,No declarada,1
+3.7,marriage,geography,San Cristóbal,bride_age_band,TOTAL,2270
+3.7,marriage,geography,San Cristóbal,bride_age_band,0-14,0
+3.7,marriage,geography,San Cristóbal,bride_age_band,15-19,45
+3.7,marriage,geography,San Cristóbal,bride_age_band,20-24,434
+3.7,marriage,geography,San Cristóbal,bride_age_band,25-29,420
+3.7,marriage,geography,San Cristóbal,bride_age_band,30-34,290
+3.7,marriage,geography,San Cristóbal,bride_age_band,35-39,274
+3.7,marriage,geography,San Cristóbal,bride_age_band,40-44,228
+3.7,marriage,geography,San Cristóbal,bride_age_band,45-49,193
+3.7,marriage,geography,San Cristóbal,bride_age_band,50+,365
+3.7,marriage,geography,San Cristóbal,bride_age_band,No declarada,21
+3.7,marriage,geography,Peravia,bride_age_band,TOTAL,673
+3.7,marriage,geography,Peravia,bride_age_band,0-14,0
+3.7,marriage,geography,Peravia,bride_age_band,15-19,27
+3.7,marriage,geography,Peravia,bride_age_band,20-24,129
+3.7,marriage,geography,Peravia,bride_age_band,25-29,114
+3.7,marriage,geography,Peravia,bride_age_band,30-34,83
+3.7,marriage,geography,Peravia,bride_age_band,35-39,72
+3.7,marriage,geography,Peravia,bride_age_band,40-44,60
+3.7,marriage,geography,Peravia,bride_age_band,45-49,59
+3.7,marriage,geography,Peravia,bride_age_band,50+,122
+3.7,marriage,geography,Peravia,bride_age_band,No declarada,7
+3.7,marriage,geography,Región Valdesia,bride_age_band,TOTAL,3151
+3.7,marriage,geography,Región Valdesia,bride_age_band,0-14,0
+3.7,marriage,geography,Región Valdesia,bride_age_band,15-19,84
+3.7,marriage,geography,Región Valdesia,bride_age_band,20-24,602
+3.7,marriage,geography,Región Valdesia,bride_age_band,25-29,571
+3.7,marriage,geography,Región Valdesia,bride_age_band,30-34,391
+3.7,marriage,geography,Región Valdesia,bride_age_band,35-39,369
+3.7,marriage,geography,Región Valdesia,bride_age_band,40-44,310
+3.7,marriage,geography,Región Valdesia,bride_age_band,45-49,276
+3.7,marriage,geography,Región Valdesia,bride_age_band,50+,519
+3.7,marriage,geography,Región Valdesia,bride_age_band,No declarada,29
+3.7,marriage,geography,Valverde,bride_age_band,TOTAL,675
+3.7,marriage,geography,Valverde,bride_age_band,0-14,0
+3.7,marriage,geography,Valverde,bride_age_band,15-19,25
+3.7,marriage,geography,Valverde,bride_age_band,20-24,109
+3.7,marriage,geography,Valverde,bride_age_band,25-29,125
+3.7,marriage,geography,Valverde,bride_age_band,30-34,113
+3.7,marriage,geography,Valverde,bride_age_band,35-39,59
+3.7,marriage,geography,Valverde,bride_age_band,40-44,71
+3.7,marriage,geography,Valverde,bride_age_band,45-49,55
+3.7,marriage,geography,Valverde,bride_age_band,50+,114
+3.7,marriage,geography,Valverde,bride_age_band,No declarada,4
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,TOTAL,236
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,0-14,0
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,15-19,8
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,20-24,42
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,25-29,34
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,30-34,28
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,35-39,25
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,40-44,29
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,45-49,26
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,50+,40
+3.7,marriage,geography,Santiago Rodríguez,bride_age_band,No declarada,4
+3.7,marriage,geography,Monte Cristi,bride_age_band,TOTAL,432
+3.7,marriage,geography,Monte Cristi,bride_age_band,0-14,0
+3.7,marriage,geography,Monte Cristi,bride_age_band,15-19,19
+3.7,marriage,geography,Monte Cristi,bride_age_band,20-24,80
+3.7,marriage,geography,Monte Cristi,bride_age_band,25-29,74
+3.7,marriage,geography,Monte Cristi,bride_age_band,30-34,59
+3.7,marriage,geography,Monte Cristi,bride_age_band,35-39,50
+3.7,marriage,geography,Monte Cristi,bride_age_band,40-44,42
+3.7,marriage,geography,Monte Cristi,bride_age_band,45-49,42
+3.7,marriage,geography,Monte Cristi,bride_age_band,50+,62
+3.7,marriage,geography,Monte Cristi,bride_age_band,No declarada,4
+3.7,marriage,geography,Dajabón,bride_age_band,TOTAL,159
+3.7,marriage,geography,Dajabón,bride_age_band,0-14,0
+3.7,marriage,geography,Dajabón,bride_age_band,15-19,4
+3.7,marriage,geography,Dajabón,bride_age_band,20-24,27
+3.7,marriage,geography,Dajabón,bride_age_band,25-29,22
+3.7,marriage,geography,Dajabón,bride_age_band,30-34,26
+3.7,marriage,geography,Dajabón,bride_age_band,35-39,13
+3.7,marriage,geography,Dajabón,bride_age_band,40-44,26
+3.7,marriage,geography,Dajabón,bride_age_band,45-49,10
+3.7,marriage,geography,Dajabón,bride_age_band,50+,30
+3.7,marriage,geography,Dajabón,bride_age_band,No declarada,1
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,TOTAL,1502
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,0-14,0
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,15-19,56
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,20-24,258
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,25-29,255
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,30-34,226
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,35-39,147
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,40-44,168
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,45-49,133
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,50+,246
+3.7,marriage,geography,Región Cibao Noroeste,bride_age_band,No declarada,13
+3.7,marriage,geography,Samaná,bride_age_band,TOTAL,470
+3.7,marriage,geography,Samaná,bride_age_band,0-14,0
+3.7,marriage,geography,Samaná,bride_age_band,15-19,12
+3.7,marriage,geography,Samaná,bride_age_band,20-24,49
+3.7,marriage,geography,Samaná,bride_age_band,25-29,78
+3.7,marriage,geography,Samaná,bride_age_band,30-34,68
+3.7,marriage,geography,Samaná,bride_age_band,35-39,58
+3.7,marriage,geography,Samaná,bride_age_band,40-44,55
+3.7,marriage,geography,Samaná,bride_age_band,45-49,30
+3.7,marriage,geography,Samaná,bride_age_band,50+,84
+3.7,marriage,geography,Samaná,bride_age_band,No declarada,36
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,TOTAL,473
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,0-14,0
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,15-19,15
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,20-24,86
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,25-29,63
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,30-34,66
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,35-39,53
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,40-44,44
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,45-49,46
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,50+,84
+3.7,marriage,geography,Hermanas Mirabal,bride_age_band,No declarada,16
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,TOTAL,588
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,0-14,0
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,15-19,13
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,20-24,101
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,25-29,75
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,30-34,96
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,35-39,66
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,40-44,61
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,45-49,64
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,50+,108
+3.7,marriage,geography,María Trinidad Sánchez,bride_age_band,No declarada,4
+3.7,marriage,geography,Duarte,bride_age_band,TOTAL,1121
+3.7,marriage,geography,Duarte,bride_age_band,0-14,0
+3.7,marriage,geography,Duarte,bride_age_band,15-19,30
+3.7,marriage,geography,Duarte,bride_age_band,20-24,209
+3.7,marriage,geography,Duarte,bride_age_band,25-29,177
+3.7,marriage,geography,Duarte,bride_age_band,30-34,158
+3.7,marriage,geography,Duarte,bride_age_band,35-39,126
+3.7,marriage,geography,Duarte,bride_age_band,40-44,106
+3.7,marriage,geography,Duarte,bride_age_band,45-49,97
+3.7,marriage,geography,Duarte,bride_age_band,50+,185
+3.7,marriage,geography,Duarte,bride_age_band,No declarada,33
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,TOTAL,2652
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,0-14,0
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,15-19,70
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,20-24,445
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,25-29,393
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,30-34,388
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,35-39,303
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,40-44,266
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,45-49,237
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,50+,461
+3.7,marriage,geography,Región Cibao Nordeste,bride_age_band,No declarada,89
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,TOTAL,992
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,0-14,0
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,15-19,35
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,20-24,155
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,25-29,161
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,30-34,126
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,35-39,125
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,40-44,103
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,45-49,112
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,50+,171
+3.7,marriage,geography,Monseñor Nouel,bride_age_band,No declarada,4
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,TOTAL,558
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,0-14,0
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,15-19,13
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,20-24,103
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,25-29,101
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,30-34,77
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,35-39,77
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,40-44,59
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,45-49,48
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,50+,74
+3.7,marriage,geography,Sánchez Ramírez,bride_age_band,No declarada,6
+3.7,marriage,geography,La Vega,bride_age_band,TOTAL,1753
+3.7,marriage,geography,La Vega,bride_age_band,0-14,0
+3.7,marriage,geography,La Vega,bride_age_band,15-19,46
+3.7,marriage,geography,La Vega,bride_age_band,20-24,283
+3.7,marriage,geography,La Vega,bride_age_band,25-29,303
+3.7,marriage,geography,La Vega,bride_age_band,30-34,263
+3.7,marriage,geography,La Vega,bride_age_band,35-39,216
+3.7,marriage,geography,La Vega,bride_age_band,40-44,144
+3.7,marriage,geography,La Vega,bride_age_band,45-49,144
+3.7,marriage,geography,La Vega,bride_age_band,50+,254
+3.7,marriage,geography,La Vega,bride_age_band,No declarada,100
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,TOTAL,3303
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,0-14,0
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,15-19,94
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,20-24,541
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,25-29,565
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,30-34,466
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,35-39,418
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,40-44,306
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,45-49,304
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,50+,499
+3.7,marriage,geography,Región Cibao Sur,bride_age_band,No declarada,110
+3.7,marriage,geography,Santiago,bride_age_band,TOTAL,4186
+3.7,marriage,geography,Santiago,bride_age_band,0-14,0
+3.7,marriage,geography,Santiago,bride_age_band,15-19,120
+3.7,marriage,geography,Santiago,bride_age_band,20-24,740
+3.7,marriage,geography,Santiago,bride_age_band,25-29,769
+3.7,marriage,geography,Santiago,bride_age_band,30-34,641
+3.7,marriage,geography,Santiago,bride_age_band,35-39,460
+3.7,marriage,geography,Santiago,bride_age_band,40-44,389
+3.7,marriage,geography,Santiago,bride_age_band,45-49,360
+3.7,marriage,geography,Santiago,bride_age_band,50+,688
+3.7,marriage,geography,Santiago,bride_age_band,No declarada,19
+3.7,marriage,geography,Puerto Plata,bride_age_band,TOTAL,1507
+3.7,marriage,geography,Puerto Plata,bride_age_band,0-14,0
+3.7,marriage,geography,Puerto Plata,bride_age_band,15-19,36
+3.7,marriage,geography,Puerto Plata,bride_age_band,20-24,209
+3.7,marriage,geography,Puerto Plata,bride_age_band,25-29,259
+3.7,marriage,geography,Puerto Plata,bride_age_band,30-34,237
+3.7,marriage,geography,Puerto Plata,bride_age_band,35-39,204
+3.7,marriage,geography,Puerto Plata,bride_age_band,40-44,139
+3.7,marriage,geography,Puerto Plata,bride_age_band,45-49,143
+3.7,marriage,geography,Puerto Plata,bride_age_band,50+,257
+3.7,marriage,geography,Puerto Plata,bride_age_band,No declarada,23
+3.7,marriage,geography,Espaillat,bride_age_band,TOTAL,1142
+3.7,marriage,geography,Espaillat,bride_age_band,0-14,0
+3.7,marriage,geography,Espaillat,bride_age_band,15-19,37
+3.7,marriage,geography,Espaillat,bride_age_band,20-24,194
+3.7,marriage,geography,Espaillat,bride_age_band,25-29,207
+3.7,marriage,geography,Espaillat,bride_age_band,30-34,173
+3.7,marriage,geography,Espaillat,bride_age_band,35-39,144
+3.7,marriage,geography,Espaillat,bride_age_band,40-44,114
+3.7,marriage,geography,Espaillat,bride_age_band,45-49,87
+3.7,marriage,geography,Espaillat,bride_age_band,50+,146
+3.7,marriage,geography,Espaillat,bride_age_band,No declarada,40
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,TOTAL,6835
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,0-14,0
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,15-19,193
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,20-24,1143
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,25-29,1235
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,30-34,1051
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,35-39,808
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,40-44,642
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,45-49,590
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,50+,1091
+3.7,marriage,geography,Región Cibao Norte,bride_age_band,No declarada,82
+3.7,marriage,geography,Santo Domingo,bride_age_band,TOTAL,9860
+3.7,marriage,geography,Santo Domingo,bride_age_band,0-14,0
+3.7,marriage,geography,Santo Domingo,bride_age_band,15-19,163
+3.7,marriage,geography,Santo Domingo,bride_age_band,20-24,1508
+3.7,marriage,geography,Santo Domingo,bride_age_band,25-29,1763
+3.7,marriage,geography,Santo Domingo,bride_age_band,30-34,1541
+3.7,marriage,geography,Santo Domingo,bride_age_band,35-39,1265
+3.7,marriage,geography,Santo Domingo,bride_age_band,40-44,1037
+3.7,marriage,geography,Santo Domingo,bride_age_band,45-49,875
+3.7,marriage,geography,Santo Domingo,bride_age_band,50+,1639
+3.7,marriage,geography,Santo Domingo,bride_age_band,No declarada,69
+3.7,marriage,geography,Distrito Nacional,bride_age_band,TOTAL,5574
+3.7,marriage,geography,Distrito Nacional,bride_age_band,0-14,0
+3.7,marriage,geography,Distrito Nacional,bride_age_band,15-19,50
+3.7,marriage,geography,Distrito Nacional,bride_age_band,20-24,727
+3.7,marriage,geography,Distrito Nacional,bride_age_band,25-29,1384
+3.7,marriage,geography,Distrito Nacional,bride_age_band,30-34,1078
+3.7,marriage,geography,Distrito Nacional,bride_age_band,35-39,753
+3.7,marriage,geography,Distrito Nacional,bride_age_band,40-44,521
+3.7,marriage,geography,Distrito Nacional,bride_age_band,45-49,387
+3.7,marriage,geography,Distrito Nacional,bride_age_band,50+,653
+3.7,marriage,geography,Distrito Nacional,bride_age_band,No declarada,21
+3.7,marriage,geography,Región Ozama,bride_age_band,TOTAL,15434
+3.7,marriage,geography,Región Ozama,bride_age_band,0-14,0
+3.7,marriage,geography,Región Ozama,bride_age_band,15-19,213
+3.7,marriage,geography,Región Ozama,bride_age_band,20-24,2235
+3.7,marriage,geography,Región Ozama,bride_age_band,25-29,3147
+3.7,marriage,geography,Región Ozama,bride_age_band,30-34,2619
+3.7,marriage,geography,Región Ozama,bride_age_band,35-39,2018
+3.7,marriage,geography,Región Ozama,bride_age_band,40-44,1558
+3.7,marriage,geography,Región Ozama,bride_age_band,45-49,1262
+3.7,marriage,geography,Región Ozama,bride_age_band,50+,2292
+3.7,marriage,geography,Región Ozama,bride_age_band,No declarada,90
+3.7,marriage,geography,Total en el país,bride_age_band,TOTAL,40750
+3.7,marriage,geography,Total en el país,bride_age_band,0-14,0
+3.7,marriage,geography,Total en el país,bride_age_band,15-19,889
+3.7,marriage,geography,Total en el país,bride_age_band,20-24,6447
+3.7,marriage,geography,Total en el país,bride_age_band,25-29,7678
+3.7,marriage,geography,Total en el país,bride_age_band,30-34,6438
+3.7,marriage,geography,Total en el país,bride_age_band,35-39,5050
+3.7,marriage,geography,Total en el país,bride_age_band,40-44,4043
+3.7,marriage,geography,Total en el país,bride_age_band,45-49,3435
+3.7,marriage,geography,Total en el país,bride_age_band,50+,6280
+3.7,marriage,geography,Total en el país,bride_age_band,No declarada,490
+3.7,marriage,geography,Hato Mayor,bride_age_band,TOTAL,309
+3.7,marriage,geography,Hato Mayor,bride_age_band,0-14,0
+3.7,marriage,geography,Hato Mayor,bride_age_band,15-19,5
+3.7,marriage,geography,Hato Mayor,bride_age_band,20-24,53
+3.7,marriage,geography,Hato Mayor,bride_age_band,25-29,46
+3.7,marriage,geography,Hato Mayor,bride_age_band,30-34,44
+3.7,marriage,geography,Hato Mayor,bride_age_band,35-39,41
+3.7,marriage,geography,Hato Mayor,bride_age_band,40-44,26
+3.7,marriage,geography,Hato Mayor,bride_age_band,45-49,25
+3.7,marriage,geography,Hato Mayor,bride_age_band,50+,69
+3.7,marriage,geography,Hato Mayor,bride_age_band,No declarada,0
+3.7,marriage,geography,Monte Plata,bride_age_band,TOTAL,545
+3.7,marriage,geography,Monte Plata,bride_age_band,0-14,0
+3.7,marriage,geography,Monte Plata,bride_age_band,15-19,16
+3.7,marriage,geography,Monte Plata,bride_age_band,20-24,100
+3.7,marriage,geography,Monte Plata,bride_age_band,25-29,80
+3.7,marriage,geography,Monte Plata,bride_age_band,30-34,82
+3.7,marriage,geography,Monte Plata,bride_age_band,35-39,66
+3.7,marriage,geography,Monte Plata,bride_age_band,40-44,66
+3.7,marriage,geography,Monte Plata,bride_age_band,45-49,43
+3.7,marriage,geography,Monte Plata,bride_age_band,50+,85
+3.7,marriage,geography,Monte Plata,bride_age_band,No declarada,7
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,TOTAL,1396
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,0-14,0
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,15-19,34
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,20-24,208
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,25-29,289
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,30-34,235
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,35-39,171
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,40-44,120
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,45-49,114
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,50+,211
+3.7,marriage,geography,San Pedro de Macorís,bride_age_band,No declarada,14
+3.7,marriage,geography,Región Higuamo,bride_age_band,TOTAL,2250
+3.7,marriage,geography,Región Higuamo,bride_age_band,0-14,0
+3.7,marriage,geography,Región Higuamo,bride_age_band,15-19,55
+3.7,marriage,geography,Región Higuamo,bride_age_band,20-24,361
+3.7,marriage,geography,Región Higuamo,bride_age_band,25-29,415
+3.7,marriage,geography,Región Higuamo,bride_age_band,30-34,361
+3.7,marriage,geography,Región Higuamo,bride_age_band,35-39,278
+3.7,marriage,geography,Región Higuamo,bride_age_band,40-44,212
+3.7,marriage,geography,Región Higuamo,bride_age_band,45-49,182
+3.7,marriage,geography,Región Higuamo,bride_age_band,50+,365
+3.7,marriage,geography,Región Higuamo,bride_age_band,No declarada,21
+3.7,marriage,geography,La Romana,bride_age_band,TOTAL,1132
+3.7,marriage,geography,La Romana,bride_age_band,0-14,0
+3.7,marriage,geography,La Romana,bride_age_band,15-19,17
+3.7,marriage,geography,La Romana,bride_age_band,20-24,178
+3.7,marriage,geography,La Romana,bride_age_band,25-29,243
+3.7,marriage,geography,La Romana,bride_age_band,30-34,179
+3.7,marriage,geography,La Romana,bride_age_band,35-39,118
+3.7,marriage,geography,La Romana,bride_age_band,40-44,102
+3.7,marriage,geography,La Romana,bride_age_band,45-49,104
+3.7,marriage,geography,La Romana,bride_age_band,50+,175
+3.7,marriage,geography,La Romana,bride_age_band,No declarada,16
+3.7,marriage,geography,La Altagracia,bride_age_band,TOTAL,1958
+3.7,marriage,geography,La Altagracia,bride_age_band,0-14,0
+3.7,marriage,geography,La Altagracia,bride_age_band,15-19,25
+3.7,marriage,geography,La Altagracia,bride_age_band,20-24,260
+3.7,marriage,geography,La Altagracia,bride_age_band,25-29,409
+3.7,marriage,geography,La Altagracia,bride_age_band,30-34,354
+3.7,marriage,geography,La Altagracia,bride_age_band,35-39,288
+3.7,marriage,geography,La Altagracia,bride_age_band,40-44,182
+3.7,marriage,geography,La Altagracia,bride_age_band,45-49,151
+3.7,marriage,geography,La Altagracia,bride_age_band,50+,260
+3.7,marriage,geography,La Altagracia,bride_age_band,No declarada,29
+3.7,marriage,geography,El Seibo,bride_age_band,TOTAL,206
+3.7,marriage,geography,El Seibo,bride_age_band,0-14,0
+3.7,marriage,geography,El Seibo,bride_age_band,15-19,6
+3.7,marriage,geography,El Seibo,bride_age_band,20-24,30
+3.7,marriage,geography,El Seibo,bride_age_band,25-29,42
+3.7,marriage,geography,El Seibo,bride_age_band,30-34,29
+3.7,marriage,geography,El Seibo,bride_age_band,35-39,22
+3.7,marriage,geography,El Seibo,bride_age_band,40-44,28
+3.7,marriage,geography,El Seibo,bride_age_band,45-49,12
+3.7,marriage,geography,El Seibo,bride_age_band,50+,37
+3.7,marriage,geography,El Seibo,bride_age_band,No declarada,0
+3.7,marriage,geography,Región Yuma,bride_age_band,TOTAL,3296
+3.7,marriage,geography,Región Yuma,bride_age_band,0-14,0
+3.7,marriage,geography,Región Yuma,bride_age_band,15-19,48
+3.7,marriage,geography,Región Yuma,bride_age_band,20-24,468
+3.7,marriage,geography,Región Yuma,bride_age_band,25-29,694
+3.7,marriage,geography,Región Yuma,bride_age_band,30-34,562
+3.7,marriage,geography,Región Yuma,bride_age_band,35-39,428
+3.7,marriage,geography,Región Yuma,bride_age_band,40-44,312
+3.7,marriage,geography,Región Yuma,bride_age_band,45-49,267
+3.7,marriage,geography,Región Yuma,bride_age_band,50+,472
+3.7,marriage,geography,Región Yuma,bride_age_band,No declarada,45
+3.7,marriage,geography,San Juan,bride_age_band,TOTAL,430
+3.7,marriage,geography,San Juan,bride_age_band,0-14,0
+3.7,marriage,geography,San Juan,bride_age_band,15-19,7
+3.7,marriage,geography,San Juan,bride_age_band,20-24,60
+3.7,marriage,geography,San Juan,bride_age_band,25-29,87
+3.7,marriage,geography,San Juan,bride_age_band,30-34,66
+3.7,marriage,geography,San Juan,bride_age_band,35-39,52
+3.7,marriage,geography,San Juan,bride_age_band,40-44,50
+3.7,marriage,geography,San Juan,bride_age_band,45-49,31
+3.7,marriage,geography,San Juan,bride_age_band,50+,77
+3.7,marriage,geography,San Juan,bride_age_band,No declarada,0
+3.7,marriage,geography,Elías Piña,bride_age_band,TOTAL,58
+3.7,marriage,geography,Elías Piña,bride_age_band,0-14,0
+3.7,marriage,geography,Elías Piña,bride_age_band,15-19,2
+3.7,marriage,geography,Elías Piña,bride_age_band,20-24,4
+3.7,marriage,geography,Elías Piña,bride_age_band,25-29,12
+3.7,marriage,geography,Elías Piña,bride_age_band,30-34,7
+3.7,marriage,geography,Elías Piña,bride_age_band,35-39,10
+3.7,marriage,geography,Elías Piña,bride_age_band,40-44,8
+3.7,marriage,geography,Elías Piña,bride_age_band,45-49,3
+3.7,marriage,geography,Elías Piña,bride_age_band,50+,8
+3.7,marriage,geography,Elías Piña,bride_age_band,No declarada,4
+3.7,marriage,geography,Azua,bride_age_band,TOTAL,749
+3.7,marriage,geography,Azua,bride_age_band,0-14,0
+3.7,marriage,geography,Azua,bride_age_band,15-19,26
+3.7,marriage,geography,Azua,bride_age_band,20-24,159
+3.7,marriage,geography,Azua,bride_age_band,25-29,126
+3.7,marriage,geography,Azua,bride_age_band,30-34,124
+3.7,marriage,geography,Azua,bride_age_band,35-39,96
+3.7,marriage,geography,Azua,bride_age_band,40-44,81
+3.7,marriage,geography,Azua,bride_age_band,45-49,47
+3.7,marriage,geography,Azua,bride_age_band,50+,87
+3.7,marriage,geography,Azua,bride_age_band,No declarada,3
+3.7,marriage,geography,Región El Valle,bride_age_band,TOTAL,1237
+3.7,marriage,geography,Región El Valle,bride_age_band,0-14,0
+3.7,marriage,geography,Región El Valle,bride_age_band,15-19,35
+3.7,marriage,geography,Región El Valle,bride_age_band,20-24,223
+3.7,marriage,geography,Región El Valle,bride_age_band,25-29,225
+3.7,marriage,geography,Región El Valle,bride_age_band,30-34,197
+3.7,marriage,geography,Región El Valle,bride_age_band,35-39,158
+3.7,marriage,geography,Región El Valle,bride_age_band,40-44,139
+3.7,marriage,geography,Región El Valle,bride_age_band,45-49,81
+3.7,marriage,geography,Región El Valle,bride_age_band,50+,172
+3.7,marriage,geography,Región El Valle,bride_age_band,No declarada,7
+3.7,marriage,geography,Pedernales,bride_age_band,TOTAL,38
+3.7,marriage,geography,Pedernales,bride_age_band,0-14,0
+3.7,marriage,geography,Pedernales,bride_age_band,15-19,1
+3.7,marriage,geography,Pedernales,bride_age_band,20-24,5
+3.7,marriage,geography,Pedernales,bride_age_band,25-29,6
+3.7,marriage,geography,Pedernales,bride_age_band,30-34,8
+3.7,marriage,geography,Pedernales,bride_age_band,35-39,7
+3.7,marriage,geography,Pedernales,bride_age_band,40-44,4
+3.7,marriage,geography,Pedernales,bride_age_band,45-49,3
+3.7,marriage,geography,Pedernales,bride_age_band,50+,4
+3.7,marriage,geography,Pedernales,bride_age_band,No declarada,0
+3.7,marriage,geography,Independencia,bride_age_band,TOTAL,137
+3.7,marriage,geography,Independencia,bride_age_band,0-14,0
+3.7,marriage,geography,Independencia,bride_age_band,15-19,4
+3.7,marriage,geography,Independencia,bride_age_band,20-24,17
+3.7,marriage,geography,Independencia,bride_age_band,25-29,18
+3.7,marriage,geography,Independencia,bride_age_band,30-34,21
+3.7,marriage,geography,Independencia,bride_age_band,35-39,15
+3.7,marriage,geography,Independencia,bride_age_band,40-44,23
+3.7,marriage,geography,Independencia,bride_age_band,45-49,12
+3.7,marriage,geography,Independencia,bride_age_band,50+,27
+3.7,marriage,geography,Independencia,bride_age_band,No declarada,0
+3.7,marriage,geography,Barahona,bride_age_band,TOTAL,604
+3.7,marriage,geography,Barahona,bride_age_band,0-14,0
+3.7,marriage,geography,Barahona,bride_age_band,15-19,22
+3.7,marriage,geography,Barahona,bride_age_band,20-24,98
+3.7,marriage,geography,Barahona,bride_age_band,25-29,100
+3.7,marriage,geography,Barahona,bride_age_band,30-34,100
+3.7,marriage,geography,Barahona,bride_age_band,35-39,72
+3.7,marriage,geography,Barahona,bride_age_band,40-44,66
+3.7,marriage,geography,Barahona,bride_age_band,45-49,58
+3.7,marriage,geography,Barahona,bride_age_band,50+,85
+3.7,marriage,geography,Barahona,bride_age_band,No declarada,3
+3.7,marriage,geography,Baoruco,bride_age_band,TOTAL,311
+3.7,marriage,geography,Baoruco,bride_age_band,0-14,0
+3.7,marriage,geography,Baoruco,bride_age_band,15-19,14
+3.7,marriage,geography,Baoruco,bride_age_band,20-24,51
+3.7,marriage,geography,Baoruco,bride_age_band,25-29,54
+3.7,marriage,geography,Baoruco,bride_age_band,30-34,48
+3.7,marriage,geography,Baoruco,bride_age_band,35-39,29
+3.7,marriage,geography,Baoruco,bride_age_band,40-44,37
+3.7,marriage,geography,Baoruco,bride_age_band,45-49,30
+3.7,marriage,geography,Baoruco,bride_age_band,50+,47
+3.7,marriage,geography,Baoruco,bride_age_band,No declarada,1
+3.7,marriage,geography,Región Enriquillo,bride_age_band,TOTAL,1090
+3.7,marriage,geography,Región Enriquillo,bride_age_band,0-14,0
+3.7,marriage,geography,Región Enriquillo,bride_age_band,15-19,41
+3.7,marriage,geography,Región Enriquillo,bride_age_band,20-24,171
+3.7,marriage,geography,Región Enriquillo,bride_age_band,25-29,178
+3.7,marriage,geography,Región Enriquillo,bride_age_band,30-34,177
+3.7,marriage,geography,Región Enriquillo,bride_age_band,35-39,123
+3.7,marriage,geography,Región Enriquillo,bride_age_band,40-44,130
+3.7,marriage,geography,Región Enriquillo,bride_age_band,45-49,103
+3.7,marriage,geography,Región Enriquillo,bride_age_band,50+,163
+3.7,marriage,geography,Región Enriquillo,bride_age_band,No declarada,4
+4.6,divorce,geography,San José de Ocoa,month,TOTAL,75
+4.6,divorce,geography,San José de Ocoa,month,Enero,7
+4.6,divorce,geography,San José de Ocoa,month,Febrero,3
+4.6,divorce,geography,San José de Ocoa,month,Marzo,9
+4.6,divorce,geography,San José de Ocoa,month,Abril,4
+4.6,divorce,geography,San José de Ocoa,month,Mayo,7
+4.6,divorce,geography,San José de Ocoa,month,Junio,11
+4.6,divorce,geography,San José de Ocoa,month,Julio,12
+4.6,divorce,geography,San José de Ocoa,month,Agosto,1
+4.6,divorce,geography,San José de Ocoa,month,Septiembre,10
+4.6,divorce,geography,San José de Ocoa,month,Octubre,5
+4.6,divorce,geography,San José de Ocoa,month,Noviembre,3
+4.6,divorce,geography,San José de Ocoa,month,Diciembre,3
+4.6,divorce,geography,San Cristóbal,month,TOTAL,924
+4.6,divorce,geography,San Cristóbal,month,Enero,74
+4.6,divorce,geography,San Cristóbal,month,Febrero,71
+4.6,divorce,geography,San Cristóbal,month,Marzo,63
+4.6,divorce,geography,San Cristóbal,month,Abril,61
+4.6,divorce,geography,San Cristóbal,month,Mayo,89
+4.6,divorce,geography,San Cristóbal,month,Junio,100
+4.6,divorce,geography,San Cristóbal,month,Julio,90
+4.6,divorce,geography,San Cristóbal,month,Agosto,85
+4.6,divorce,geography,San Cristóbal,month,Septiembre,74
+4.6,divorce,geography,San Cristóbal,month,Octubre,87
+4.6,divorce,geography,San Cristóbal,month,Noviembre,69
+4.6,divorce,geography,San Cristóbal,month,Diciembre,61
+4.6,divorce,geography,Peravia,month,TOTAL,261
+4.6,divorce,geography,Peravia,month,Enero,23
+4.6,divorce,geography,Peravia,month,Febrero,19
+4.6,divorce,geography,Peravia,month,Marzo,16
+4.6,divorce,geography,Peravia,month,Abril,25
+4.6,divorce,geography,Peravia,month,Mayo,25
+4.6,divorce,geography,Peravia,month,Junio,18
+4.6,divorce,geography,Peravia,month,Julio,22
+4.6,divorce,geography,Peravia,month,Agosto,26
+4.6,divorce,geography,Peravia,month,Septiembre,25
+4.6,divorce,geography,Peravia,month,Octubre,22
+4.6,divorce,geography,Peravia,month,Noviembre,17
+4.6,divorce,geography,Peravia,month,Diciembre,23
+4.6,divorce,geography,Región Valdesia,month,TOTAL,1260
+4.6,divorce,geography,Región Valdesia,month,Enero,104
+4.6,divorce,geography,Región Valdesia,month,Febrero,93
+4.6,divorce,geography,Región Valdesia,month,Marzo,88
+4.6,divorce,geography,Región Valdesia,month,Abril,90
+4.6,divorce,geography,Región Valdesia,month,Mayo,121
+4.6,divorce,geography,Región Valdesia,month,Junio,129
+4.6,divorce,geography,Región Valdesia,month,Julio,124
+4.6,divorce,geography,Región Valdesia,month,Agosto,112
+4.6,divorce,geography,Región Valdesia,month,Septiembre,109
+4.6,divorce,geography,Región Valdesia,month,Octubre,114
+4.6,divorce,geography,Región Valdesia,month,Noviembre,89
+4.6,divorce,geography,Región Valdesia,month,Diciembre,87
+4.6,divorce,geography,Valverde,month,TOTAL,738
+4.6,divorce,geography,Valverde,month,Enero,56
+4.6,divorce,geography,Valverde,month,Febrero,35
+4.6,divorce,geography,Valverde,month,Marzo,55
+4.6,divorce,geography,Valverde,month,Abril,61
+4.6,divorce,geography,Valverde,month,Mayo,97
+4.6,divorce,geography,Valverde,month,Junio,61
+4.6,divorce,geography,Valverde,month,Julio,71
+4.6,divorce,geography,Valverde,month,Agosto,74
+4.6,divorce,geography,Valverde,month,Septiembre,57
+4.6,divorce,geography,Valverde,month,Octubre,50
+4.6,divorce,geography,Valverde,month,Noviembre,59
+4.6,divorce,geography,Valverde,month,Diciembre,62
+4.6,divorce,geography,Santiago Rodríguez,month,TOTAL,190
+4.6,divorce,geography,Santiago Rodríguez,month,Enero,20
+4.6,divorce,geography,Santiago Rodríguez,month,Febrero,8
+4.6,divorce,geography,Santiago Rodríguez,month,Marzo,21
+4.6,divorce,geography,Santiago Rodríguez,month,Abril,10
+4.6,divorce,geography,Santiago Rodríguez,month,Mayo,21
+4.6,divorce,geography,Santiago Rodríguez,month,Junio,13
+4.6,divorce,geography,Santiago Rodríguez,month,Julio,19
+4.6,divorce,geography,Santiago Rodríguez,month,Agosto,9
+4.6,divorce,geography,Santiago Rodríguez,month,Septiembre,21
+4.6,divorce,geography,Santiago Rodríguez,month,Octubre,14
+4.6,divorce,geography,Santiago Rodríguez,month,Noviembre,19
+4.6,divorce,geography,Santiago Rodríguez,month,Diciembre,15
+4.6,divorce,geography,Monte Cristi,month,TOTAL,181
+4.6,divorce,geography,Monte Cristi,month,Enero,8
+4.6,divorce,geography,Monte Cristi,month,Febrero,14
+4.6,divorce,geography,Monte Cristi,month,Marzo,11
+4.6,divorce,geography,Monte Cristi,month,Abril,14
+4.6,divorce,geography,Monte Cristi,month,Mayo,18
+4.6,divorce,geography,Monte Cristi,month,Junio,16
+4.6,divorce,geography,Monte Cristi,month,Julio,16
+4.6,divorce,geography,Monte Cristi,month,Agosto,18
+4.6,divorce,geography,Monte Cristi,month,Septiembre,24
+4.6,divorce,geography,Monte Cristi,month,Octubre,12
+4.6,divorce,geography,Monte Cristi,month,Noviembre,16
+4.6,divorce,geography,Monte Cristi,month,Diciembre,14
+4.6,divorce,geography,Dajabón,month,TOTAL,110
+4.6,divorce,geography,Dajabón,month,Enero,9
+4.6,divorce,geography,Dajabón,month,Febrero,3
+4.6,divorce,geography,Dajabón,month,Marzo,14
+4.6,divorce,geography,Dajabón,month,Abril,6
+4.6,divorce,geography,Dajabón,month,Mayo,6
+4.6,divorce,geography,Dajabón,month,Junio,11
+4.6,divorce,geography,Dajabón,month,Julio,19
+4.6,divorce,geography,Dajabón,month,Agosto,7
+4.6,divorce,geography,Dajabón,month,Septiembre,6
+4.6,divorce,geography,Dajabón,month,Octubre,12
+4.6,divorce,geography,Dajabón,month,Noviembre,10
+4.6,divorce,geography,Dajabón,month,Diciembre,7
+4.6,divorce,geography,Región Cibao Noroeste,month,TOTAL,1219
+4.6,divorce,geography,Región Cibao Noroeste,month,Enero,93
+4.6,divorce,geography,Región Cibao Noroeste,month,Febrero,60
+4.6,divorce,geography,Región Cibao Noroeste,month,Marzo,101
+4.6,divorce,geography,Región Cibao Noroeste,month,Abril,91
+4.6,divorce,geography,Región Cibao Noroeste,month,Mayo,142
+4.6,divorce,geography,Región Cibao Noroeste,month,Junio,101
+4.6,divorce,geography,Región Cibao Noroeste,month,Julio,125
+4.6,divorce,geography,Región Cibao Noroeste,month,Agosto,108
+4.6,divorce,geography,Región Cibao Noroeste,month,Septiembre,108
+4.6,divorce,geography,Región Cibao Noroeste,month,Octubre,88
+4.6,divorce,geography,Región Cibao Noroeste,month,Noviembre,104
+4.6,divorce,geography,Región Cibao Noroeste,month,Diciembre,98
+4.6,divorce,geography,Samaná,month,TOTAL,169
+4.6,divorce,geography,Samaná,month,Enero,15
+4.6,divorce,geography,Samaná,month,Febrero,9
+4.6,divorce,geography,Samaná,month,Marzo,12
+4.6,divorce,geography,Samaná,month,Abril,13
+4.6,divorce,geography,Samaná,month,Mayo,20
+4.6,divorce,geography,Samaná,month,Junio,12
+4.6,divorce,geography,Samaná,month,Julio,18
+4.6,divorce,geography,Samaná,month,Agosto,15
+4.6,divorce,geography,Samaná,month,Septiembre,22
+4.6,divorce,geography,Samaná,month,Octubre,13
+4.6,divorce,geography,Samaná,month,Noviembre,11
+4.6,divorce,geography,Samaná,month,Diciembre,9
+4.6,divorce,geography,Hermanas Mirabal,month,TOTAL,310
+4.6,divorce,geography,Hermanas Mirabal,month,Enero,29
+4.6,divorce,geography,Hermanas Mirabal,month,Febrero,25
+4.6,divorce,geography,Hermanas Mirabal,month,Marzo,30
+4.6,divorce,geography,Hermanas Mirabal,month,Abril,16
+4.6,divorce,geography,Hermanas Mirabal,month,Mayo,36
+4.6,divorce,geography,Hermanas Mirabal,month,Junio,41
+4.6,divorce,geography,Hermanas Mirabal,month,Julio,16
+4.6,divorce,geography,Hermanas Mirabal,month,Agosto,26
+4.6,divorce,geography,Hermanas Mirabal,month,Septiembre,22
+4.6,divorce,geography,Hermanas Mirabal,month,Octubre,8
+4.6,divorce,geography,Hermanas Mirabal,month,Noviembre,43
+4.6,divorce,geography,Hermanas Mirabal,month,Diciembre,18
+4.6,divorce,geography,María Trinidad Sánchez,month,TOTAL,390
+4.6,divorce,geography,María Trinidad Sánchez,month,Enero,55
+4.6,divorce,geography,María Trinidad Sánchez,month,Febrero,32
+4.6,divorce,geography,María Trinidad Sánchez,month,Marzo,28
+4.6,divorce,geography,María Trinidad Sánchez,month,Abril,31
+4.6,divorce,geography,María Trinidad Sánchez,month,Mayo,40
+4.6,divorce,geography,María Trinidad Sánchez,month,Junio,31
+4.6,divorce,geography,María Trinidad Sánchez,month,Julio,44
+4.6,divorce,geography,María Trinidad Sánchez,month,Agosto,18
+4.6,divorce,geography,María Trinidad Sánchez,month,Septiembre,29
+4.6,divorce,geography,María Trinidad Sánchez,month,Octubre,29
+4.6,divorce,geography,María Trinidad Sánchez,month,Noviembre,25
+4.6,divorce,geography,María Trinidad Sánchez,month,Diciembre,28
+4.6,divorce,geography,Duarte,month,TOTAL,984
+4.6,divorce,geography,Duarte,month,Enero,107
+4.6,divorce,geography,Duarte,month,Febrero,78
+4.6,divorce,geography,Duarte,month,Marzo,69
+4.6,divorce,geography,Duarte,month,Abril,78
+4.6,divorce,geography,Duarte,month,Mayo,90
+4.6,divorce,geography,Duarte,month,Junio,78
+4.6,divorce,geography,Duarte,month,Julio,97
+4.6,divorce,geography,Duarte,month,Agosto,97
+4.6,divorce,geography,Duarte,month,Septiembre,84
+4.6,divorce,geography,Duarte,month,Octubre,84
+4.6,divorce,geography,Duarte,month,Noviembre,59
+4.6,divorce,geography,Duarte,month,Diciembre,63
+4.6,divorce,geography,Región Cibao Nordeste,month,TOTAL,1853
+4.6,divorce,geography,Región Cibao Nordeste,month,Enero,206
+4.6,divorce,geography,Región Cibao Nordeste,month,Febrero,144
+4.6,divorce,geography,Región Cibao Nordeste,month,Marzo,139
+4.6,divorce,geography,Región Cibao Nordeste,month,Abril,138
+4.6,divorce,geography,Región Cibao Nordeste,month,Mayo,186
+4.6,divorce,geography,Región Cibao Nordeste,month,Junio,162
+4.6,divorce,geography,Región Cibao Nordeste,month,Julio,175
+4.6,divorce,geography,Región Cibao Nordeste,month,Agosto,156
+4.6,divorce,geography,Región Cibao Nordeste,month,Septiembre,157
+4.6,divorce,geography,Región Cibao Nordeste,month,Octubre,134
+4.6,divorce,geography,Región Cibao Nordeste,month,Noviembre,138
+4.6,divorce,geography,Región Cibao Nordeste,month,Diciembre,118
+4.6,divorce,geography,Monseñor Nouel,month,TOTAL,512
+4.6,divorce,geography,Monseñor Nouel,month,Enero,45
+4.6,divorce,geography,Monseñor Nouel,month,Febrero,47
+4.6,divorce,geography,Monseñor Nouel,month,Marzo,40
+4.6,divorce,geography,Monseñor Nouel,month,Abril,49
+4.6,divorce,geography,Monseñor Nouel,month,Mayo,37
+4.6,divorce,geography,Monseñor Nouel,month,Junio,41
+4.6,divorce,geography,Monseñor Nouel,month,Julio,59
+4.6,divorce,geography,Monseñor Nouel,month,Agosto,42
+4.6,divorce,geography,Monseñor Nouel,month,Septiembre,41
+4.6,divorce,geography,Monseñor Nouel,month,Octubre,36
+4.6,divorce,geography,Monseñor Nouel,month,Noviembre,40
+4.6,divorce,geography,Monseñor Nouel,month,Diciembre,35
+4.6,divorce,geography,Sánchez Ramírez,month,TOTAL,397
+4.6,divorce,geography,Sánchez Ramírez,month,Enero,29
+4.6,divorce,geography,Sánchez Ramírez,month,Febrero,29
+4.6,divorce,geography,Sánchez Ramírez,month,Marzo,37
+4.6,divorce,geography,Sánchez Ramírez,month,Abril,32
+4.6,divorce,geography,Sánchez Ramírez,month,Mayo,40
+4.6,divorce,geography,Sánchez Ramírez,month,Junio,39
+4.6,divorce,geography,Sánchez Ramírez,month,Julio,38
+4.6,divorce,geography,Sánchez Ramírez,month,Agosto,32
+4.6,divorce,geography,Sánchez Ramírez,month,Septiembre,29
+4.6,divorce,geography,Sánchez Ramírez,month,Octubre,26
+4.6,divorce,geography,Sánchez Ramírez,month,Noviembre,26
+4.6,divorce,geography,Sánchez Ramírez,month,Diciembre,40
+4.6,divorce,geography,La Vega,month,TOTAL,1647
+4.6,divorce,geography,La Vega,month,Enero,181
+4.6,divorce,geography,La Vega,month,Febrero,151
+4.6,divorce,geography,La Vega,month,Marzo,131
+4.6,divorce,geography,La Vega,month,Abril,137
+4.6,divorce,geography,La Vega,month,Mayo,142
+4.6,divorce,geography,La Vega,month,Junio,131
+4.6,divorce,geography,La Vega,month,Julio,121
+4.6,divorce,geography,La Vega,month,Agosto,142
+4.6,divorce,geography,La Vega,month,Septiembre,162
+4.6,divorce,geography,La Vega,month,Octubre,107
+4.6,divorce,geography,La Vega,month,Noviembre,109
+4.6,divorce,geography,La Vega,month,Diciembre,133
+4.6,divorce,geography,Región Cibao Sur,month,TOTAL,2556
+4.6,divorce,geography,Región Cibao Sur,month,Enero,255
+4.6,divorce,geography,Región Cibao Sur,month,Febrero,227
+4.6,divorce,geography,Región Cibao Sur,month,Marzo,208
+4.6,divorce,geography,Región Cibao Sur,month,Abril,218
+4.6,divorce,geography,Región Cibao Sur,month,Mayo,219
+4.6,divorce,geography,Región Cibao Sur,month,Junio,211
+4.6,divorce,geography,Región Cibao Sur,month,Julio,218
+4.6,divorce,geography,Región Cibao Sur,month,Agosto,216
+4.6,divorce,geography,Región Cibao Sur,month,Septiembre,232
+4.6,divorce,geography,Región Cibao Sur,month,Octubre,169
+4.6,divorce,geography,Región Cibao Sur,month,Noviembre,175
+4.6,divorce,geography,Región Cibao Sur,month,Diciembre,208
+4.6,divorce,geography,Santiago,month,TOTAL,4486
+4.6,divorce,geography,Santiago,month,Enero,449
+4.6,divorce,geography,Santiago,month,Febrero,377
+4.6,divorce,geography,Santiago,month,Marzo,339
+4.6,divorce,geography,Santiago,month,Abril,376
+4.6,divorce,geography,Santiago,month,Mayo,420
+4.6,divorce,geography,Santiago,month,Junio,398
+4.6,divorce,geography,Santiago,month,Julio,379
+4.6,divorce,geography,Santiago,month,Agosto,364
+4.6,divorce,geography,Santiago,month,Septiembre,341
+4.6,divorce,geography,Santiago,month,Octubre,403
+4.6,divorce,geography,Santiago,month,Noviembre,317
+4.6,divorce,geography,Santiago,month,Diciembre,323
+4.6,divorce,geography,Puerto Plata,month,TOTAL,853
+4.6,divorce,geography,Puerto Plata,month,Enero,84
+4.6,divorce,geography,Puerto Plata,month,Febrero,88
+4.6,divorce,geography,Puerto Plata,month,Marzo,71
+4.6,divorce,geography,Puerto Plata,month,Abril,71
+4.6,divorce,geography,Puerto Plata,month,Mayo,100
+4.6,divorce,geography,Puerto Plata,month,Junio,77
+4.6,divorce,geography,Puerto Plata,month,Julio,44
+4.6,divorce,geography,Puerto Plata,month,Agosto,60
+4.6,divorce,geography,Puerto Plata,month,Septiembre,78
+4.6,divorce,geography,Puerto Plata,month,Octubre,63
+4.6,divorce,geography,Puerto Plata,month,Noviembre,59
+4.6,divorce,geography,Puerto Plata,month,Diciembre,58
+4.6,divorce,geography,Espaillat,month,TOTAL,673
+4.6,divorce,geography,Espaillat,month,Enero,53
+4.6,divorce,geography,Espaillat,month,Febrero,50
+4.6,divorce,geography,Espaillat,month,Marzo,55
+4.6,divorce,geography,Espaillat,month,Abril,57
+4.6,divorce,geography,Espaillat,month,Mayo,54
+4.6,divorce,geography,Espaillat,month,Junio,57
+4.6,divorce,geography,Espaillat,month,Julio,42
+4.6,divorce,geography,Espaillat,month,Agosto,83
+4.6,divorce,geography,Espaillat,month,Septiembre,71
+4.6,divorce,geography,Espaillat,month,Octubre,50
+4.6,divorce,geography,Espaillat,month,Noviembre,53
+4.6,divorce,geography,Espaillat,month,Diciembre,48
+4.6,divorce,geography,Región Cibao Norte,month,TOTAL,6012
+4.6,divorce,geography,Región Cibao Norte,month,Enero,586
+4.6,divorce,geography,Región Cibao Norte,month,Febrero,515
+4.6,divorce,geography,Región Cibao Norte,month,Marzo,465
+4.6,divorce,geography,Región Cibao Norte,month,Abril,504
+4.6,divorce,geography,Región Cibao Norte,month,Mayo,574
+4.6,divorce,geography,Región Cibao Norte,month,Junio,532
+4.6,divorce,geography,Región Cibao Norte,month,Julio,465
+4.6,divorce,geography,Región Cibao Norte,month,Agosto,507
+4.6,divorce,geography,Región Cibao Norte,month,Septiembre,490
+4.6,divorce,geography,Región Cibao Norte,month,Octubre,516
+4.6,divorce,geography,Región Cibao Norte,month,Noviembre,429
+4.6,divorce,geography,Región Cibao Norte,month,Diciembre,429
+4.6,divorce,geography,Santo Domingo,month,TOTAL,1514
+4.6,divorce,geography,Santo Domingo,month,Enero,128
+4.6,divorce,geography,Santo Domingo,month,Febrero,143
+4.6,divorce,geography,Santo Domingo,month,Marzo,107
+4.6,divorce,geography,Santo Domingo,month,Abril,135
+4.6,divorce,geography,Santo Domingo,month,Mayo,145
+4.6,divorce,geography,Santo Domingo,month,Junio,115
+4.6,divorce,geography,Santo Domingo,month,Julio,130
+4.6,divorce,geography,Santo Domingo,month,Agosto,114
+4.6,divorce,geography,Santo Domingo,month,Septiembre,160
+4.6,divorce,geography,Santo Domingo,month,Octubre,108
+4.6,divorce,geography,Santo Domingo,month,Noviembre,101
+4.6,divorce,geography,Santo Domingo,month,Diciembre,128
+4.6,divorce,geography,Distrito Nacional,month,TOTAL,6652
+4.6,divorce,geography,Distrito Nacional,month,Enero,506
+4.6,divorce,geography,Distrito Nacional,month,Febrero,562
+4.6,divorce,geography,Distrito Nacional,month,Marzo,589
+4.6,divorce,geography,Distrito Nacional,month,Abril,527
+4.6,divorce,geography,Distrito Nacional,month,Mayo,631
+4.6,divorce,geography,Distrito Nacional,month,Junio,599
+4.6,divorce,geography,Distrito Nacional,month,Julio,543
+4.6,divorce,geography,Distrito Nacional,month,Agosto,548
+4.6,divorce,geography,Distrito Nacional,month,Septiembre,478
+4.6,divorce,geography,Distrito Nacional,month,Octubre,539
+4.6,divorce,geography,Distrito Nacional,month,Noviembre,562
+4.6,divorce,geography,Distrito Nacional,month,Diciembre,568
+4.6,divorce,geography,Región Ozama,month,TOTAL,8166
+4.6,divorce,geography,Región Ozama,month,Enero,634
+4.6,divorce,geography,Región Ozama,month,Febrero,705
+4.6,divorce,geography,Región Ozama,month,Marzo,696
+4.6,divorce,geography,Región Ozama,month,Abril,662
+4.6,divorce,geography,Región Ozama,month,Mayo,776
+4.6,divorce,geography,Región Ozama,month,Junio,714
+4.6,divorce,geography,Región Ozama,month,Julio,673
+4.6,divorce,geography,Región Ozama,month,Agosto,662
+4.6,divorce,geography,Región Ozama,month,Septiembre,638
+4.6,divorce,geography,Región Ozama,month,Octubre,647
+4.6,divorce,geography,Región Ozama,month,Noviembre,663
+4.6,divorce,geography,Región Ozama,month,Diciembre,696
+4.6,divorce,geography,Total en el país,month,TOTAL,24711
+4.6,divorce,geography,Total en el país,month,Enero,2175
+4.6,divorce,geography,Total en el país,month,Febrero,2036
+4.6,divorce,geography,Total en el país,month,Marzo,1991
+4.6,divorce,geography,Total en el país,month,Abril,2036
+4.6,divorce,geography,Total en el país,month,Mayo,2347
+4.6,divorce,geography,Total en el país,month,Junio,2163
+4.6,divorce,geography,Total en el país,month,Julio,2087
+4.6,divorce,geography,Total en el país,month,Agosto,2038
+4.6,divorce,geography,Total en el país,month,Septiembre,2043
+4.6,divorce,geography,Total en el país,month,Octubre,1978
+4.6,divorce,geography,Total en el país,month,Noviembre,1905
+4.6,divorce,geography,Total en el país,month,Diciembre,1912
+4.6,divorce,geography,Hato Mayor,month,TOTAL,167
+4.6,divorce,geography,Hato Mayor,month,Enero,10
+4.6,divorce,geography,Hato Mayor,month,Febrero,14
+4.6,divorce,geography,Hato Mayor,month,Marzo,17
+4.6,divorce,geography,Hato Mayor,month,Abril,21
+4.6,divorce,geography,Hato Mayor,month,Mayo,12
+4.6,divorce,geography,Hato Mayor,month,Junio,15
+4.6,divorce,geography,Hato Mayor,month,Julio,20
+4.6,divorce,geography,Hato Mayor,month,Agosto,9
+4.6,divorce,geography,Hato Mayor,month,Septiembre,7
+4.6,divorce,geography,Hato Mayor,month,Octubre,16
+4.6,divorce,geography,Hato Mayor,month,Noviembre,14
+4.6,divorce,geography,Hato Mayor,month,Diciembre,12
+4.6,divorce,geography,Monte Plata,month,TOTAL,177
+4.6,divorce,geography,Monte Plata,month,Enero,26
+4.6,divorce,geography,Monte Plata,month,Febrero,14
+4.6,divorce,geography,Monte Plata,month,Marzo,13
+4.6,divorce,geography,Monte Plata,month,Abril,19
+4.6,divorce,geography,Monte Plata,month,Mayo,11
+4.6,divorce,geography,Monte Plata,month,Junio,13
+4.6,divorce,geography,Monte Plata,month,Julio,7
+4.6,divorce,geography,Monte Plata,month,Agosto,12
+4.6,divorce,geography,Monte Plata,month,Septiembre,11
+4.6,divorce,geography,Monte Plata,month,Octubre,15
+4.6,divorce,geography,Monte Plata,month,Noviembre,24
+4.6,divorce,geography,Monte Plata,month,Diciembre,12
+4.6,divorce,geography,San Pedro de Macorís,month,TOTAL,793
+4.6,divorce,geography,San Pedro de Macorís,month,Enero,73
+4.6,divorce,geography,San Pedro de Macorís,month,Febrero,51
+4.6,divorce,geography,San Pedro de Macorís,month,Marzo,55
+4.6,divorce,geography,San Pedro de Macorís,month,Abril,81
+4.6,divorce,geography,San Pedro de Macorís,month,Mayo,73
+4.6,divorce,geography,San Pedro de Macorís,month,Junio,70
+4.6,divorce,geography,San Pedro de Macorís,month,Julio,69
+4.6,divorce,geography,San Pedro de Macorís,month,Agosto,65
+4.6,divorce,geography,San Pedro de Macorís,month,Septiembre,66
+4.6,divorce,geography,San Pedro de Macorís,month,Octubre,72
+4.6,divorce,geography,San Pedro de Macorís,month,Noviembre,63
+4.6,divorce,geography,San Pedro de Macorís,month,Diciembre,55
+4.6,divorce,geography,Región Higuamo,month,TOTAL,1137
+4.6,divorce,geography,Región Higuamo,month,Enero,109
+4.6,divorce,geography,Región Higuamo,month,Febrero,79
+4.6,divorce,geography,Región Higuamo,month,Marzo,85
+4.6,divorce,geography,Región Higuamo,month,Abril,121
+4.6,divorce,geography,Región Higuamo,month,Mayo,96
+4.6,divorce,geography,Región Higuamo,month,Junio,98
+4.6,divorce,geography,Región Higuamo,month,Julio,96
+4.6,divorce,geography,Región Higuamo,month,Agosto,86
+4.6,divorce,geography,Región Higuamo,month,Septiembre,84
+4.6,divorce,geography,Región Higuamo,month,Octubre,103
+4.6,divorce,geography,Región Higuamo,month,Noviembre,101
+4.6,divorce,geography,Región Higuamo,month,Diciembre,79
+4.6,divorce,geography,La Romana,month,TOTAL,588
+4.6,divorce,geography,La Romana,month,Enero,54
+4.6,divorce,geography,La Romana,month,Febrero,48
+4.6,divorce,geography,La Romana,month,Marzo,54
+4.6,divorce,geography,La Romana,month,Abril,52
+4.6,divorce,geography,La Romana,month,Mayo,58
+4.6,divorce,geography,La Romana,month,Junio,50
+4.6,divorce,geography,La Romana,month,Julio,59
+4.6,divorce,geography,La Romana,month,Agosto,37
+4.6,divorce,geography,La Romana,month,Septiembre,43
+4.6,divorce,geography,La Romana,month,Octubre,50
+4.6,divorce,geography,La Romana,month,Noviembre,44
+4.6,divorce,geography,La Romana,month,Diciembre,39
+4.6,divorce,geography,La Altagracia,month,TOTAL,605
+4.6,divorce,geography,La Altagracia,month,Enero,43
+4.6,divorce,geography,La Altagracia,month,Febrero,61
+4.6,divorce,geography,La Altagracia,month,Marzo,57
+4.6,divorce,geography,La Altagracia,month,Abril,61
+4.6,divorce,geography,La Altagracia,month,Mayo,56
+4.6,divorce,geography,La Altagracia,month,Junio,48
+4.6,divorce,geography,La Altagracia,month,Julio,47
+4.6,divorce,geography,La Altagracia,month,Agosto,29
+4.6,divorce,geography,La Altagracia,month,Septiembre,53
+4.6,divorce,geography,La Altagracia,month,Octubre,55
+4.6,divorce,geography,La Altagracia,month,Noviembre,47
+4.6,divorce,geography,La Altagracia,month,Diciembre,48
+4.6,divorce,geography,El Seibo,month,TOTAL,111
+4.6,divorce,geography,El Seibo,month,Enero,10
+4.6,divorce,geography,El Seibo,month,Febrero,13
+4.6,divorce,geography,El Seibo,month,Marzo,5
+4.6,divorce,geography,El Seibo,month,Abril,8
+4.6,divorce,geography,El Seibo,month,Mayo,4
+4.6,divorce,geography,El Seibo,month,Junio,18
+4.6,divorce,geography,El Seibo,month,Julio,11
+4.6,divorce,geography,El Seibo,month,Agosto,15
+4.6,divorce,geography,El Seibo,month,Septiembre,11
+4.6,divorce,geography,El Seibo,month,Octubre,5
+4.6,divorce,geography,El Seibo,month,Noviembre,3
+4.6,divorce,geography,El Seibo,month,Diciembre,8
+4.6,divorce,geography,Región Yuma,month,TOTAL,1304
+4.6,divorce,geography,Región Yuma,month,Enero,107
+4.6,divorce,geography,Región Yuma,month,Febrero,122
+4.6,divorce,geography,Región Yuma,month,Marzo,116
+4.6,divorce,geography,Región Yuma,month,Abril,121
+4.6,divorce,geography,Región Yuma,month,Mayo,118
+4.6,divorce,geography,Región Yuma,month,Junio,116
+4.6,divorce,geography,Región Yuma,month,Julio,117
+4.6,divorce,geography,Región Yuma,month,Agosto,81
+4.6,divorce,geography,Región Yuma,month,Septiembre,107
+4.6,divorce,geography,Región Yuma,month,Octubre,110
+4.6,divorce,geography,Región Yuma,month,Noviembre,94
+4.6,divorce,geography,Región Yuma,month,Diciembre,95
+4.6,divorce,geography,San Juan,month,TOTAL,138
+4.6,divorce,geography,San Juan,month,Enero,15
+4.6,divorce,geography,San Juan,month,Febrero,12
+4.6,divorce,geography,San Juan,month,Marzo,13
+4.6,divorce,geography,San Juan,month,Abril,10
+4.6,divorce,geography,San Juan,month,Mayo,11
+4.6,divorce,geography,San Juan,month,Junio,8
+4.6,divorce,geography,San Juan,month,Julio,7
+4.6,divorce,geography,San Juan,month,Agosto,10
+4.6,divorce,geography,San Juan,month,Septiembre,9
+4.6,divorce,geography,San Juan,month,Octubre,14
+4.6,divorce,geography,San Juan,month,Noviembre,17
+4.6,divorce,geography,San Juan,month,Diciembre,12
+4.6,divorce,geography,Elías Piña,month,TOTAL,11
+4.6,divorce,geography,Elías Piña,month,Enero,1
+4.6,divorce,geography,Elías Piña,month,Febrero,0
+4.6,divorce,geography,Elías Piña,month,Marzo,1
+4.6,divorce,geography,Elías Piña,month,Abril,2
+4.6,divorce,geography,Elías Piña,month,Mayo,0
+4.6,divorce,geography,Elías Piña,month,Junio,1
+4.6,divorce,geography,Elías Piña,month,Julio,0
+4.6,divorce,geography,Elías Piña,month,Agosto,3
+4.6,divorce,geography,Elías Piña,month,Septiembre,0
+4.6,divorce,geography,Elías Piña,month,Octubre,0
+4.6,divorce,geography,Elías Piña,month,Noviembre,1
+4.6,divorce,geography,Elías Piña,month,Diciembre,2
+4.6,divorce,geography,Azua,month,TOTAL,415
+4.6,divorce,geography,Azua,month,Enero,27
+4.6,divorce,geography,Azua,month,Febrero,35
+4.6,divorce,geography,Azua,month,Marzo,25
+4.6,divorce,geography,Azua,month,Abril,33
+4.6,divorce,geography,Azua,month,Mayo,48
+4.6,divorce,geography,Azua,month,Junio,49
+4.6,divorce,geography,Azua,month,Julio,36
+4.6,divorce,geography,Azua,month,Agosto,29
+4.6,divorce,geography,Azua,month,Septiembre,37
+4.6,divorce,geography,Azua,month,Octubre,26
+4.6,divorce,geography,Azua,month,Noviembre,42
+4.6,divorce,geography,Azua,month,Diciembre,28
+4.6,divorce,geography,Región El Valle,month,TOTAL,564
+4.6,divorce,geography,Región El Valle,month,Enero,43
+4.6,divorce,geography,Región El Valle,month,Febrero,47
+4.6,divorce,geography,Región El Valle,month,Marzo,39
+4.6,divorce,geography,Región El Valle,month,Abril,45
+4.6,divorce,geography,Región El Valle,month,Mayo,59
+4.6,divorce,geography,Región El Valle,month,Junio,58
+4.6,divorce,geography,Región El Valle,month,Julio,43
+4.6,divorce,geography,Región El Valle,month,Agosto,42
+4.6,divorce,geography,Región El Valle,month,Septiembre,46
+4.6,divorce,geography,Región El Valle,month,Octubre,40
+4.6,divorce,geography,Región El Valle,month,Noviembre,60
+4.6,divorce,geography,Región El Valle,month,Diciembre,42
+4.6,divorce,geography,Pedernales,month,TOTAL,32
+4.6,divorce,geography,Pedernales,month,Enero,3
+4.6,divorce,geography,Pedernales,month,Febrero,1
+4.6,divorce,geography,Pedernales,month,Marzo,3
+4.6,divorce,geography,Pedernales,month,Abril,2
+4.6,divorce,geography,Pedernales,month,Mayo,4
+4.6,divorce,geography,Pedernales,month,Junio,2
+4.6,divorce,geography,Pedernales,month,Julio,2
+4.6,divorce,geography,Pedernales,month,Agosto,2
+4.6,divorce,geography,Pedernales,month,Septiembre,2
+4.6,divorce,geography,Pedernales,month,Octubre,6
+4.6,divorce,geography,Pedernales,month,Noviembre,3
+4.6,divorce,geography,Pedernales,month,Diciembre,2
+4.6,divorce,geography,Independencia,month,TOTAL,59
+4.6,divorce,geography,Independencia,month,Enero,0
+4.6,divorce,geography,Independencia,month,Febrero,2
+4.6,divorce,geography,Independencia,month,Marzo,3
+4.6,divorce,geography,Independencia,month,Abril,5
+4.6,divorce,geography,Independencia,month,Mayo,5
+4.6,divorce,geography,Independencia,month,Junio,9
+4.6,divorce,geography,Independencia,month,Julio,7
+4.6,divorce,geography,Independencia,month,Agosto,5
+4.6,divorce,geography,Independencia,month,Septiembre,7
+4.6,divorce,geography,Independencia,month,Octubre,4
+4.6,divorce,geography,Independencia,month,Noviembre,4
+4.6,divorce,geography,Independencia,month,Diciembre,8
+4.6,divorce,geography,Barahona,month,TOTAL,408
+4.6,divorce,geography,Barahona,month,Enero,25
+4.6,divorce,geography,Barahona,month,Febrero,29
+4.6,divorce,geography,Barahona,month,Marzo,40
+4.6,divorce,geography,Barahona,month,Abril,27
+4.6,divorce,geography,Barahona,month,Mayo,31
+4.6,divorce,geography,Barahona,month,Junio,20
+4.6,divorce,geography,Barahona,month,Julio,26
+4.6,divorce,geography,Barahona,month,Agosto,51
+4.6,divorce,geography,Barahona,month,Septiembre,53
+4.6,divorce,geography,Barahona,month,Octubre,34
+4.6,divorce,geography,Barahona,month,Noviembre,36
+4.6,divorce,geography,Barahona,month,Diciembre,36
+4.6,divorce,geography,Baoruco,month,TOTAL,141
+4.6,divorce,geography,Baoruco,month,Enero,10
+4.6,divorce,geography,Baoruco,month,Febrero,12
+4.6,divorce,geography,Baoruco,month,Marzo,8
+4.6,divorce,geography,Baoruco,month,Abril,12
+4.6,divorce,geography,Baoruco,month,Mayo,16
+4.6,divorce,geography,Baoruco,month,Junio,11
+4.6,divorce,geography,Baoruco,month,Julio,16
+4.6,divorce,geography,Baoruco,month,Agosto,10
+4.6,divorce,geography,Baoruco,month,Septiembre,10
+4.6,divorce,geography,Baoruco,month,Octubre,13
+4.6,divorce,geography,Baoruco,month,Noviembre,9
+4.6,divorce,geography,Baoruco,month,Diciembre,14
+4.6,divorce,geography,Región Enriquillo,month,TOTAL,640
+4.6,divorce,geography,Región Enriquillo,month,Enero,38
+4.6,divorce,geography,Región Enriquillo,month,Febrero,44
+4.6,divorce,geography,Región Enriquillo,month,Marzo,54
+4.6,divorce,geography,Región Enriquillo,month,Abril,46
+4.6,divorce,geography,Región Enriquillo,month,Mayo,56
+4.6,divorce,geography,Región Enriquillo,month,Junio,42
+4.6,divorce,geography,Región Enriquillo,month,Julio,51
+4.6,divorce,geography,Región Enriquillo,month,Agosto,68
+4.6,divorce,geography,Región Enriquillo,month,Septiembre,72
+4.6,divorce,geography,Región Enriquillo,month,Octubre,57
+4.6,divorce,geography,Región Enriquillo,month,Noviembre,52
+4.6,divorce,geography,Región Enriquillo,month,Diciembre,60

@@ -23,6 +23,37 @@ was taken from it. Assessed by keyword survey (`estado civil`, `unión`,
 | **Boletín: La población dominicana en el siglo XXI** (16 pp) | Narrative summary of the projections. No tables not already held. |
 | **Documento metodológico** (31 pp) · **Estimaciones nacionales** (147 pp) · **Volumen I** (92 pp) · **Proyecciones derivadas Vol. III** (135 pp) · **Tomo II, mortalidad** (64 pp) · **Tomo IV** (154 pp) · **Subnacionales 1990-2020, 2007 rev.** (433 pp) | Projection methodology and superseded vintages. Their `estado civil` keyword hits are incidental prose, not tables. The 2007 subnacional revision stops at 2020 and is superseded by the 2016 revision covering 2000–2030. |
 
+## The rotated-page section
+
+Ten of the 2025 Anuario's 26 cuadros are laid out landscape across 26
+pages, and the PDF stores them in a way no ordinary text extraction
+reaches: the page carries `/Rotate 0`, the table is *drawn* rotated 90°,
+and every word's characters are stored in reverse order. `extract_text()`
+returns mirrored nonsense — `ortsiger` for *registro*, `033` for `330` —
+so these pages looked empty and their cuadros were silently absent.
+
+De-rotation: keep only words with `upright = False` (the running header
+and folio are upright and would corrupt the line), group into visual lines
+by x-position, order each line by descending `top`, reverse each word.
+
+| cuadro | content | loaded |
+|---|---|---|
+| **3.7** | marriages by **bride age band × province** | ✅ enables provincial age-specific rates |
+| **1.10** | **mother's marital status × age band** | ✅ the only union-status-by-age data held |
+| **3.6** | marriages by month × province | ✅ |
+| **4.6** | divorces by month × province | ✅ |
+| 1.1 | births by mother nationality × province | not yet |
+| 1.9 | births by mother's country of birth × region | not yet |
+| 1.11 | births by month × province | not yet |
+| 1.12 | births by year of registration × year of occurrence | not yet |
+| 2.2, 2.5, 2.6 | deaths by month / nationality / age × province | not yet |
+
+Verification: every row's printed total was checked against the sum of its
+cells (0 rejected), all 43 geographies resolve for 3.6/3.7/4.6, and
+Cuadro 3.7's national bride-band totals match Cuadro 3.3's row totals
+exactly across all eight bands — an independent confirmation that the
+de-rotation is correct.
+
 ## Source defects found
 
 Recorded because each would have silently corrupted a load:
