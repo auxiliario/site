@@ -26,21 +26,66 @@ SELECT cuadro, trust, trust_note FROM source_table;          -- what you may quo
 
 **Cuadro 3.5 (marriage nationality × nationality) is `marginals_only`.**
 Its interior cells sum to 44,349 while both sets of published margins
-independently sum to 40,750 — the same total Cuadros 3.2, 3.3 and 3.4 give
-for 2025 marriages. Both margins are therefore right and the interior is
-3,599 too large; 16 of 17 rows fail, the Dominican row alone by 3,047.
-The structurally identical Cuadro 4.5 reconciles exactly on all 17 rows
-using the same extraction method, so this is not a general property of
-ONE's nationality tables. The Perú row places 15 marriages under the
-Puerto Rico column while its own diagonal is 0 and the entire Puerto Rico
-row is 0 — the signature of a column shift.
+independently sum to 40,750 — the total Cuadros 3.2, 3.3 and 3.4 agree on.
+The margins are also self-consistent with each other: row and column
+margins each imply exactly 3,431 foreign×foreign marriages, and
+36,358 + 427 + 534 + 3,431 = 40,750 on the nose.
 
-Whether the defect is ONE's or the extractor's cannot be settled here: the
-source PDF is not in this repository. Until someone re-reads page 85,
-every mixed-nationality **marriage** finding is unsafe. The corresponding
-**divorce** finding is not: Cuadro 4.5 is `verified`, and it reproduces the
-same directional pattern (Italia 2.05 in the same direction as marriage's
+But the two readings describe different countries:
+
+| | margins | interior cells |
+|---|---:|---:|
+| mixed, Dominican bride | 427 | 3,474 |
+| mixed, Dominican groom | 534 | 3,600 |
+| foreign × foreign | 3,431 | 917 |
+| **total mixed** | **961** | **7,074** |
+
+The margins say 86% of foreign brides married foreign grooms in the DR;
+the interior says 88% of them married Dominican grooms. The
+demographically intuitive reading is the one that fails arithmetic, so
+**neither side can be assumed correct** and no mixed-nationality marriage
+figure is quotable until page 85 is re-read.
+
+Supporting detail: 16 of 17 rows and 16 of 17 columns fail. The Perú row
+places 15 marriages under the Puerto Rico column while its own diagonal is
+0 and the entire Puerto Rico row is 0. `test_extract.py` reproduces that
+exact signature by rendering a single cell blank — which shows what a
+column shift or a padded hole looks like, not that one occurred. The
+structurally identical Cuadro 4.5 reconciles exactly on all 17 rows using
+the same extraction method, so this is not a general property of ONE's
+nationality tables.
+
+The **divorce** equivalent is unaffected: Cuadro 4.5 is `verified` and
+reproduces the same directional pattern (Italia 2.05 alongside marriage's
 untrusted 2.21; Venezuela 0.41 against 0.41).
+
+### Settling it
+
+```
+python extract_crosstab.py --pdf anuario-2025.pdf --cuadro "Cuadro 3.5"
+```
+
+Re-reads the page by token geometry rather than `pdftotext -layout`,
+verifies the file's sha256 against `source_document`, and prints one of:
+
+- `MATCHES TRANSCRIPTION` — the PDF really does print cells that do not sum
+  to its own margins. The defect is ONE's; keep the cells as published and
+  keep trust downgraded.
+- `DIFFERS` — with the offending cells listed. Paste the corrected grid
+  into `sources/anuario_2025.py` and re-run `build.py && validate.py`;
+  trust is re-derived from the numbers, nothing is edited by hand.
+
+`pdftotext -layout` reflows a wide table onto a fixed character grid and
+can drop or merge a column silently — the failure mode under suspicion.
+The geometry extractor keeps every token's x-position, clusters columns
+from those positions, and leaves a **hole** where a cell is missing rather
+than shifting its neighbours left. `test_extract.py` validates both
+properties against a synthetic cuadro-shaped PDF: all 289 cells round-trip
+exactly, and a blanked cell does not shift its row.
+
+**The PDF is not in this repository.** ONE's host
+(`www.one.gob.do`) is blocked by this environment's egress policy, so it
+has to be supplied by hand.
 
 ---
 
@@ -105,6 +150,8 @@ sources/anuario_2025.py cells transcribed exactly as printed
 build.py                loaders + reconciliation + trust derivation
 validate.py             structural checks
 queries.sql             eight worked couples queries
+extract_crosstab.py     geometry re-extraction + diff against sources/
+test_extract.py         round-trip test for the extractor (synthetic PDF)
 dr_stats.db             built artifact
 ```
 

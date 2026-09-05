@@ -428,23 +428,38 @@ def register_known_issues(con):
         " VALUES (?,?,?,?,?,?)", [
         ("source_table", "Cuadro 3.5", "blocking",
          "The interior of the marriage nationality x nationality cuadro is "
-         "internally inconsistent; its cells must not be quoted, and every "
-         "mixed-nationality marriage finding currently rests on them.",
-         "Cells sum to 44,349. Published row totals sum to 40,750 and "
-         "published column totals independently sum to 40,750 -- the same "
-         "figure Cuadro 3.2, 3.3 and 3.4 give for total marriages in 2025. "
-         "So both margins are right and the interior is 3,599 too large. "
-         "16 of 17 rows fail; the Republica Dominicana row alone is 3,047 "
-         "over. The Peru row places 15 marriages under the Puerto Rico "
-         "column while the Peru diagonal is 0 and the whole Puerto Rico row "
-         "is 0, which is the signature of a column shift. By contrast the "
-         "structurally identical Cuadro 4.5 reconciles exactly, on all 17 "
-         "rows, using the same extraction method.",
-         "Re-extract Cuadro 3.5 from p.85 of the PDF and compare cell by "
-         "cell. The source PDF is not in this repository, so it cannot be "
-         "settled here. Until it is, treat the split as unresolved: the "
-         "defect may be ONE's or the extractor's. source_table.trust is "
-         "'marginals_only' and v_pairing_symmetry_trusted excludes it."),
+         "irreconcilable with its own margins, and the two readings imply "
+         "opposite substantive findings. No mixed-nationality MARRIAGE "
+         "figure is quotable until page 85 is re-read.",
+         "Interior cells sum to 44,349. Published row totals sum to 40,750 "
+         "and published column totals independently sum to 40,750 -- the "
+         "figure Cuadros 3.2, 3.3 and 3.4 agree on for 2025. The margins are "
+         "also self-consistent: row and column margins each imply exactly "
+         "3,431 foreign x foreign marriages, and 36,358 + 427 + 534 + 3,431 "
+         "= 40,750 exactly. But that reading says 86% of foreign brides "
+         "married foreign grooms in the DR, while the interior says 88% of "
+         "them married Dominican grooms (961 mixed marriages vs 7,074). The "
+         "demographically intuitive reading is the one that fails "
+         "arithmetic, so neither side can be assumed correct. 16 of 17 rows "
+         "and 16 of 17 columns fail; the Dominican row is 3,047 over and its "
+         "column 3,066 over. The Peru row places 15 marriages under the "
+         "Puerto Rico column while its own diagonal is 0 and the whole "
+         "Puerto Rico row is 0. test_extract.py reproduces exactly that "
+         "signature by rendering one cell blank, showing it is what a "
+         "column-shift or a padded hole looks like. The structurally "
+         "identical Cuadro 4.5 reconciles exactly on all 17 rows using the "
+         "same extraction method.",
+         "Run: python extract_crosstab.py --pdf <anuario-2025.pdf> --cuadro "
+         "'Cuadro 3.5'. It re-reads the page by token geometry rather than "
+         "by pdftotext -layout, verifies the file's sha256 against "
+         "source_document, and prints either MATCHES TRANSCRIPTION (the "
+         "defect is ONE's; keep the cells and the downgraded trust) or "
+         "DIFFERS with the corrected grid. The PDF is not in this "
+         "repository -- ONE's host is blocked by this environment's egress "
+         "policy -- so it must be supplied. Until then trust is "
+         "'marginals_only' and v_pairing_symmetry_trusted excludes it; the "
+         "divorce equivalent (Cuadro 4.5) is verified and shows the same "
+         "directional pattern."),
 
         ("coverage", "population", "high",
          "No population denominators are loaded, so every pairing figure is "
