@@ -570,7 +570,7 @@ def ingest_rotated_2025(b):
         return
     b.edition = 2025
     tids, n, unmapped = {}, 0, set()
-    for cuadro, d1n, d1v, d2n, d2v, value, anomaly in ROT.read(path):
+    for cuadro, d1n, d1v, d2n, d2v, value, anomaly, sex in ROT.read(path):
         if cuadro not in tids:
             title, page = ROT.TITLES[cuadro]
             tids[cuadro] = b.table(
@@ -588,6 +588,20 @@ def ingest_rotated_2025(b):
                    basis="registro", geo=1,
                    dims=("year_of_occurrence", d1v),
                    marginal=1 if d1v.lower().startswith("total") else 0,
+                   note=anomaly)
+            n += 1
+            continue
+        if cuadro == "2.6":
+            g = b.geo_id(d1v)
+            if g is None:
+                unmapped.add(d1v)
+                continue
+            lvl = b.c.execute("SELECT level FROM geography WHERE geo_id=?",
+                              (g,)).fetchone()[0]
+            b.fact(t, "count", value, "death", year=2025, basis="registro",
+                   geo=g, dims=("deceased_age_band", d2v, "sex", sex),
+                   marginal=1 if (lvl != "province" or d2v == "TOTAL"
+                                  or sex == "both") else 0,
                    note=anomaly)
             n += 1
             continue

@@ -48,9 +48,9 @@ by x-position, order each line by descending `top`, reverse each word.
 | **1.12** | births by year of registration × year of occurrence | ✅ registration lag |
 | **2.2** | deaths by month × province | ✅ |
 | **2.5** | deaths by nationality × province | ✅ |
-| 2.6 | deaths by age × sex × province | not loaded — 10 pages, sex blocks *and* column continuations |
+| **2.6** | deaths by age × sex × province | ✅ 3,087 rows: 2 column blocks × 4 sex sections × 43 geographies |
 
-Verification: every row's printed total was checked against the sum of its
+All ten rotated cuadros are loaded. Verification: every row's printed total was checked against the sum of its
 cells (0 rejected), all 43 geographies resolve for 3.6/3.7/4.6, and
 Cuadro 3.7's national bride-band totals match Cuadro 3.3's row totals
 exactly across all eight bands — an independent confirmation that the

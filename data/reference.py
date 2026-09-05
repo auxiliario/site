@@ -117,6 +117,7 @@ VOCAB = [
     ("dim_name", "mother_birth_country", None, 0, 22,
      "country of BIRTH of the mother, distinct from her nationality"),
     ("dim_name", "deceased_nationality", None, 0, 23, None),
+    ("dim_name", "deceased_age_band",   None, 0, 25, None),
     ("dim_name", "year_of_occurrence", None, 0, 24,
      "reference_year carries the year of REGISTRATION for these rows"),
     ("dim_name", "month",               None, 0, 15,
@@ -138,7 +139,20 @@ VOCAB = [
 
 # ------------------------------------------------------------- age bands
 # (band, lower, upper, is_residual, sort_order)
+# NOT a partition: bands from different cuadros overlap on purpose. The
+# marriage cuadros band 15-19..50+, the projections 0-14..50+, and the
+# mortality cuadro uses infant and old-age detail. Every band a loaded
+# cuadro prints is registered here; a query must pick one banding, never
+# mix two.
 AGE_BANDS = [
+    ("Menos de un ano", 0, 0, 0, -3),
+    ("1-4", 1, 4, 0, -2),
+    ("5-9", 5, 9, 0, -1),
+    ("10-14", 10, 14, 0, 0),
+    ("50-54", 50, 54, 0, 9), ("55-59", 55, 59, 0, 10),
+    ("60-64", 60, 64, 0, 11), ("65-69", 65, 69, 0, 12),
+    ("70-74", 70, 74, 0, 13), ("75-79", 75, 79, 0, 14),
+    ("80-84", 80, 84, 0, 15), ("85 y mas", 85, None, 0, 16),
     # Present for population denominators; no marriage cuadro uses it.
     ("0-14", 0, 14, 0, 0),
     ("15-19", 15, 19, 0, 1),

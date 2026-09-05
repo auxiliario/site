@@ -29,14 +29,16 @@ DIM_FOR_GEO_ROWS = {
     "1.1": "mother_nationality", "1.9": "mother_birth_country",
     "1.11": "month", "2.2": "month", "2.5": "deceased_nationality",
 }
-EVENT = {"1.10": "birth", "3.6": "marriage", "3.7": "marriage",
+EVENT = {"2.6": "death", "1.10": "birth", "3.6": "marriage", "3.7": "marriage",
          "4.6": "divorce", "1.1": "birth", "1.9": "birth", "1.11": "birth",
          "1.12": "birth", "2.2": "death", "2.5": "death"}
-BASIS = {"1.10": "ocurrencia", "3.6": "registro", "3.7": "registro",
+BASIS = {"2.6": "registro", "1.10": "ocurrencia", "3.6": "registro", "3.7": "registro",
          "4.6": "registro", "1.1": "registro", "1.9": "registro",
          "1.11": "ocurrencia", "1.12": "registro", "2.2": "ocurrencia",
          "2.5": "registro"}
 TITLES = {
+    "2.6": ("Defunciones ocurridas por grupo de edad del fallecido, segun el "
+            "sexo, region y provincia de registro, 2025", 72),
     "1.1": ("Nacimientos registrados por pais de nacionalidad de la madre, "
             "segun region y provincia de registro, 2025", 46),
     "1.9": ("Nacimientos ocurridos por pais de nacimiento de la madre, "
@@ -77,4 +79,4 @@ def read(path):
                 d1v = BAND_ALIAS.get(d1v, d1v)
             yield (r["cuadro"], r["dim1_name"], d1v, r["dim2_name"],
                    r["dim2_value"], float(r["value"]),
-                   r.get("anomaly") or None)
+                   r.get("anomaly") or None, r.get("sex") or None)

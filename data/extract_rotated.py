@@ -92,7 +92,7 @@ SPEC = {
 }
 
 
-def derotate(page, band=3.0):
+def derotate(page, band=3.0, printed_order=False):
     # The running header and folio are UPRIGHT normal text on these pages;
     # only the table is rotated. Reversing an upright word corrupts it, and
     # leaving one in a line breaks the trailing-numbers test, which was
@@ -106,7 +106,7 @@ def derotate(page, band=3.0):
         lines[round(w["x0"] / band)].append(w)
     return [" ".join(w["text"][::-1]
                      for w in sorted(lines[k], key=lambda w: -w["top"]))
-            for k in sorted(lines, reverse=True)]
+            for k in sorted(lines, reverse=not printed_order)]
 
 
 def parse_rows(lines, ncols, numeric_labels=False):
@@ -170,10 +170,86 @@ def parse_rows(lines, ncols, numeric_labels=False):
     return out
 
 
+# ---------------------------------------------------------------- 2.6
+# Deaths by age, SEX and province: two column blocks (ages up to 45-49 on
+# pp.72-76, 50-54 upward on pp.77-81) crossed with sex sections that begin
+# mid-page. The section marker line is itself that sex's national row, so
+# reading order matters here in a way it did not for the other cuadros --
+# hence printed_order=True.
+C26_BLOCKS = [
+    (range(72, 77), ["TOTAL", "Menos de un ano", "1-4", "5-9", "10-14",
+                     "15-19", "20-24", "25-29", "30-34", "35-39", "40-44",
+                     "45-49"]),
+    (range(77, 82), ["50-54", "55-59", "60-64", "65-69", "70-74", "75-79",
+                     "80-84", "85 y mas", "No declarada"]),
+]
+SEX_MARKER = re.compile(r"^(Hombres|Mujeres|Sexo no declarado|Ambos sexos)\b")
+SEX_NAME = {"Hombres": "male", "Mujeres": "female",
+            "Sexo no declarado": "unknown", "Ambos sexos": "both"}
+
+
+def extract_2_6(pdf):
+    """Returns {(sex, geography): {column: value}} plus warnings."""
+    grid, warn = defaultdict(dict), []
+    for pages, cols in C26_BLOCKS:
+        sex = "both"
+        for p in pages:
+            for line in derotate(pdf.pages[p - 1], printed_order=True):
+                toks = line.strip().split()
+                if not toks:
+                    continue
+                m = SEX_MARKER.match(line.strip())
+                if m:
+                    sex = SEX_NAME[m.group(1)]
+                    rest = toks[len(m.group(1).split()):]
+                    if len(rest) == len(cols) and all(NUM.match(t) for t in rest):
+                        key = (sex, "Total en el pais")
+                        for c, v in zip(cols, rest):
+                            grid[key].setdefault(c, int(v.replace(",", "")))
+                    continue
+                if len(toks) <= len(cols):
+                    continue
+                tail = toks[-len(cols):]
+                if not all(NUM.match(t) for t in tail):
+                    continue
+                if NUM.match(toks[-len(cols) - 1]):
+                    continue
+                label = " ".join(toks[:-len(cols)]).strip()
+                if not label or label.lower().startswith(("fuente", "cuadro")):
+                    continue
+                if label.lower().startswith("total en el"):
+                    label = "Total en el pais"
+                key = (sex, label)
+                for c, v in zip(cols, tail):
+                    grid[key].setdefault(c, int(v.replace(",", "")))
+    # Verify: the Total column must equal the sum of every age column
+    # across BOTH blocks -- the check the two-block layout exists to defeat.
+    for (sex, geo), cells in grid.items():
+        if "TOTAL" not in cells:
+            warn.append(f"2.6 {sex}/{geo}: no TOTAL column (block A missing)")
+            continue
+        summed = sum(v for k, v in cells.items() if k != "TOTAL")
+        if cells["TOTAL"] != summed:
+            warn.append(f"2.6 {sex}/{geo}: total {cells['TOTAL']}, ages sum "
+                        f"to {summed} ({cells['TOTAL'] - summed:+})")
+    return grid, warn
+
+
 def extract(pdf_path, only=None):
     import pdfplumber
     rows, warn = [], []
     with pdfplumber.open(pdf_path) as pdf:
+        if not only or "2.6" in only:
+            grid, w26 = extract_2_6(pdf)
+            warn.extend(w26)
+            flagged = {k for k in grid
+                       if any(f"{k[0]}/{k[1]}" in x for x in w26)}
+            for (sex, geo), cells in grid.items():
+                note = "total does not equal the sum of ages" \
+                    if (sex, geo) in flagged else ""
+                for col, v in cells.items():
+                    rows.append(("2.6", "death", "geography", geo,
+                                 "deceased_age_band", col, v, note, sex))
         for cuadro, spec in SPEC.items():
             if only and cuadro not in only:
                 continue
@@ -213,7 +289,7 @@ def extract(pdf_path, only=None):
                                      "geography" if spec["rows_are_geo"]
                                      else spec["row_dim"],
                                      label, spec["col_dim"], col, v,
-                                     problem or ""))
+                                     problem or "", ""))
     return rows, warn
 
 
@@ -228,7 +304,7 @@ def main():
     with open(a.out, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["cuadro", "vital_event", "dim1_name", "dim1_value",
-                    "dim2_name", "dim2_value", "value", "anomaly"])
+                    "dim2_name", "dim2_value", "value", "anomaly", "sex"])
         w.writerows(rows)
     from collections import Counter
     c = Counter(r[0] for r in rows)
