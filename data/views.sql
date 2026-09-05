@@ -16,6 +16,7 @@ DROP VIEW IF EXISTS v_reconciliation;
 DROP VIEW IF EXISTS v_series_restatement;
 DROP VIEW IF EXISTS v_pairing_rate;
 DROP VIEW IF EXISTS v_event_rate_by_age;
+DROP VIEW IF EXISTS v_crude_rate_by_geo;
 DROP VIEW IF EXISTS v_coverage;
 
 -- Full provenance + trust for any fact. Start every session here.
@@ -212,6 +213,46 @@ JOIN population pop
   AND pop.nationality IS NULL
 GROUP BY 1,2,3,4,5, pop.value
 ORDER BY ab.sort_order;
+
+-- Crude event rate by geography: events per 1,000 residents. The only
+-- rate the provincial cuadros support, because Cuadro 3.2 carries no age
+-- or sex breakdown -- so this cannot be age-standardised, and a province
+-- with an unusually young or old age structure will differ for that
+-- reason alone.
+--
+-- Read it against `basis`. Cuadro 3.2 is tabulated by place of REGISTRO,
+-- so a destination-wedding province counts weddings held there by people
+-- who live elsewhere, while its denominator counts only residents. That
+-- inflates the numerator and not the denominator, and the rate is
+-- therefore an upper bound on the local marriage rate, not an estimate
+-- of it.
+CREATE VIEW v_crude_rate_by_geo AS
+SELECT f.reference_year, st.vital_event, f.basis,
+       g.level, g.name_es AS geography, g.code,
+       f.value                                          AS events,
+       pop.value                                        AS population,
+       ROUND(f.value * 1000.0 / NULLIF(pop.value,0), 2)  AS per_1000,
+       ROUND(f.value * 1000.0 / NULLIF(pop.value,0)
+             / NULLIF((SELECT f2.value * 1000.0 / p2.value
+                       FROM fact f2
+                       JOIN population p2
+                         ON p2.geo_id=1 AND p2.sex='both'
+                        AND p2.age_band='TOTAL'
+                        AND p2.reference_year=f2.reference_year
+                       WHERE f2.table_id=f.table_id AND f2.geo_id=1
+                         AND f2.is_marginal=1), 0), 2)  AS index_vs_national
+FROM fact f
+JOIN source_table st ON st.table_id = f.table_id
+JOIN geography g     ON g.geo_id    = f.geo_id
+JOIN population pop
+  ON  pop.geo_id         = f.geo_id
+  AND pop.reference_year = f.reference_year
+  AND pop.sex            = 'both'
+  AND pop.age_band       = 'TOTAL'
+  AND pop.measure        = 'persons'
+  AND pop.nationality IS NULL
+WHERE f.is_marginal = 1 AND f.measure = 'count'
+  AND f.dim1_name = 'marriage_type';
 
 -- What is actually in here. First query for anyone new to the file.
 CREATE VIEW v_coverage AS

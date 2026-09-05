@@ -26,6 +26,8 @@ import reference as R                      # noqa: E402
 import acquisition as ACQ                  # noqa: E402
 import anuario_2025 as A25                 # noqa: E402
 import one_proyecciones as PROJ            # noqa: E402
+import one_subnacional as SUBNAC           # noqa: E402
+import one_cifras as CIFRAS                # noqa: E402
 
 SCHEMA_VERSION = "2.0"
 
@@ -77,7 +79,14 @@ class Build:
                 gid += 1
 
     def geo_id(self, name):
-        return self.geo.get(R.fold(name))
+        key = R.fold(name)
+        if key in self.geo:
+            return self.geo[key]
+        for printed, canonical in R.GEO_ALIASES.items():
+            if R.fold(printed) == key:
+                return self.geo.get(R.fold(canonical))
+        # bare region name, e.g. "Cibao Norte" for "Region Cibao Norte"
+        return self.geo.get(R.fold("Region " + name.strip()))
 
     # ------------------------------------------------------------- tables
     def table(self, source_id, cuadro, title, page, event, method,
@@ -297,18 +306,38 @@ def reconcile(con):
         else:
             # one-way cuadro: published Total vs its own components,
             # per geography and per measure
+            # reference_year MUST be in the grouping: a cuadro covering
+            # five years otherwise sums all of them against a single
+            # published total and reports a spurious mismatch.
             groups = con.execute(
-                "SELECT geo_id, measure, SUM(value) FROM fact "
+                "SELECT geo_id, measure, reference_year, SUM(value) FROM fact "
                 "WHERE table_id=? AND is_marginal=0 AND measure IN "
-                "('count','percent') GROUP BY 1,2", (tid,)).fetchall()
-            for geo, meas, summed in groups:
+                "('count','percent') GROUP BY 1,2,3", (tid,)).fetchall()
+            for geo, meas, yr, summed in groups:
                 pub = con.execute(
                     "SELECT value FROM fact WHERE table_id=? AND is_marginal=1 "
-                    "AND measure=? AND COALESCE(geo_id,-1)=COALESCE(?,-1)",
-                    (tid, meas, geo)).fetchone()
+                    "AND measure=? AND reference_year=? "
+                    "AND COALESCE(geo_id,-1)=COALESCE(?,-1)",
+                    (tid, meas, yr, geo)).fetchone()
                 if pub:
                     tol = TOL_ROUND if meas == "percent" else TOL_COUNT
-                    add(tid, "row", f"geo={geo};{meas}", pub[0], summed, tol)
+                    add(tid, "row", f"{yr} geo={geo};{meas}", pub[0], summed, tol)
+
+            # Geography cuadros carry the dimension in geo_id rather than in
+            # a dim slot, so the grouping above finds nothing to compare.
+            # Check the provinces against the national total, per year.
+            for yr, summed in con.execute(
+                    "SELECT reference_year, SUM(value) FROM fact f "
+                    "JOIN geography g USING(geo_id) "
+                    "WHERE f.table_id=? AND g.level='province' "
+                    "AND f.dim1_name IS NULL GROUP BY 1", (tid,)).fetchall():
+                pub = con.execute(
+                    "SELECT value FROM fact WHERE table_id=? AND geo_id=1 "
+                    "AND reference_year=? AND dim1_name IS NULL",
+                    (tid, yr)).fetchone()
+                if pub:
+                    add(tid, "column", f"{yr} sum of 32 provinces",
+                        pub[0], summed)
 
     # Mean-age cuadros carry their own arithmetic check: the published
     # difference must equal male - female, and `both` their midpoint.
@@ -460,6 +489,84 @@ def ingest_proyecciones(b):
           f"{min(PROJ_YEARS)}-{max(PROJ_YEARS)}, national only")
 
 
+def ingest_cifras(b):
+    """Provincial and monthly marriage/divorce counts, 2016-2020."""
+    d = CIFRAS.DOCUMENT
+    path = os.path.join(HERE, "raw", "one-cifras-2021-vitales.csv")
+    if not os.path.exists(path):
+        print(f"  note: {path} absent; Cifras cuadros skipped")
+        return
+    b.edition = d["edition_year"]
+    b.c.execute(
+        "INSERT INTO source_document (source_id,institution,instrument,"
+        "publication,edition_year,url,local_path,sha256,retrieved_at,"
+        "page_count) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        (d["source_id"], d["institution"], d["instrument"], d["publication"],
+         d["edition_year"], d["url"], d["local_path"], d["sha256"],
+         datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+         d["page_count"]))
+    tids = {}
+    for cuadro, (title, page, event, kind) in CIFRAS.CUADROS.items():
+        tids[cuadro] = b.table(d["source_id"], f"Cuadro {cuadro}", title, page,
+                               event, "text layer via extract_cifras.py",
+                               notes="basis=registro. Region rows kept and "
+                                     "flagged marginal.")
+    n, unmapped = 0, set()
+    for cuadro, event, kind, label, year, value in CIFRAS.read(path):
+        t = tids[cuadro]
+        if kind == "geography":
+            g = b.geo_id(label)
+            if g is None:
+                unmapped.add(label)
+                continue
+            lvl = b.c.execute("SELECT level FROM geography WHERE geo_id=?",
+                              (g,)).fetchone()[0]
+            b.fact(t, "count", value, event, year=year, basis="registro",
+                   geo=g, marginal=0 if lvl == "province" else 1)
+        else:
+            b.fact(t, "count", value, event, year=year, basis="registro",
+                   geo=1, dims=("month", label),
+                   marginal=1 if label.lower().startswith("total") else 0)
+        n += 1
+    if unmapped:
+        raise SystemExit(f"Cifras: unmapped geographies {sorted(unmapped)}")
+    b.edition = 2025
+    print(f"  Cifras 2021: {n} facts across 4 cuadros, 2016-2020")
+
+
+def ingest_subnacional(b):
+    """Provincial and regional denominators."""
+    d = SUBNAC.DOCUMENT
+    path = os.path.join(HERE, "raw",
+                        "one-proyecciones-subnacionales-2000-2030.csv")
+    if not os.path.exists(path):
+        print(f"  note: {path} absent; provincial denominators skipped")
+        return
+    b.c.execute(
+        "INSERT INTO source_document (source_id,institution,instrument,"
+        "publication,edition_year,url,local_path,sha256,retrieved_at,"
+        "page_count) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        (d["source_id"], d["institution"], d["instrument"], d["publication"],
+         d["edition_year"], d["url"], d["local_path"], d["sha256"],
+         datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+         d["page_count"]))
+    rows, unmapped = [], set()
+    for lvl, name, sex, band, year, persons in SUBNAC.read(path, set(PROJ_YEARS)):
+        g = b.geo_id(name)
+        if g is None:
+            unmapped.add(name)
+            continue
+        rows.append((d["source_id"], year, d["edition_year"], g, sex, band,
+                     None, None, "persons", persons))
+    if unmapped:
+        raise SystemExit(f"subnacional: unmapped geographies {sorted(unmapped)}")
+    b.c.executemany(
+        "INSERT INTO population (source_id,reference_year,edition_year,geo_id,"
+        "sex,age_band,nationality,marital_status,measure,value) "
+        "VALUES (?,?,?,?,?,?,?,?,?,?)", rows)
+    print(f"  population: +{len(rows)} rows, 32 provinces + 10 regions")
+
+
 # =====================================================================
 # LAYER 2 -- couplings
 # =====================================================================
@@ -479,12 +586,10 @@ def seed_acquisition(con):
         WHERE dataset LIKE 'Anuario%' """)
     # National projections are loaded; the PROVINCIAL breakdown is not --
     # it lives in ONE's subnacional reports, which are PDFs.
-    con.execute("UPDATE acquisition SET status='ingested', blocked_by=?, "
-                "note=note||' NATIONAL loaded from the edades-simples "
-                "workbook; provincial still outstanding.' "
-                "WHERE dataset LIKE 'Estimaciones%'",
-                ("national done; provincial figures are in ONE's subnacional "
-                 "projection PDFs and still need extracting",))
+    con.execute("UPDATE acquisition SET status='ingested', blocked_by=NULL, "
+                "note=note||' National loaded from the edades-simples "
+                "workbook; provincial and regional from the 2016 subnacional "
+                "report, Cuadro 5.3.' WHERE dataset LIKE 'Estimaciones%'")
     con.commit()
 
 
@@ -634,6 +739,33 @@ def register_known_issues(con):
          "immigrant stock. Each is a separate acquisition; the schema "
          "already carries geo_id, nationality and marital_status columns."),
 
+        ("source_table", "Cuadro 2.1-12", "high",
+         "San Jose de Ocoa's divorce rate is implausible and is almost "
+         "certainly an artefact of the REGISTRO basis, not a local "
+         "phenomenon.",
+         "736 divorces in 2019 against a resident population of 54,960 = "
+         "13.39 per 1,000, more than double the next province (Monsenor "
+         "Nouel, 5.70) and 3.6x the national rate. A province of that size "
+         "producing that many dissolutions is not credible; the likely "
+         "cause is that divorces are counted where they are REGISTERED, and "
+         "a court or oficialia there serves a much wider catchment.",
+         "Do not report provincial divorce rates without this caveat. A "
+         "residence-based tabulation would settle it; none is available in "
+         "the loaded sources. Check whether the same province is an outlier "
+         "in other years before treating any single year as signal."),
+
+        ("schema", "population", "medium",
+         "Two projection products disagree by about 1%, and provincial and "
+         "national rates therefore rest on slightly different denominators.",
+         "For 2025 the national single-age workbook gives 10,986,098; the "
+         "32 provinces of the 2016 subnacional report sum to 10,878,267, a "
+         "difference of -107,831 (-0.98%). They are different vintages of "
+         "ONE's projections, not an extraction error.",
+         "Do not mix them in one ratio. National rates use source_id 2, "
+         "provincial rates source_id 3; population.source_id distinguishes "
+         "them. If ONE publishes a subnacional revision consistent with the "
+         "current national series, load it and supersede source 3."),
+
         ("coverage", "microdata", "high",
          "Three-way cross-tabs are unanswerable from published cuadros, in "
          "any edition, forever.",
@@ -706,6 +838,8 @@ def main():
     b.load_reference()
     ingest_anuario_2025(b)
     ingest_proyecciones(b)
+    ingest_subnacional(b)
+    ingest_cifras(b)
     con.commit()
 
     con.execute("UPDATE source_table SET transcription_verified=1, "

@@ -38,6 +38,18 @@ REGIONS = {
                                "Hato Mayor"],
 }
 
+# Names other ONE publications use for the same geographies. The Anuario's
+# Cuadro 3.2 calls the capital region "Region Ozama"; Dominicana en Cifras
+# and the subnacional projections call it "Region Metropolitana". Same
+# place, and a join on the printed string silently drops it.
+GEO_ALIASES = {
+    "Region Metropolitana": "Region Ozama",
+    "Metropolitana": "Region Ozama",
+    "Region Del Valle": "Region El Valle",
+    "Del Valle": "Region El Valle",
+    "Bahoruco": "Baoruco",           # spelled both ways across ONE products
+}
+
 # ONE provincia codes. Recorded so census / ENI / proyecciones tables can
 # be joined on a code rather than on a hand-folded string.
 #
@@ -91,6 +103,8 @@ VOCAB = [
     ("dim_name", "husband_nationality", None, 0, 8, None),
     ("dim_name", "marriage_type",       None, 0, 9, None),
     ("dim_name", "divorce_cause",       None, 0, 10, None),
+    ("dim_name", "month",               None, 0, 15,
+     "month of REGISTRATION, not of the event"),
     # reserved so births extraction does not need a schema change
     ("dim_name", "mother_age_band",     None, 0, 11, "slot reserved"),
     ("dim_name", "father_age_band",     None, 0, 12, "slot reserved"),

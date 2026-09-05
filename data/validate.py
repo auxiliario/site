@@ -114,22 +114,35 @@ def main():
     if one("SELECT COUNT(*) FROM population") == 0:
         warn(False, "population is empty (no rates computable)")
     else:
-        check(not q("""SELECT reference_year, sex FROM population
-                       WHERE measure='persons' AND age_band<>'TOTAL'
-                       GROUP BY reference_year, sex, geo_id
-                       HAVING ABS(SUM(value) - (
-                         SELECT p2.value FROM population p2
-                         WHERE p2.reference_year=population.reference_year
-                           AND p2.sex=population.sex
-                           AND p2.age_band='TOTAL')) > 0.5"""),
-              "population age bands sum to the published total")
-        check(not q("""SELECT reference_year FROM population p
-                       WHERE age_band='TOTAL' AND sex='both'
-                       AND ABS(p.value - (SELECT SUM(v.value) FROM population v
-                          WHERE v.reference_year=p.reference_year
-                            AND v.age_band='TOTAL'
-                            AND v.sex IN ('male','female'))) > 0.5"""),
-              "male + female equals both, every year")
+        # Partition by source AND geography: two projection products are
+        # loaded (national single-age, and the subnacional report) and
+        # comparing a band in one against a total in the other is
+        # meaningless.
+        check(not q("""
+                SELECT p.source_id, p.reference_year, p.geo_id, p.sex
+                FROM population p
+                WHERE p.measure='persons' AND p.age_band<>'TOTAL'
+                GROUP BY p.source_id, p.reference_year, p.geo_id, p.sex
+                HAVING ABS(SUM(p.value) - COALESCE((
+                    SELECT t.value FROM population t
+                    WHERE t.source_id=p.source_id
+                      AND t.reference_year=p.reference_year
+                      AND COALESCE(t.geo_id,-1)=COALESCE(p.geo_id,-1)
+                      AND t.sex=p.sex AND t.age_band='TOTAL'), -1)) > 0.5"""),
+              "population age bands sum to the published total, per source "
+              "and geography")
+        check(not q("""
+                SELECT p.source_id, p.reference_year, p.geo_id
+                FROM population p
+                WHERE p.age_band='TOTAL' AND p.sex='both'
+                  AND ABS(p.value - COALESCE((
+                      SELECT SUM(v.value) FROM population v
+                      WHERE v.source_id=p.source_id
+                        AND v.reference_year=p.reference_year
+                        AND COALESCE(v.geo_id,-1)=COALESCE(p.geo_id,-1)
+                        AND v.age_band='TOTAL'
+                        AND v.sex IN ('male','female')), -1)) > 0.5"""),
+              "male + female equals both, every year and geography")
         check(not q("SELECT 1 FROM population WHERE value < 0"),
               "no negative populations")
         print(f"   rate rows available: "
