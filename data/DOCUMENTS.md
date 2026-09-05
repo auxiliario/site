@@ -42,11 +42,13 @@ by x-position, order each line by descending `top`, reverse each word.
 | **1.10** | **mother's marital status × age band** | ✅ the only union-status-by-age data held |
 | **3.6** | marriages by month × province | ✅ |
 | **4.6** | divorces by month × province | ✅ |
-| 1.1 | births by mother nationality × province | not yet |
-| 1.9 | births by mother's country of birth × region | not yet |
-| 1.11 | births by month × province | not yet |
-| 1.12 | births by year of registration × year of occurrence | not yet |
-| 2.2, 2.5, 2.6 | deaths by month / nationality / age × province | not yet |
+| **1.1** | births by mother nationality × province | ✅ |
+| **1.9** | births by mother's country of birth × province | ✅ 3 rows flagged |
+| **1.11** | births by month × province | ✅ |
+| **1.12** | births by year of registration × year of occurrence | ✅ registration lag |
+| **2.2** | deaths by month × province | ✅ |
+| **2.5** | deaths by nationality × province | ✅ |
+| 2.6 | deaths by age × sex × province | not loaded — 10 pages, sex blocks *and* column continuations |
 
 Verification: every row's printed total was checked against the sum of its
 cells (0 rejected), all 43 geographies resolve for 3.6/3.7/4.6, and

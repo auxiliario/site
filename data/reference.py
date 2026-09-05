@@ -114,6 +114,11 @@ VOCAB = [
     ("dim_name", "perpetrator_relation", None, 0, 18,
      "relationship of the perpetrator to the victim"),
     ("dim_name", "death_classification", None, 0, 19, None),
+    ("dim_name", "mother_birth_country", None, 0, 22,
+     "country of BIRTH of the mother, distinct from her nationality"),
+    ("dim_name", "deceased_nationality", None, 0, 23, None),
+    ("dim_name", "year_of_occurrence", None, 0, 24,
+     "reference_year carries the year of REGISTRATION for these rows"),
     ("dim_name", "month",               None, 0, 15,
      "month of REGISTRATION, not of the event"),
     # reserved so births extraction does not need a schema change

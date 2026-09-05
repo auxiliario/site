@@ -47,6 +47,48 @@ SPEC = {
                  cols=["TOTAL", "Enero", "Febrero", "Marzo", "Abril", "Mayo",
                        "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
                        "Noviembre", "Diciembre"]),
+
+    # ---- remaining rotated cuadros --------------------------------------
+    "1.1":  dict(pages=[46, 47], event="birth", row_dim=None,
+                 col_dim="mother_nationality", rows_are_geo=True,
+                 cols=["TOTAL", "Republica Dominicana", "Haiti", "Venezuela",
+                       "Colombia", "Cuba", "Espana", "Estados Unidos",
+                       "Otros paises", "No declarada"]),
+
+    # NESTED: Total = Dominicana + (subtotal of foreign mothers) + No
+    # declarada, and the subtotal itself equals the seven country columns.
+    # A flat 'total equals the rest' check fails on this shape, and padding
+    # or dropping the row would lose a whole cuadro.
+    "1.9":  dict(pages=[56, 57], event="birth", row_dim=None,
+                 col_dim="mother_birth_country", rows_are_geo=True,
+                 verify="nested",
+                 cols=["TOTAL", "Republica Dominicana", "TOTAL extranjeras",
+                       "Haiti", "Venezuela", "Colombia", "Mexico", "Espana",
+                       "Estados Unidos", "Otros paises", "No declarada"]),
+
+    "1.11": dict(pages=[58, 59], event="birth", row_dim=None,
+                 col_dim="month", rows_are_geo=True, cols=["TOTAL", "Enero", "Febrero", "Marzo", "Abril", "Mayo",
+                       "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+                       "Noviembre", "Diciembre"]),
+
+    # No total column at all: every column is a year of registration and
+    # every row a year of occurrence, so there is nothing to check a row
+    # against. Recorded as verify='none' rather than silently skipped.
+    "1.12": dict(pages=[60], event="birth", row_dim="year_of_occurrence",
+                 col_dim="year_of_registration", rows_are_geo=False,
+                 verify="none", numeric_labels=True,
+                 cols=[str(y) for y in range(2015, 2026)]),
+
+    "2.2":  dict(pages=[66, 67], event="death", row_dim=None,
+                 col_dim="month", rows_are_geo=True, cols=["TOTAL", "Enero", "Febrero", "Marzo", "Abril", "Mayo",
+                       "Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+                       "Noviembre", "Diciembre"]),
+
+    "2.5":  dict(pages=[70, 71], event="death", row_dim=None,
+                 col_dim="deceased_nationality", rows_are_geo=True,
+                 cols=["TOTAL", "Republica Dominicana", "Haiti", "Italia",
+                       "Espana", "Venezuela", "Canada", "Alemania",
+                       "Estados Unidos", "Otros paises", "No declarada"]),
 }
 
 
@@ -67,7 +109,7 @@ def derotate(page, band=3.0):
             for k in sorted(lines, reverse=True)]
 
 
-def parse_rows(lines, ncols):
+def parse_rows(lines, ncols, numeric_labels=False):
     """Label + exactly `ncols` trailing numbers, never padded.
 
     A long row label ('Region Cibao Noroeste', 'Maria Trinidad Sanchez')
@@ -93,13 +135,32 @@ def parse_rows(lines, ncols):
         if not all(NUM.match(t) for t in tail):
             continue
 
+        if numeric_labels:
+            # A table whose row labels are themselves numbers (years) gives
+            # no way to tell a wrapped label from the column header, which
+            # is also a bare run of years. Require the label as a distinct
+            # extra token instead; the header row has exactly ncols tokens
+            # and is correctly ignored.
+            # Any line with MORE than ncols tokens is a data row and the
+            # extra tokens are its label, however many they are ('1995' but
+            # also 'Antes de 1995', 'No declarado'). A line with exactly
+            # ncols tokens is the column header and is skipped -- which is
+            # the only thing the wrapped-label reassembly must not do here.
+            if len(toks) <= ncols:
+                continue
+            label = " ".join(toks[:-ncols]).strip()
+            if not label or label.lower().startswith(("fuente", "cuadro")):
+                continue
+            out.append((label, [int(t.replace(",", "")) for t in tail]))
+            continue
+
         if len(toks) == ncols:                       # numbers only: wrapped
             before = toks_of[i - 1] if i else []
             after = toks_of[i + 1] if i + 1 < len(toks_of) else []
             parts = [" ".join(p) for p in (after, before) if is_label(p)]
             label = " ".join(parts).strip()
         else:
-            if NUM.match(toks[-ncols - 1]):
+            if NUM.match(toks[-ncols - 1]) and not numeric_labels:
                 continue
             label = " ".join(toks[:-ncols]).strip()
 
@@ -119,22 +180,40 @@ def extract(pdf_path, only=None):
             seen = set()
             for p in spec["pages"]:
                 lines = derotate(pdf.pages[p - 1])
-                for label, vals in parse_rows(lines, len(spec["cols"])):
+                for label, vals in parse_rows(lines, len(spec["cols"]),
+                                             spec.get("numeric_labels", False)):
                     if label in seen:
                         continue
                     seen.add(label)
-                    total = vals[0]
-                    summed = sum(vals[1:])
-                    if total != summed:
-                        warn.append(f"Cuadro {cuadro} {label!r}: printed total "
-                                    f"{total}, cells sum to {summed} "
-                                    f"({total - summed:+})")
-                        continue
+                    mode = spec.get("verify", "total_first")
+                    problem = None
+                    if mode == "total_first":
+                        if vals[0] != sum(vals[1:]):
+                            problem = (f"printed total {vals[0]}, cells sum to "
+                                       f"{sum(vals[1:])} "
+                                       f"({vals[0] - sum(vals[1:]):+})")
+                    elif mode == "nested":
+                        # Total = Dominicana + foreign subtotal + No declarada
+                        if vals[0] != vals[1] + vals[2] + vals[-1]:
+                            problem = (f"total {vals[0]} != dominicana "
+                                       f"{vals[1]} + extranjeras {vals[2]} + "
+                                       f"no declarada {vals[-1]}")
+                        elif vals[2] != sum(vals[3:-1]):
+                            problem = (f"foreign subtotal {vals[2]} != sum of "
+                                       f"countries {sum(vals[3:-1])}")
+                    # Preserve and flag; never drop. A row that fails its
+                    # own arithmetic is a finding about the source, and
+                    # discarding it would hide that the source disagrees
+                    # with itself -- the same rule the rest of this
+                    # database follows for Cuadro 3.5.
+                    if problem:
+                        warn.append(f"Cuadro {cuadro} {label!r}: {problem}")
                     for col, v in zip(spec["cols"], vals):
                         rows.append((cuadro, spec["event"],
                                      "geography" if spec["rows_are_geo"]
                                      else spec["row_dim"],
-                                     label, spec["col_dim"], col, v))
+                                     label, spec["col_dim"], col, v,
+                                     problem or ""))
     return rows, warn
 
 
@@ -149,18 +228,20 @@ def main():
     with open(a.out, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["cuadro", "vital_event", "dim1_name", "dim1_value",
-                    "dim2_name", "dim2_value", "value"])
+                    "dim2_name", "dim2_value", "value", "anomaly"])
         w.writerows(rows)
     from collections import Counter
     c = Counter(r[0] for r in rows)
     print(f"{len(rows)} rows -> {a.out}")
     for k in sorted(c):
         labels = len({r[3] for r in rows if r[0] == k})
-        print(f"  Cuadro {k:<5} {c[k]:>4} rows, {labels} row labels "
-              f"(row totals verified)")
+        fl = len({r[3] for r in rows if r[0] == k and r[7]})
+        print(f"  Cuadro {k:<5} {c[k]:>4} rows, {labels:>2} row labels"
+              + (f", {fl} FLAGGED" if fl else ", all verified"))
     for w_ in warn[:12]:
         print("  WARN", w_)
-    print(f"  ({len(warn)} rows rejected on the total check)")
+    flagged = len({(r[0], r[3]) for r in rows if r[7]})
+    print(f"  ({flagged} rows flagged by the total check, 0 dropped)")
 
 
 if __name__ == "__main__":

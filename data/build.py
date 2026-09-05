@@ -570,7 +570,7 @@ def ingest_rotated_2025(b):
         return
     b.edition = 2025
     tids, n, unmapped = {}, 0, set()
-    for cuadro, d1n, d1v, d2n, d2v, value in ROT.read(path):
+    for cuadro, d1n, d1v, d2n, d2v, value, anomaly in ROT.read(path):
         if cuadro not in tids:
             title, page = ROT.TITLES[cuadro]
             tids[cuadro] = b.table(
@@ -580,6 +580,17 @@ def ingest_rotated_2025(b):
                       "word storage; invisible to plain text extraction. "
                       "Every row total verified against its cells.")
         t = tids[cuadro]
+        if cuadro == "1.12":
+            # Rows are the year the birth OCCURRED, columns the year it was
+            # REGISTERED. reference_year takes the registration year, so the
+            # registration lag is queryable as a real date difference.
+            b.fact(t, "count", value, "birth", year=int(d2v),
+                   basis="registro", geo=1,
+                   dims=("year_of_occurrence", d1v),
+                   marginal=1 if d1v.lower().startswith("total") else 0,
+                   note=anomaly)
+            n += 1
+            continue
         if d1n == "geography":
             g = b.geo_id(d1v)
             if g is None:
@@ -590,14 +601,16 @@ def ingest_rotated_2025(b):
             dim = ROT.DIM_FOR_GEO_ROWS[cuadro]
             b.fact(t, "count", value, ROT.EVENT[cuadro], year=2025,
                    basis=ROT.BASIS[cuadro], geo=g, dims=(dim, d2v),
-                   marginal=1 if (lvl != "province" or d2v == "TOTAL") else 0)
+                   marginal=1 if (lvl != "province" or d2v == "TOTAL"
+                                  or d2v.startswith("TOTAL ")) else 0,
+                   note=anomaly)
         else:
             b.fact(t, "count", value, ROT.EVENT[cuadro], year=2025,
                    basis=ROT.BASIS[cuadro], geo=1,
                    dims=(d1n, "TOTAL" if d1v.lower().startswith("total")
                          else d1v, d2n, d2v),
                    marginal=1 if (d1v.lower().startswith("total")
-                                  or d2v == "TOTAL") else 0)
+                                  or d2v == "TOTAL") else 0, note=anomaly)
         n += 1
     if unmapped:
         raise SystemExit(f"rotated: unmapped geographies {sorted(unmapped)}")
@@ -989,6 +1002,22 @@ def register_known_issues(con):
          "splits would have made this visible rather than silent. Treat "
          "the annual totals as sound and the 2014/2015/2017 splits as "
          "incomplete."),
+
+        ("source_table", "Cuadro 1.9", "low",
+         "Three of 43 geographies have a foreign-mother subtotal that is "
+         "one birth away from the countries beneath it. Rows preserved as "
+         "printed and flagged, not corrected.",
+         "Region Enriquillo: subtotal 926 against 925 summed. Samana: 125 "
+         "against 126. Region Cibao Nordeste: 651 against 652. Samana sits "
+         "inside Cibao Nordeste and both are +1, so one birth appears to "
+         "be counted in the province subtotal but not in any country "
+         "column, and it propagates to the region. Enriquillo is -1 in the "
+         "opposite direction. The outer identity (total = dominicana + "
+         "foreign subtotal + no declarada) holds for all 43 rows; only the "
+         "inner one fails.",
+         "Immaterial at this magnitude -- three units across 154,449 "
+         "births. Use the outer totals, which reconcile everywhere. The "
+         "affected facts carry the discrepancy in fact.note."),
 
         ("coverage", "microdata", "high",
          "Three-way cross-tabs are unanswerable from published cuadros, in "
