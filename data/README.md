@@ -24,68 +24,53 @@ SELECT severity, ref, summary FROM known_issue               -- what is wrong
 SELECT cuadro, trust, trust_note FROM source_table;          -- what you may quote
 ```
 
-**Cuadro 3.5 (marriage nationality × nationality) is `marginals_only`.**
-Its interior cells sum to 44,349 while both sets of published margins
-independently sum to 40,750 — the total Cuadros 3.2, 3.3 and 3.4 agree on.
-The margins are also self-consistent with each other: row and column
-margins each imply exactly 3,431 foreign×foreign marriages, and
-36,358 + 427 + 534 + 3,431 = 40,750 on the nose.
+**Cuadro 3.5 — settled 2026-09-05 against the source PDF. The defect is
+ONE's.** The published cuadro contradicts itself:
 
-But the two readings describe different countries:
+- All 17 printed row totals disagree with the cells printed beside them.
+- The Estados Unidos row total is **1,565**, while a single cell in that
+  row is **1,904** — so the Total column cannot be a row total at all.
+- The interior sums to 44,349. The row margins, the column margins and the
+  Total/Total cell all give **40,750**, matching Cuadros 3.2, 3.3 and 3.4.
 
-| | margins | interior cells |
-|---|---:|---:|
-| mixed, Dominican bride | 427 | 3,474 |
-| mixed, Dominican groom | 534 | 3,600 |
-| foreign × foreign | 3,431 | 917 |
-| **total mixed** | **961** | **7,074** |
+The margins are corroborated by three other cuadros; the interior is
+corroborated by nothing. **Quote either, never both in one figure, and say
+which.** The mechanism behind ONE's 3,599 excess is not recoverable from
+the publication.
 
-The margins say 86% of foreign brides married foreign grooms in the DR;
-the interior says 88% of them married Dominican grooms. The
-demographically intuitive reading is the one that fails arithmetic, so
-**neither side can be assumed correct** and no mixed-nationality marriage
-figure is quotable until page 85 is re-read.
+One transcription error was found and corrected in the process: the **Perú
+and Puerto Rico columns were transposed**, mislabelling 8 cells and 2
+column totals. 281 of 289 cells were exact. The cuadro prints across
+pp.85–86 (`continuación`), and the transposition sat precisely at that
+stitch. Perú × Perú is now 15 rather than 0.
 
-Supporting detail: 16 of 17 rows and 16 of 17 columns fail. The Perú row
-places 15 marriages under the Puerto Rico column while its own diagonal is
-0 and the entire Puerto Rico row is 0. `test_extract.py` reproduces that
-exact signature by rendering a single cell blank — which shows what a
-column shift or a padded hole looks like, not that one occurred. The
-structurally identical Cuadro 4.5 reconciles exactly on all 17 rows using
-the same extraction method, so this is not a general property of ONE's
-nationality tables.
+Two separate columns record two separate facts, and they should not be
+conflated:
+
+| column | means |
+|---|---|
+| `trust = 'marginals_only'` | arithmetic consistency — this table does not add up |
+| `transcription_verified = 1` | the cells are a faithful copy of what was printed |
+
+A faithful transcription of a cuadro that contradicts itself is exactly
+what this is.
 
 The **divorce** equivalent is unaffected: Cuadro 4.5 is `verified` and
 reproduces the same directional pattern (Italia 2.05 alongside marriage's
-untrusted 2.21; Venezuela 0.41 against 0.41).
+2.21; Venezuela 0.41 against 0.41).
 
-### Settling it
+### Re-verifying
 
 ```
 python extract_crosstab.py --pdf anuario-2025.pdf --cuadro "Cuadro 3.5"
 ```
 
-Re-reads the page by token geometry rather than `pdftotext -layout`,
-verifies the file's sha256 against `source_document`, and prints one of:
-
-- `MATCHES TRANSCRIPTION` — the PDF really does print cells that do not sum
-  to its own margins. The defect is ONE's; keep the cells as published and
-  keep trust downgraded.
-- `DIFFERS` — with the offending cells listed. Paste the corrected grid
-  into `sources/anuario_2025.py` and re-run `build.py && validate.py`;
-  trust is re-derived from the numbers, nothing is edited by hand.
-
-`pdftotext -layout` reflows a wide table onto a fixed character grid and
-can drop or merge a column silently — the failure mode under suspicion.
-The geometry extractor keeps every token's x-position, clusters columns
-from those positions, and leaves a **hole** where a cell is missing rather
-than shifting its neighbours left. `test_extract.py` validates both
-properties against a synthetic cuadro-shaped PDF: all 289 cells round-trip
-exactly, and a blanked cell does not shift its row.
-
-**The PDF is not in this repository.** ONE's host
-(`www.one.gob.do`) is blocked by this environment's egress policy, so it
-has to be supplied by hand.
+Checks the file's sha256 against `source_document` first, then re-reads
+the page. Note that `extract_crosstab.py`'s geometry path clusters on
+token centres, which splits columns on tightly-set right-aligned tables
+like this one; the verification above was done from the PDF text layer,
+stitching pp.85–86. Cluster on right edges before trusting the geometry
+path on a dense cuadro.
 
 ---
 

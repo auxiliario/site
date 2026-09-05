@@ -50,6 +50,13 @@ CREATE TABLE source_table (
   vital_event       TEXT,
   extraction_method TEXT,
   verified_visually INTEGER DEFAULT 0 CHECK (verified_visually IN (0,1)),
+  -- Distinct from `trust`. transcription_verified=1 means the cells were
+  -- machine-checked against the source PDF and match. A table can be a
+  -- faithful transcription of a cuadro that does not add up -- Cuadro 3.5
+  -- is exactly that -- so the two facts need separate columns.
+  transcription_verified INTEGER NOT NULL DEFAULT 0
+                    CHECK (transcription_verified IN (0,1)),
+  verified_against  TEXT,
   -- Trust is the load-bearing addition in v2. `verified_visually` only
   -- says a human looked at the page; it says nothing about whether the
   -- numbers hold together.

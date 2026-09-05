@@ -191,9 +191,11 @@ def ingest_anuario_2025(b):
     t = b.table(sid, "Cuadro 3.5",
                 "Matrimonios registrados por pais de nacionalidad del "
                 "contrayente, segun pais de nacionalidad de la contrayente, 2025",
-                85, "marriage", "pdftotext -layout + 150dpi raster check",
-                notes="Interior cells do not reconcile with either set of "
-                      "published marginals. See known_issue 1.")
+                85, "marriage",
+                "text layer, pp.85-86 stitched; verified by extract_crosstab.py",
+                notes="Printed across pp.85-86 ('continuacion'). Interior "
+                      "cells do not reconcile with either set of published "
+                      "marginals IN THE SOURCE. See known_issue 1.")
     load_crosstab(b, t, "marriage", A25.C35, A25.C35_COLS,
                   "bride_nationality", "groom_nationality",
                   row_totals=A25.C35_ROW_TOTALS, col_totals=A25.C35_COL_TOTALS)
@@ -538,40 +540,32 @@ def register_known_issues(con):
     c.executemany(
         "INSERT INTO known_issue (scope,ref,severity,summary,evidence,resolution)"
         " VALUES (?,?,?,?,?,?)", [
-        ("source_table", "Cuadro 3.5", "blocking",
-         "The interior of the marriage nationality x nationality cuadro is "
-         "irreconcilable with its own margins, and the two readings imply "
-         "opposite substantive findings. No mixed-nationality MARRIAGE "
-         "figure is quotable until page 85 is re-read.",
-         "Interior cells sum to 44,349. Published row totals sum to 40,750 "
-         "and published column totals independently sum to 40,750 -- the "
-         "figure Cuadros 3.2, 3.3 and 3.4 agree on for 2025. The margins are "
-         "also self-consistent: row and column margins each imply exactly "
-         "3,431 foreign x foreign marriages, and 36,358 + 427 + 534 + 3,431 "
-         "= 40,750 exactly. But that reading says 86% of foreign brides "
-         "married foreign grooms in the DR, while the interior says 88% of "
-         "them married Dominican grooms (961 mixed marriages vs 7,074). The "
-         "demographically intuitive reading is the one that fails "
-         "arithmetic, so neither side can be assumed correct. 16 of 17 rows "
-         "and 16 of 17 columns fail; the Dominican row is 3,047 over and its "
-         "column 3,066 over. The Peru row places 15 marriages under the "
-         "Puerto Rico column while its own diagonal is 0 and the whole "
-         "Puerto Rico row is 0. test_extract.py reproduces exactly that "
-         "signature by rendering one cell blank, showing it is what a "
-         "column-shift or a padded hole looks like. The structurally "
-         "identical Cuadro 4.5 reconciles exactly on all 17 rows using the "
-         "same extraction method.",
-         "Run: python extract_crosstab.py --pdf <anuario-2025.pdf> --cuadro "
-         "'Cuadro 3.5'. It re-reads the page by token geometry rather than "
-         "by pdftotext -layout, verifies the file's sha256 against "
-         "source_document, and prints either MATCHES TRANSCRIPTION (the "
-         "defect is ONE's; keep the cells and the downgraded trust) or "
-         "DIFFERS with the corrected grid. The PDF is not in this "
-         "repository -- ONE's host is blocked by this environment's egress "
-         "policy -- so it must be supplied. Until then trust is "
-         "'marginals_only' and v_pairing_symmetry_trusted excludes it; the "
-         "divorce equivalent (Cuadro 4.5) is verified and shows the same "
-         "directional pattern."),
+        ("source_table", "Cuadro 3.5", "high",
+         "SETTLED 2026-09-05 against the source PDF: the defect is ONE's, "
+         "not the extractor's. The published cuadro contradicts itself. "
+         "Cells are now verified faithful and may be quoted AS PUBLISHED, "
+         "with the contradiction disclosed; the margins and the interior "
+         "cannot both be used in one figure.",
+         "Verified against pp.85-86 of the PDF (sha256 42ec03d0...), which "
+         "matches source_document byte for byte. The cuadro is printed "
+         "across two pages: p.85 carries Total plus the first 8 country "
+         "columns, p.86 the remaining 9 under 'continuacion'. All 17 "
+         "printed row totals disagree with the cells printed beside them, "
+         "and the Estados Unidos row total (1,565) is SMALLER than a single "
+         "cell in that row (1,904) -- so the Total column cannot be a row "
+         "total at all. Interior sums to 44,349; the row margins, the "
+         "column margins and the Total/Total cell all give 40,750, matching "
+         "Cuadros 3.2, 3.3 and 3.4. One transcription error was found and "
+         "fixed: the Peru and Puerto Rico columns were transposed, "
+         "mislabelling 8 cells and 2 column totals; 281 of 289 cells were "
+         "exact. That transposition sat exactly at the p.85/p.86 stitch.",
+         "No further extraction work. The margins are corroborated by three "
+         "other cuadros; the interior is not corroborated by anything. Quote "
+         "either, never both in one figure, and say which. trust stays "
+         "'marginals_only' because that grades ARITHMETIC consistency; "
+         "transcription_verified=1 records separately that the cells are a "
+         "faithful copy. The mechanism behind ONE's 3,599 excess is not "
+         "recoverable from the publication and would need a query to ONE."),
 
         ("coverage", "population", "high",
          "No population denominators are loaded, so every pairing figure is "
@@ -654,6 +648,14 @@ def main():
     b = Build(con)
     b.load_reference()
     ingest_anuario_2025(b)
+    con.commit()
+
+    con.execute("UPDATE source_table SET transcription_verified=1, "
+                "verified_against=? WHERE cuadro='Cuadro 3.5'",
+                ("pp.85-86 of sha256 42ec03d0ef6d7e2e18af0f4555eb8270"
+                 "fae0b624aa89cd74d24fc6880956ef70, checked 2026-09-05: "
+                 "281 of 289 cells exact; 8 mislabelled by a Peru/Puerto "
+                 "Rico column transposition, now corrected",))
     con.commit()
 
     reconcile(con)

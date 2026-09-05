@@ -59,10 +59,21 @@ C33_ROW_TOTALS = {"15-19": 889, "20-24": 6447, "25-29": 7678, "30-34": 6438,
 
 # ------------------- Cuadro 3.5 (p.85) bride nationality x groom nationality
 # NOTE: the interior of this cuadro does not reconcile with either set of
-# published marginals. See known_issue #1. Transcribed as printed anyway.
+# published marginals -- IN THE PDF ITSELF. Verified 2026-09-05 against
+# pp.85-86: all 17 printed row totals disagree with the cells printed
+# beside them, and the Estados Unidos row total (1,565) is smaller than a
+# single cell in that row (1,904), so the Total column cannot be a row
+# total at all. The defect is ONE's. Transcribed exactly as printed.
+# Column order VERIFIED against the PDF (pp. 85-86, sha256 42ec03d0...).
+# The cuadro is printed across two pages: p.85 carries Total + the first 8
+# country columns, p.86 the remaining 9 under "continuacion...". Peru and
+# Puerto Rico were transposed in the original transcription -- almost
+# certainly where the two pages were stitched. Cell VALUES were positionally
+# correct; only these two headers were swapped, which mislabelled 8 cells
+# and 2 column totals.
 C35_COLS = ["Republica Dominicana", "Estados Unidos", "Espana", "Haiti",
             "Italia", "Venezuela", "Canada", "Polonia", "Colombia",
-            "Alemania", "Cuba", "Francia", "Mexico", "Peru", "Puerto Rico",
+            "Alemania", "Cuba", "Francia", "Mexico", "Puerto Rico", "Peru",
             "Otros paises", "No declarada"]
 C35 = {
     "Republica Dominicana": [36358, 1897, 408, 178, 172, 91, 66, 11, 52, 53, 47, 45, 51, 51, 15, 252, 85],
