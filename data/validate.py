@@ -110,6 +110,32 @@ def main():
                 "WHERE st.trust<>'verified'"),
           "v_pairing_symmetry_trusted serves only reconciling tables")
 
+    print("\n== couplings layer ==")
+    check(not q("SELECT 1 FROM dyad d LEFT JOIN source_document sd "
+                "USING(source_id) WHERE sd.source_id IS NULL"),
+          "every dyad resolves to a source document")
+    check(not q("SELECT 1 FROM dyad_attribute a LEFT JOIN dyad d "
+                "USING(dyad_id) WHERE d.dyad_id IS NULL"),
+          "no orphan dyad attributes")
+    check(not q("SELECT 1 FROM dyad WHERE weight IS NULL OR weight < 0"),
+          "every dyad carries a non-negative weight")
+    # The load-bearing rule: trust governs entry to the couplings layer.
+    check(not q("""SELECT 1 FROM dyad d JOIN source_table st
+                   USING(table_id) WHERE st.trust <> 'verified'"""),
+          "no dyad derives from a cuadro that fails reconciliation")
+    check(not q("SELECT 1 FROM dyad WHERE grain='cell' AND table_id IS NULL"),
+          "every aggregate-grain dyad names the cuadro it came from")
+    check(not q("SELECT 1 FROM constraint_check WHERE verdict='divergent'"),
+          "dyad totals reproduce the published cell totals they derive from")
+    warn(bool(q("SELECT 1 FROM dyad WHERE grain='record'")),
+         "record-grain dyads present (expected to warn: microdata not yet "
+         "acquired)")
+    print(f"   distinct couplings held: "
+          f"{one('SELECT COUNT(*) FROM (SELECT DISTINCT attr_a, attr_b FROM v_couplings)')}")
+    blocked = one("SELECT COUNT(*) FROM acquisition WHERE status='blocked'")
+    print(f"   acquisition targets blocked: {blocked} of "
+          f"{one('SELECT COUNT(*) FROM acquisition')}")
+
     print("\n== views execute ==")
     for (v,) in q("SELECT name FROM sqlite_master WHERE type='view' ORDER BY name"):
         try:

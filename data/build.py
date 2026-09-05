@@ -23,6 +23,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, "sources"))
 
 import reference as R                      # noqa: E402
+import acquisition as ACQ                  # noqa: E402
 import anuario_2025 as A25                 # noqa: E402
 
 SCHEMA_VERSION = "2.0"
@@ -420,6 +421,117 @@ def reconcile(con):
 
 
 # =====================================================================
+# LAYER 2 -- couplings
+# =====================================================================
+def seed_acquisition(con):
+    con.execute("DELETE FROM acquisition")
+    con.executemany(
+        "INSERT INTO acquisition (tier,institution,dataset,vintages,grain,"
+        "couple_linkage,est_couplings,access,redistributable,priority,verify,"
+        "note) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", ACQ.TARGETS)
+    # Nothing external is reachable from this session, so every remote
+    # target starts blocked rather than pretending to be merely pending.
+    con.execute("UPDATE acquisition SET status='blocked', blocked_by=? "
+                "WHERE status='not_started'",
+                ("host denied by this environment's egress policy (403 on "
+                 "CONNECT); needs an allowlist change or a manual download",))
+    con.execute("""UPDATE acquisition SET status='ingested', blocked_by=NULL
+        WHERE dataset LIKE 'Anuario%' """)
+    con.commit()
+
+
+def derive_dyads_from_cuadros(con):
+    """Turn published cross-tab cells into weighted dyads.
+
+    Every non-marginal cell of a two-way cuadro IS a set of couples: the
+    cell (bride 25-29, groom 30-34) = 2,226 says 2,226 dyads share those
+    two attributes. Loading them at grain='cell' means v_couplings works
+    on the aggregates we already hold, and microdata later lands in the
+    same table at grain='record' with no migration.
+
+    TRUST GOVERNS ENTRY. A cuadro whose cells do not reconcile never
+    becomes a dyad -- otherwise the couplings layer would launder exactly
+    the numbers layer 1 marks as unusable.
+    """
+    con.execute("DELETE FROM dyad_attribute")
+    con.execute("DELETE FROM dyad")
+
+    ROLES = {"bride": ("bride", "groom", "female", "male"),
+             "wife":  ("wife", "husband", "female", "male"),
+             "mother": ("mother", "father", "female", "male")}
+    rows = con.execute("""
+        SELECT f.fact_id, f.table_id, st.source_id, f.reference_year,
+               f.edition_year, f.geo_id, f.basis, f.vital_event, f.value,
+               f.dim1_name, f.dim1_value, f.dim2_name, f.dim2_value
+        FROM fact f JOIN source_table st ON st.table_id=f.table_id
+        WHERE f.is_marginal=0 AND f.value IS NOT NULL
+          AND f.dim2_name IS NOT NULL AND f.dim1_name <> 'construct'
+          AND st.trust = 'verified'""").fetchall()
+
+    dyads, attrs, did = [], [], 0
+    for (_fid, tid, sid, ry, ey, geo, basis, event, val,
+         d1n, d1v, d2n, d2v) in rows:
+        prefix = d1n.split("_")[0]
+        if prefix not in ROLES:
+            continue
+        role_a, role_b, sex_a, sex_b = ROLES[prefix]
+        attribute = d1n[len(prefix) + 1:]
+        did += 1
+        dyads.append((did, sid, tid, event, "cell", ry, ey, geo, basis,
+                      role_a, role_b, sex_a, sex_b, val))
+        attrs.append((did, "a", attribute, d1v, None))
+        attrs.append((did, "b", attribute, d2v, None))
+
+    con.executemany(
+        "INSERT INTO dyad (dyad_id,source_id,table_id,dyad_type,grain,"
+        "reference_year,edition_year,geo_id,basis,role_a,role_b,sex_a,sex_b,"
+        "weight) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", dyads)
+    con.executemany("INSERT INTO dyad_attribute VALUES (?,?,?,?,?)", attrs)
+    con.commit()
+
+
+def check_constraints(con):
+    """Published marginals become tests the dyad layer must reproduce.
+
+    Today the dyads are derived FROM those cuadros, so agreement is
+    tautological and says only that the derivation is lossless. The
+    moment a microdata source lands, the same checks become a real test
+    of weighting and coverage -- which is the point of writing them now.
+    """
+    con.execute("DELETE FROM constraint_check")
+    rows = []
+    # Only pairing cuadros: summing a column of mean ages, or a table
+    # that repeats its total across three marriage types, produces a
+    # number that means nothing and a check that tests nothing.
+    for tid, cuadro, control in con.execute("""
+            SELECT st.table_id, st.cuadro,
+                   (SELECT SUM(value) FROM fact
+                     WHERE table_id=st.table_id AND is_marginal=0)
+            FROM source_table st
+            WHERE st.trust='verified'
+              AND EXISTS (SELECT 1 FROM fact f WHERE f.table_id=st.table_id
+                          AND f.dim2_name IS NOT NULL
+                          AND (f.dim1_name LIKE 'bride%' OR
+                               f.dim1_name LIKE 'wife%'  OR
+                               f.dim1_name LIKE 'mother%'))""").fetchall():
+        got = con.execute("SELECT SUM(weight) FROM dyad WHERE table_id=?",
+                          (tid,)).fetchone()[0]
+        if got is None:
+            rows.append((tid, f"{cuadro}: dyad total vs published cells",
+                         control, None, None, None, "not_yet_testable"))
+            continue
+        delta = round(got - control, 6)
+        rows.append((tid, f"{cuadro}: dyad total vs published cells",
+                     control, got, delta,
+                     round(100.0 * delta / control, 4) if control else None,
+                     "ok" if abs(delta) <= 1e-6 else "divergent"))
+    con.executemany(
+        "INSERT INTO constraint_check (table_id,description,published,"
+        "from_dyads,delta,pct_delta,verdict) VALUES (?,?,?,?,?,?,?)", rows)
+    con.commit()
+
+
+# =====================================================================
 def register_known_issues(con):
     c = con.cursor()
     c.execute("DELETE FROM known_issue")
@@ -537,6 +649,7 @@ def main():
     con = sqlite3.connect(args.db)
     con.execute("PRAGMA foreign_keys = ON")
     con.executescript(open(os.path.join(HERE, "schema.sql")).read())
+    con.executescript(open(os.path.join(HERE, "schema_dyad.sql")).read())
 
     b = Build(con)
     b.load_reference()
@@ -544,6 +657,9 @@ def main():
     con.commit()
 
     reconcile(con)
+    seed_acquisition(con)
+    derive_dyads_from_cuadros(con)
+    check_constraints(con)
     register_known_issues(con)
     finalize(con, views_sql)
 

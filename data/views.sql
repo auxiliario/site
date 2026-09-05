@@ -184,3 +184,80 @@ JOIN source_table st    ON st.table_id  = f.table_id
 JOIN source_document sd ON sd.source_id = st.source_id
 GROUP BY st.table_id
 ORDER BY sd.edition_year, st.page_number;
+
+
+-- =====================================================================
+-- LAYER 2 -- the couplings engine
+-- =====================================================================
+DROP VIEW IF EXISTS v_couplings;
+DROP VIEW IF EXISTS v_coupling_inventory;
+DROP VIEW IF EXISTS v_coupling_yield;
+DROP VIEW IF EXISTS v_acquisition_plan;
+DROP VIEW IF EXISTS v_dyad_gaps;
+
+-- THE mining view. Self-joins the attribute table across the two sides,
+-- so every pairing of every attribute is generated without anyone
+-- writing a query per cross-tab. Add a source with K attributes per side
+-- and K^2 couplings appear here with no schema change and no new view.
+--
+--   SELECT * FROM v_couplings WHERE attr_a='age_band' AND attr_b='nationality';
+--
+-- `grain` must be carried into any headline: 'cell' rows are aggregated
+-- table cells, 'record' rows are individual couples, and mixing them
+-- without saying so overstates precision.
+CREATE VIEW v_couplings AS
+SELECT d.dyad_type, d.grain, d.reference_year, d.edition_year,
+       d.source_id, d.geo_id, d.basis,
+       a.attribute AS attr_a, COALESCE(a.value_text, CAST(a.value_num AS TEXT)) AS val_a,
+       b.attribute AS attr_b, COALESCE(b.value_text, CAST(b.value_num AS TEXT)) AS val_b,
+       SUM(d.weight)  AS n,
+       COUNT(*)       AS dyad_rows,
+       MIN(d.role_a)  AS role_a, MIN(d.role_b) AS role_b
+FROM dyad d
+JOIN dyad_attribute a ON a.dyad_id = d.dyad_id AND a.side = 'a'
+JOIN dyad_attribute b ON b.dyad_id = d.dyad_id AND b.side = 'b'
+GROUP BY d.dyad_type, d.grain, d.reference_year, d.edition_year,
+         d.source_id, d.geo_id, d.basis, a.attribute, b.attribute,
+         val_a, val_b;
+
+-- What couplings exist right now, and how much weight sits behind each.
+-- This is the project's headline metric: the count of rows here is the
+-- number of distinct questions the database can answer about pairing.
+CREATE VIEW v_coupling_inventory AS
+SELECT sd.instrument, sd.publication, c.dyad_type, c.grain,
+       c.attr_a, c.attr_b,
+       COUNT(*)      AS cells,
+       SUM(c.n)      AS weighted_dyads,
+       MIN(c.reference_year) AS year_from,
+       MAX(c.reference_year) AS year_to
+FROM v_couplings c
+JOIN source_document sd ON sd.source_id = c.source_id
+GROUP BY 1,2,3,4,5,6;
+
+-- Held vs. planned, in the only unit that matters.
+CREATE VIEW v_coupling_yield AS
+SELECT 'held'    AS state, 'all loaded sources' AS dataset, NULL AS tier,
+       (SELECT COUNT(*) FROM (SELECT DISTINCT attr_a, attr_b FROM v_couplings))
+         AS distinct_couplings, NULL AS priority, NULL AS status
+UNION ALL
+SELECT 'planned', dataset, tier, est_couplings, priority, status
+FROM acquisition WHERE est_couplings > 0
+ORDER BY state, distinct_couplings DESC;
+
+-- The plan, ordered the way it should be worked.
+CREATE VIEW v_acquisition_plan AS
+SELECT priority, tier, status, institution, dataset, vintages, grain,
+       est_couplings, access, redistributable, blocked_by, couple_linkage,
+       verify
+FROM acquisition ORDER BY priority;
+
+-- Attributes present on one side but not the other, i.e. couplings that
+-- are one ingest fix away from existing. Cheapest yield on the board.
+CREATE VIEW v_dyad_gaps AS
+SELECT d.source_id, d.dyad_type, x.attribute,
+       SUM(CASE WHEN x.side='a' THEN 1 ELSE 0 END) AS on_side_a,
+       SUM(CASE WHEN x.side='b' THEN 1 ELSE 0 END) AS on_side_b
+FROM dyad d JOIN dyad_attribute x ON x.dyad_id = d.dyad_id
+WHERE x.side IN ('a','b')
+GROUP BY 1,2,3
+HAVING on_side_a = 0 OR on_side_b = 0;
