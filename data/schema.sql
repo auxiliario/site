@@ -74,7 +74,11 @@ CREATE TABLE source_table (
 CREATE TABLE geography (
   geo_id        INTEGER PRIMARY KEY,
   level         TEXT NOT NULL
-                CHECK (level IN ('national','region','province','municipality')),
+                -- 'macroregion' is the Atlas de Genero's four-zone split.
+                -- It does NOT nest into 'region' and is left unparented so
+                -- a join cannot silently mix the two geographies.
+                CHECK (level IN ('national','region','province',
+                                 'municipality','macroregion')),
   code          TEXT,                     -- ONE provincia code, 01..32
   code_scheme   TEXT,
   code_verified INTEGER DEFAULT 0 CHECK (code_verified IN (0,1)),

@@ -45,6 +45,8 @@ REGIONS = {
 GEO_ALIASES = {
     "Region Metropolitana": "Region Ozama",
     "Metropolitana": "Region Ozama",
+    "Ozama o Metropolitana": "Region Ozama",   # Atlas de Genero
+    "Region Ozama o Metropolitana": "Region Ozama",
     "Region Del Valle": "Region El Valle",
     "Del Valle": "Region El Valle",
     "Bahoruco": "Baoruco",           # spelled both ways across ONE products
@@ -78,6 +80,9 @@ VOCAB = [
     ("vital_event", "divorce",   "Divorcios",   0, 2, None),
     ("vital_event", "birth",     "Nacimientos", 0, 3, "slot reserved; not yet loaded"),
     ("vital_event", "death",     "Defunciones", 0, 4, "slot reserved; not yet loaded"),
+    ("vital_event", "partner_violence", "Violencia de pareja", 0, 5,
+     "survey-measured; not a vital event, and not dyadic"),
+    ("vital_event", "femicide",  "Feminicidio", 0, 6, "administrative records"),
 
     ("measure", "count",         "Numero absoluto",        0, 1, None),
     ("measure", "percent",       "Porcentaje",             0, 2, None),
@@ -103,6 +108,12 @@ VOCAB = [
     ("dim_name", "husband_nationality", None, 0, 8, None),
     ("dim_name", "marriage_type",       None, 0, 9, None),
     ("dim_name", "divorce_cause",       None, 0, 10, None),
+    ("dim_name", "violence_scope",      None, 0, 16,
+     "sphere in which the violence occurred; see one_atlas.SCOPE"),
+    ("dim_name", "residence_zone",      None, 0, 17, "urbana / rural"),
+    ("dim_name", "perpetrator_relation", None, 0, 18,
+     "relationship of the perpetrator to the victim"),
+    ("dim_name", "death_classification", None, 0, 19, None),
     ("dim_name", "month",               None, 0, 15,
      "month of REGISTRATION, not of the event"),
     # reserved so births extraction does not need a schema change

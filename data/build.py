@@ -28,6 +28,7 @@ import anuario_2025 as A25                 # noqa: E402
 import one_proyecciones as PROJ            # noqa: E402
 import one_subnacional as SUBNAC           # noqa: E402
 import one_cifras as CIFRAS                # noqa: E402
+import one_atlas as ATLAS                  # noqa: E402
 
 SCHEMA_VERSION = "2.0"
 
@@ -59,6 +60,7 @@ class Build:
 
         # geography: national -> region -> province
         self.geo = {}
+        self.macro = {}
         c.execute("INSERT INTO geography VALUES (1,'national',NULL,NULL,0,?,?,NULL)",
                   ("Republica Dominicana", R.fold("Republica Dominicana")))
         self.geo[R.fold("Republica Dominicana")] = 1
@@ -77,6 +79,17 @@ class Build:
                      p, R.fold(p), rid))
                 self.geo[R.fold(p)] = gid
                 gid += 1
+
+    def load_macroregions(self, names, start_id=1000):
+        """The Atlas's four macro-regions. Deliberately parentless: they do
+        not nest into the ten planning regions, and giving them a parent
+        would invite a rollup that is simply wrong."""
+        for i, n in enumerate(names):
+            gid = start_id + i
+            self.c.execute(
+                "INSERT INTO geography VALUES (?,'macroregion',NULL,NULL,0,?,?,NULL)",
+                (gid, n, R.fold(n)))
+            self.macro[R.fold(n)] = gid
 
     def geo_id(self, name):
         key = R.fold(name)
@@ -489,6 +502,89 @@ def ingest_proyecciones(b):
           f"{min(PROJ_YEARS)}-{max(PROJ_YEARS)}, national only")
 
 
+def ingest_atlas(b):
+    """Atlas de Genero violence cuadros -- couple CONTEXT, not couplings."""
+    d = ATLAS.DOCUMENT
+    path = os.path.join(HERE, "raw", "one-atlas-genero-2020-violencia.csv")
+    if not os.path.exists(path):
+        print(f"  note: {path} absent; Atlas cuadros skipped")
+        return
+    b.load_macroregions(ATLAS.MACROREGIONS)
+    b.edition = d["edition_year"]
+    b.c.execute(
+        "INSERT INTO source_document (source_id,institution,instrument,"
+        "publication,edition_year,url,local_path,sha256,retrieved_at,"
+        "page_count) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        (d["source_id"], d["institution"], d["instrument"], d["publication"],
+         d["edition_year"], d["url"], d["local_path"], d["sha256"],
+         datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+         d["page_count"]))
+
+    rows = list(ATLAS.read(path))
+    tids, n, decade = {}, 0, {}
+    for r in rows:
+        c = r["cuadro"]
+        if c not in tids:
+            event = "partner_violence" if c in ATLAS.SURVEY else "femicide"
+            tids[c] = b.table(
+                d["source_id"], f"Cuadro {c}", r["indicator"][:220], 0, event,
+                "pdfplumber table extraction via extract_atlas.py",
+                notes=("ENESIM 2018 survey estimate; sampling error not "
+                       "published by the Atlas. Macro-regions do not nest "
+                       "into planning regions."
+                       if c in ATLAS.SURVEY else
+                       "Administrative records. Planning regions.") +
+                      f" partner_specific={r['partner']}")
+        t = tids[c]
+        label, section = r["label"], r["section"]
+        low = label.strip().lower()
+
+        if r["measure"] == "count_total":          # the 2009-2018 column
+            decade[(c, label)] = r["value"]
+            continue
+
+        if c in ATLAS.SURVEY:
+            geo, dims = 1, ("violence_scope", ATLAS.SCOPE[c])
+            marg = 1 if low in ("total", "pais", "país") else 0
+            if section.startswith("zona"):
+                dims = dims + ("residence_zone", label)
+            elif section.startswith("macro"):
+                g = b.macro.get(R.fold(label))
+                if g is None:
+                    raise SystemExit(f"Atlas: unknown macro-region {label!r}")
+                geo = g
+            b.fact(t, "percent", r["value"], "partner_violence",
+                   year=r["year"], geo=geo, dims=dims, marginal=marg)
+        else:
+            geo, dims = 1, (ATLAS.ADMIN[c], label)
+            marg = 1 if low == "total" else 0
+            if section.startswith("region"):
+                g = b.geo_id(label)
+                if g is None:
+                    raise SystemExit(f"Atlas: unknown region {label!r}")
+                geo, dims = g, (ATLAS.ADMIN[c], "Total")
+                marg = 1
+            b.fact(t, "count", r["value"],
+                   "femicide", year=r["year"], geo=geo, dims=dims,
+                   marginal=marg)
+        n += 1
+
+    # The published 2009-2018 'Total' column is a check, not a fact: verify
+    # it equals the sum of the years rather than storing it twice.
+    bad = 0
+    for (c, label), published in decade.items():
+        got = sum(r["value"] for r in rows
+                  if r["cuadro"] == c and r["label"] == label
+                  and r["measure"] == "count")
+        if abs(got - published) > 0.5:
+            bad += 1
+            print(f"    WARN Cuadro {c} {label!r}: years sum to {got:.0f}, "
+                  f"published decade total {published:.0f}")
+    b.edition = 2025
+    print(f"  Atlas 2020: {n} facts across {len(tids)} cuadros; "
+          f"{len(decade)} decade totals checked, {bad} mismatched")
+
+
 def ingest_cifras(b):
     """Provincial and monthly marriage/divorce counts, 2016-2020."""
     d = CIFRAS.DOCUMENT
@@ -766,6 +862,28 @@ def register_known_issues(con):
          "them. If ONE publishes a subnacional revision consistent with the "
          "current national series, load it and supersede source 3."),
 
+        ("source_table", "Cuadro 22", "medium",
+         "The Atlas's intimate-feminicide cuadro does not add up in three "
+         "of its ten years, and its two breakdowns fail in different "
+         "years. Quote the annual totals; do not quote the splits for "
+         "2014, 2015 or 2017 without saying so.",
+         "National total vs the two perpetrator categories: 2014 total 102 "
+         "against 64+42=106 (-4), 2015 total 89 against 49+38=87 (+2), "
+         "2017 total 104 against 74+28=102 (+2). The ten planning regions "
+         "sum correctly in 2014 (102) but fall short in 2015 (86 vs 89) "
+         "and 2017 (102 vs 104). So 2014 is an error in the perpetrator "
+         "split alone, while 2015 and 2017 are short in BOTH breakdowns -- "
+         "consistent with cases whose perpetrator relationship and region "
+         "were both unrecorded and which were dropped from each split "
+         "rather than shown as unknown. The decade column reconciles with "
+         "the sum of years for every row, so the discrepancy is in the "
+         "annual columns, not the totals.",
+         "Not recoverable from the publication. The underlying registry is "
+         "the Procuraduria's; a residual 'no declarada' category in both "
+         "splits would have made this visible rather than silent. Treat "
+         "the annual totals as sound and the 2014/2015/2017 splits as "
+         "incomplete."),
+
         ("coverage", "microdata", "high",
          "Three-way cross-tabs are unanswerable from published cuadros, in "
          "any edition, forever.",
@@ -840,6 +958,7 @@ def main():
     ingest_proyecciones(b)
     ingest_subnacional(b)
     ingest_cifras(b)
+    ingest_atlas(b)
     con.commit()
 
     con.execute("UPDATE source_table SET transcription_verified=1, "
