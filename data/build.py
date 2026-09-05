@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.join(HERE, "sources"))
 import reference as R                      # noqa: E402
 import acquisition as ACQ                  # noqa: E402
 import anuario_2025 as A25                 # noqa: E402
+import anuario_2025_births as BIRTHS       # noqa: E402
 import one_proyecciones as PROJ            # noqa: E402
 import one_subnacional as SUBNAC           # noqa: E402
 import one_cifras as CIFRAS                # noqa: E402
@@ -322,19 +323,27 @@ def reconcile(con):
             # reference_year MUST be in the grouping: a cuadro covering
             # five years otherwise sums all of them against a single
             # published total and reports a spurious mismatch.
+            # dim1_name MUST be in the grouping alongside geo, measure and
+            # year. A cuadro can stack several independent distributions of
+            # the same universe -- Cuadro 1.3 gives births by marital
+            # status, by registration timing AND by month -- and summing
+            # them together counts every birth once per distribution.
             groups = con.execute(
-                "SELECT geo_id, measure, reference_year, SUM(value) FROM fact "
+                "SELECT geo_id, measure, reference_year, "
+                "       COALESCE(dim1_name,''), SUM(value) FROM fact "
                 "WHERE table_id=? AND is_marginal=0 AND measure IN "
-                "('count','percent') GROUP BY 1,2,3", (tid,)).fetchall()
-            for geo, meas, yr, summed in groups:
+                "('count','percent') GROUP BY 1,2,3,4", (tid,)).fetchall()
+            for geo, meas, yr, d1, summed in groups:
                 pub = con.execute(
                     "SELECT value FROM fact WHERE table_id=? AND is_marginal=1 "
                     "AND measure=? AND reference_year=? "
+                    "AND COALESCE(dim1_name,'')=? "
                     "AND COALESCE(geo_id,-1)=COALESCE(?,-1)",
-                    (tid, meas, yr, geo)).fetchone()
+                    (tid, meas, yr, d1, geo)).fetchone()
                 if pub:
                     tol = TOL_ROUND if meas == "percent" else TOL_COUNT
-                    add(tid, "row", f"{yr} geo={geo};{meas}", pub[0], summed, tol)
+                    add(tid, "row", f"{yr} geo={geo};{meas};{d1}",
+                        pub[0], summed, tol)
 
             # Geography cuadros carry the dimension in geo_id rather than in
             # a dim slot, so the grouping above finds nothing to compare.
@@ -500,6 +509,55 @@ def ingest_proyecciones(b):
         "VALUES (?,?,?,?,?,?,?,?,?,?)", rows)
     print(f"  population: {len(rows)} rows, "
           f"{min(PROJ_YEARS)}-{max(PROJ_YEARS)}, national only")
+
+
+def ingest_births_2025(b):
+    """Cuadros 1.2 / 1.3 / 1.4 -- parent pairings and maternal status."""
+    path = os.path.join(HERE, "raw", "anuario-2025-births.csv")
+    if not os.path.exists(path):
+        print(f"  note: {path} absent; birth cuadros skipped")
+        return
+    b.edition = 2025
+    META = {
+        "1.2": ("Cuadro 1.2", "Nacimientos ocurridos segun pais de "
+                "nacionalidad del padre y de la madre, 2025", 48,
+                "Printed across pp.48-49 in three column blocks. Row and "
+                "column label sets differ: mothers include Ecuador and "
+                "Rusia, fathers Francia and Holanda."),
+        "1.3": ("Cuadro 1.3", "Nacimientos ocurridos, segun estado civil de "
+                "la madre, tipo de registro y mes de ocurrencia, 2025", 50,
+                "The only union-status data in the database."),
+        "1.4": ("Cuadro 1.4", "Nacimientos ocurridos segun los grupos de "
+                "edades del padre y la madre al momento del nacimiento, 2025",
+                51, None),
+    }
+    tids, n = {}, 0
+    for cuadro, event, d1n, d1v, d2n, d2v, value in BIRTHS.read(path):
+        if cuadro not in tids:
+            c, title, page, note = META[cuadro]
+            tids[cuadro] = b.table(1, c, title, page, event,
+                                   "text layer via extract_births.py",
+                                   notes=note)
+        t = tids[cuadro]
+        if cuadro == "1.3":
+            dim = BIRTHS.C13_DIMS.get(d1v)
+            if dim is None:                       # the cuadro's own grand total
+                b.fact(t, "count", value, "birth", year=2025, basis="ocurrencia",
+                       geo=1, dims=("marital_status", "TOTAL"), marginal=1)
+            else:
+                marg = 1 if d2v.lower().startswith(("estado civil",
+                                                    "tipo de registro",
+                                                    "mes de ocurrencia")) else 0
+                b.fact(t, "count", value, "birth", year=2025,
+                       basis="ocurrencia", geo=1,
+                       dims=(dim, "TOTAL" if marg else d2v), marginal=marg)
+        else:
+            row = "TOTAL" if d1v.lower().startswith("total") else d1v
+            marg = 1 if (row == "TOTAL" or d2v == "TOTAL") else 0
+            b.fact(t, "count", value, "birth", year=2025, basis="ocurrencia",
+                   geo=1, dims=(d1n, row, d2n, d2v), marginal=marg)
+        n += 1
+    print(f"  Anuario 2025 births: {n} facts across {len(tids)} cuadros")
 
 
 def ingest_atlas(b):
@@ -708,6 +766,10 @@ def derive_dyads_from_cuadros(con):
     ROLES = {"bride": ("bride", "groom", "female", "male"),
              "wife":  ("wife", "husband", "female", "male"),
              "mother": ("mother", "father", "female", "male")}
+    # `vital_event` names the event; `dyad_type` names the relationship the
+    # pair stands in. For a birth cuadro those differ: the event is a
+    # birth, the dyad is its parents.
+    DYAD_TYPE = {"birth": "birth_parents"}
     rows = con.execute("""
         SELECT f.fact_id, f.table_id, st.source_id, f.reference_year,
                f.edition_year, f.geo_id, f.basis, f.vital_event, f.value,
@@ -726,8 +788,8 @@ def derive_dyads_from_cuadros(con):
         role_a, role_b, sex_a, sex_b = ROLES[prefix]
         attribute = d1n[len(prefix) + 1:]
         did += 1
-        dyads.append((did, sid, tid, event, "cell", ry, ey, geo, basis,
-                      role_a, role_b, sex_a, sex_b, val))
+        dyads.append((did, sid, tid, DYAD_TYPE.get(event, event), "cell",
+                      ry, ey, geo, basis, role_a, role_b, sex_a, sex_b, val))
         attrs.append((did, "a", attribute, d1v, None))
         attrs.append((did, "b", attribute, d2v, None))
 
@@ -955,6 +1017,7 @@ def main():
     b = Build(con)
     b.load_reference()
     ingest_anuario_2025(b)
+    ingest_births_2025(b)
     ingest_proyecciones(b)
     ingest_subnacional(b)
     ingest_cifras(b)

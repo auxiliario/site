@@ -8,7 +8,7 @@ was taken from it. Assessed by keyword survey (`estado civil`, `unión`,
 
 | document | what was taken |
 |---|---|
-| **Anuario de Estadísticas Vitales 2025** (PDF, 103 pp) | 8 cuadros, 960 facts. Settled the Cuadro 3.5 dispute. |
+| **Anuario de Estadísticas Vitales 2025** (PDF, 103 pp) | 11 of its 26 cuadros. The marriage/divorce set (8), plus **1.2 mother × father nationality**, **1.4 mother × father age**, and **1.3 maternal marital status** — two further couplings over a different population, and the only union-status data held. |
 | **Proyecciones, edades simples 1950-2100** (XLSX) | National population by sex × single age → 540 rows, 2013–2030. **The national denominator.** |
 | **Proyecciones subnacionales 2000-2030** (PDF, 614 pp) | Cuadro 5.3 → 38,556 rows: 32 provinces + 10 regions × sex × 5-year band × year → 22,680 population rows. **The provincial denominator.** |
 | **Dominicana en Cifras 2021** (PDF, 502 pp) | Cuadros 2.1-09…2.1-12 → 560 facts: marriages and divorces by province and by month of registration, 2016–2020. **The only provincial divorce data anywhere in this collection.** |

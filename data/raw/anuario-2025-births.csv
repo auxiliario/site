@@ -1,0 +1,469 @@
+cuadro,vital_event,dim1_name,dim1_value,dim2_name,dim2_value,value
+1.2,birth,mother_nationality,Total en el pais,father_nationality,TOTAL,123759
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Republica Dominicana,99148
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Estados Unidos,5874
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Haiti,719
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Venezuela,317
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Espana,74
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Colombia,63
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Cuba,58
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Canada,44
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Mexico,43
+1.2,birth,mother_nationality,Total en el pais,father_nationality,China,37
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Italia,32
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Peru,32
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Francia,28
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Argentina,25
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Holanda,18
+1.2,birth,mother_nationality,Total en el pais,father_nationality,Otros paises,197
+1.2,birth,mother_nationality,Total en el pais,father_nationality,No declarada,17050
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,TOTAL,111080
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Republica Dominicana,97403
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Estados Unidos,275
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Haiti,593
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Venezuela,166
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Espana,56
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Colombia,44
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Cuba,32
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Canada,25
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Mexico,23
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,China,8
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Italia,25
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Peru,27
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Francia,23
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Argentina,17
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Holanda,16
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,Otros paises,144
+1.2,birth,mother_nationality,Republica Dominicana,father_nationality,No declarada,12203
+1.2,birth,mother_nationality,Haiti,father_nationality,TOTAL,11518
+1.2,birth,mother_nationality,Haiti,father_nationality,Republica Dominicana,1017
+1.2,birth,mother_nationality,Haiti,father_nationality,Estados Unidos,5579
+1.2,birth,mother_nationality,Haiti,father_nationality,Haiti,101
+1.2,birth,mother_nationality,Haiti,father_nationality,Venezuela,2
+1.2,birth,mother_nationality,Haiti,father_nationality,Espana,5
+1.2,birth,mother_nationality,Haiti,father_nationality,Colombia,2
+1.2,birth,mother_nationality,Haiti,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Haiti,father_nationality,Canada,15
+1.2,birth,mother_nationality,Haiti,father_nationality,Mexico,1
+1.2,birth,mother_nationality,Haiti,father_nationality,China,0
+1.2,birth,mother_nationality,Haiti,father_nationality,Italia,4
+1.2,birth,mother_nationality,Haiti,father_nationality,Peru,0
+1.2,birth,mother_nationality,Haiti,father_nationality,Francia,2
+1.2,birth,mother_nationality,Haiti,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Haiti,father_nationality,Holanda,1
+1.2,birth,mother_nationality,Haiti,father_nationality,Otros paises,8
+1.2,birth,mother_nationality,Haiti,father_nationality,No declarada,4781
+1.2,birth,mother_nationality,Venezuela,father_nationality,TOTAL,545
+1.2,birth,mother_nationality,Venezuela,father_nationality,Republica Dominicana,364
+1.2,birth,mother_nationality,Venezuela,father_nationality,Estados Unidos,4
+1.2,birth,mother_nationality,Venezuela,father_nationality,Haiti,7
+1.2,birth,mother_nationality,Venezuela,father_nationality,Venezuela,139
+1.2,birth,mother_nationality,Venezuela,father_nationality,Espana,2
+1.2,birth,mother_nationality,Venezuela,father_nationality,Colombia,3
+1.2,birth,mother_nationality,Venezuela,father_nationality,Cuba,2
+1.2,birth,mother_nationality,Venezuela,father_nationality,Canada,0
+1.2,birth,mother_nationality,Venezuela,father_nationality,Mexico,2
+1.2,birth,mother_nationality,Venezuela,father_nationality,China,0
+1.2,birth,mother_nationality,Venezuela,father_nationality,Italia,2
+1.2,birth,mother_nationality,Venezuela,father_nationality,Peru,0
+1.2,birth,mother_nationality,Venezuela,father_nationality,Francia,0
+1.2,birth,mother_nationality,Venezuela,father_nationality,Argentina,1
+1.2,birth,mother_nationality,Venezuela,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Venezuela,father_nationality,Otros paises,4
+1.2,birth,mother_nationality,Venezuela,father_nationality,No declarada,15
+1.2,birth,mother_nationality,Colombia,father_nationality,TOTAL,107
+1.2,birth,mother_nationality,Colombia,father_nationality,Republica Dominicana,79
+1.2,birth,mother_nationality,Colombia,father_nationality,Estados Unidos,1
+1.2,birth,mother_nationality,Colombia,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Venezuela,4
+1.2,birth,mother_nationality,Colombia,father_nationality,Espana,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Colombia,13
+1.2,birth,mother_nationality,Colombia,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Canada,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Mexico,3
+1.2,birth,mother_nationality,Colombia,father_nationality,China,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Italia,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Peru,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Francia,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Colombia,father_nationality,Otros paises,4
+1.2,birth,mother_nationality,Colombia,father_nationality,No declarada,3
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,TOTAL,70
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Republica Dominicana,46
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Estados Unidos,1
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Haiti,15
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Espana,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Canada,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,China,1
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Italia,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Peru,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Francia,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,Estados Unidos,father_nationality,No declarada,7
+1.2,birth,mother_nationality,Cuba,father_nationality,TOTAL,53
+1.2,birth,mother_nationality,Cuba,father_nationality,Republica Dominicana,25
+1.2,birth,mother_nationality,Cuba,father_nationality,Estados Unidos,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Espana,1
+1.2,birth,mother_nationality,Cuba,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Cuba,23
+1.2,birth,mother_nationality,Cuba,father_nationality,Canada,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Cuba,father_nationality,China,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Italia,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Peru,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Francia,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Cuba,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,Cuba,father_nationality,No declarada,4
+1.2,birth,mother_nationality,Mexico,father_nationality,TOTAL,33
+1.2,birth,mother_nationality,Mexico,father_nationality,Republica Dominicana,18
+1.2,birth,mother_nationality,Mexico,father_nationality,Estados Unidos,1
+1.2,birth,mother_nationality,Mexico,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Espana,1
+1.2,birth,mother_nationality,Mexico,father_nationality,Colombia,1
+1.2,birth,mother_nationality,Mexico,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Canada,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Mexico,12
+1.2,birth,mother_nationality,Mexico,father_nationality,China,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Italia,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Peru,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Francia,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Mexico,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,Mexico,father_nationality,No declarada,0
+1.2,birth,mother_nationality,Espana,father_nationality,TOTAL,32
+1.2,birth,mother_nationality,Espana,father_nationality,Republica Dominicana,21
+1.2,birth,mother_nationality,Espana,father_nationality,Estados Unidos,0
+1.2,birth,mother_nationality,Espana,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Espana,father_nationality,Venezuela,2
+1.2,birth,mother_nationality,Espana,father_nationality,Espana,4
+1.2,birth,mother_nationality,Espana,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Espana,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Espana,father_nationality,Canada,0
+1.2,birth,mother_nationality,Espana,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Espana,father_nationality,China,0
+1.2,birth,mother_nationality,Espana,father_nationality,Italia,0
+1.2,birth,mother_nationality,Espana,father_nationality,Peru,0
+1.2,birth,mother_nationality,Espana,father_nationality,Francia,0
+1.2,birth,mother_nationality,Espana,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Espana,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Espana,father_nationality,Otros paises,1
+1.2,birth,mother_nationality,Espana,father_nationality,No declarada,4
+1.2,birth,mother_nationality,China,father_nationality,TOTAL,31
+1.2,birth,mother_nationality,China,father_nationality,Republica Dominicana,1
+1.2,birth,mother_nationality,China,father_nationality,Estados Unidos,0
+1.2,birth,mother_nationality,China,father_nationality,Haiti,0
+1.2,birth,mother_nationality,China,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,China,father_nationality,Espana,0
+1.2,birth,mother_nationality,China,father_nationality,Colombia,0
+1.2,birth,mother_nationality,China,father_nationality,Cuba,0
+1.2,birth,mother_nationality,China,father_nationality,Canada,0
+1.2,birth,mother_nationality,China,father_nationality,Mexico,0
+1.2,birth,mother_nationality,China,father_nationality,China,28
+1.2,birth,mother_nationality,China,father_nationality,Italia,0
+1.2,birth,mother_nationality,China,father_nationality,Peru,0
+1.2,birth,mother_nationality,China,father_nationality,Francia,0
+1.2,birth,mother_nationality,China,father_nationality,Argentina,0
+1.2,birth,mother_nationality,China,father_nationality,Holanda,1
+1.2,birth,mother_nationality,China,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,China,father_nationality,No declarada,1
+1.2,birth,mother_nationality,Peru,father_nationality,TOTAL,21
+1.2,birth,mother_nationality,Peru,father_nationality,Republica Dominicana,16
+1.2,birth,mother_nationality,Peru,father_nationality,Estados Unidos,0
+1.2,birth,mother_nationality,Peru,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Peru,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Peru,father_nationality,Espana,1
+1.2,birth,mother_nationality,Peru,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Peru,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Peru,father_nationality,Canada,0
+1.2,birth,mother_nationality,Peru,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Peru,father_nationality,China,0
+1.2,birth,mother_nationality,Peru,father_nationality,Italia,0
+1.2,birth,mother_nationality,Peru,father_nationality,Peru,3
+1.2,birth,mother_nationality,Peru,father_nationality,Francia,0
+1.2,birth,mother_nationality,Peru,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Peru,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Peru,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,Peru,father_nationality,No declarada,1
+1.2,birth,mother_nationality,Argentina,father_nationality,TOTAL,19
+1.2,birth,mother_nationality,Argentina,father_nationality,Republica Dominicana,14
+1.2,birth,mother_nationality,Argentina,father_nationality,Estados Unidos,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Espana,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Canada,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Argentina,father_nationality,China,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Italia,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Peru,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Francia,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Argentina,4
+1.2,birth,mother_nationality,Argentina,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Argentina,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,Argentina,father_nationality,No declarada,1
+1.2,birth,mother_nationality,Ecuador,father_nationality,TOTAL,17
+1.2,birth,mother_nationality,Ecuador,father_nationality,Republica Dominicana,8
+1.2,birth,mother_nationality,Ecuador,father_nationality,Estados Unidos,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Espana,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Canada,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,China,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Italia,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Peru,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Francia,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Ecuador,father_nationality,Otros paises,8
+1.2,birth,mother_nationality,Ecuador,father_nationality,No declarada,1
+1.2,birth,mother_nationality,Italia,father_nationality,TOTAL,16
+1.2,birth,mother_nationality,Italia,father_nationality,Republica Dominicana,11
+1.2,birth,mother_nationality,Italia,father_nationality,Estados Unidos,1
+1.2,birth,mother_nationality,Italia,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Italia,father_nationality,Venezuela,1
+1.2,birth,mother_nationality,Italia,father_nationality,Espana,1
+1.2,birth,mother_nationality,Italia,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Italia,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Italia,father_nationality,Canada,0
+1.2,birth,mother_nationality,Italia,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Italia,father_nationality,China,0
+1.2,birth,mother_nationality,Italia,father_nationality,Italia,1
+1.2,birth,mother_nationality,Italia,father_nationality,Peru,0
+1.2,birth,mother_nationality,Italia,father_nationality,Francia,0
+1.2,birth,mother_nationality,Italia,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Italia,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Italia,father_nationality,Otros paises,1
+1.2,birth,mother_nationality,Italia,father_nationality,No declarada,0
+1.2,birth,mother_nationality,Rusia,father_nationality,TOTAL,13
+1.2,birth,mother_nationality,Rusia,father_nationality,Republica Dominicana,4
+1.2,birth,mother_nationality,Rusia,father_nationality,Estados Unidos,1
+1.2,birth,mother_nationality,Rusia,father_nationality,Haiti,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Espana,2
+1.2,birth,mother_nationality,Rusia,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Canada,1
+1.2,birth,mother_nationality,Rusia,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Rusia,father_nationality,China,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Italia,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Peru,1
+1.2,birth,mother_nationality,Rusia,father_nationality,Francia,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Argentina,1
+1.2,birth,mother_nationality,Rusia,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Rusia,father_nationality,Otros paises,3
+1.2,birth,mother_nationality,Rusia,father_nationality,No declarada,0
+1.2,birth,mother_nationality,Canada,father_nationality,TOTAL,12
+1.2,birth,mother_nationality,Canada,father_nationality,Republica Dominicana,4
+1.2,birth,mother_nationality,Canada,father_nationality,Estados Unidos,2
+1.2,birth,mother_nationality,Canada,father_nationality,Haiti,1
+1.2,birth,mother_nationality,Canada,father_nationality,Venezuela,0
+1.2,birth,mother_nationality,Canada,father_nationality,Espana,0
+1.2,birth,mother_nationality,Canada,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Canada,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Canada,father_nationality,Canada,3
+1.2,birth,mother_nationality,Canada,father_nationality,Mexico,0
+1.2,birth,mother_nationality,Canada,father_nationality,China,0
+1.2,birth,mother_nationality,Canada,father_nationality,Italia,0
+1.2,birth,mother_nationality,Canada,father_nationality,Peru,0
+1.2,birth,mother_nationality,Canada,father_nationality,Francia,1
+1.2,birth,mother_nationality,Canada,father_nationality,Argentina,0
+1.2,birth,mother_nationality,Canada,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Canada,father_nationality,Otros paises,1
+1.2,birth,mother_nationality,Canada,father_nationality,No declarada,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,TOTAL,143
+1.2,birth,mother_nationality,Otros paises,father_nationality,Republica Dominicana,88
+1.2,birth,mother_nationality,Otros paises,father_nationality,Estados Unidos,6
+1.2,birth,mother_nationality,Otros paises,father_nationality,Haiti,2
+1.2,birth,mother_nationality,Otros paises,father_nationality,Venezuela,1
+1.2,birth,mother_nationality,Otros paises,father_nationality,Espana,1
+1.2,birth,mother_nationality,Otros paises,father_nationality,Colombia,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,Cuba,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,Canada,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,Mexico,2
+1.2,birth,mother_nationality,Otros paises,father_nationality,China,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,Italia,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,Peru,1
+1.2,birth,mother_nationality,Otros paises,father_nationality,Francia,2
+1.2,birth,mother_nationality,Otros paises,father_nationality,Argentina,2
+1.2,birth,mother_nationality,Otros paises,father_nationality,Holanda,0
+1.2,birth,mother_nationality,Otros paises,father_nationality,Otros paises,23
+1.2,birth,mother_nationality,Otros paises,father_nationality,No declarada,15
+1.2,birth,mother_nationality,No declarada,father_nationality,TOTAL,49
+1.2,birth,mother_nationality,No declarada,father_nationality,Republica Dominicana,29
+1.2,birth,mother_nationality,No declarada,father_nationality,Estados Unidos,3
+1.2,birth,mother_nationality,No declarada,father_nationality,Haiti,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Venezuela,2
+1.2,birth,mother_nationality,No declarada,father_nationality,Espana,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Colombia,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Cuba,1
+1.2,birth,mother_nationality,No declarada,father_nationality,Canada,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Mexico,0
+1.2,birth,mother_nationality,No declarada,father_nationality,China,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Italia,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Peru,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Francia,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Argentina,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Holanda,0
+1.2,birth,mother_nationality,No declarada,father_nationality,Otros paises,0
+1.2,birth,mother_nationality,No declarada,father_nationality,No declarada,14
+1.4,birth,mother_age_band,Total en el pais,father_age_band,TOTAL,123759
+1.4,birth,mother_age_band,Total en el pais,father_age_band,0-14,1
+1.4,birth,mother_age_band,Total en el pais,father_age_band,15-19,1957
+1.4,birth,mother_age_band,Total en el pais,father_age_band,20-24,16668
+1.4,birth,mother_age_band,Total en el pais,father_age_band,25-29,25793
+1.4,birth,mother_age_band,Total en el pais,father_age_band,30-34,26147
+1.4,birth,mother_age_band,Total en el pais,father_age_band,35-39,17525
+1.4,birth,mother_age_band,Total en el pais,father_age_band,40-44,9422
+1.4,birth,mother_age_band,Total en el pais,father_age_band,45-49,4621
+1.4,birth,mother_age_band,Total en el pais,father_age_band,50+,3659
+1.4,birth,mother_age_band,Total en el pais,father_age_band,No declarada,17966
+1.4,birth,mother_age_band,0-14,father_age_band,TOTAL,537
+1.4,birth,mother_age_band,0-14,father_age_band,0-14,0
+1.4,birth,mother_age_band,0-14,father_age_band,15-19,91
+1.4,birth,mother_age_band,0-14,father_age_band,20-24,140
+1.4,birth,mother_age_band,0-14,father_age_band,25-29,44
+1.4,birth,mother_age_band,0-14,father_age_band,30-34,10
+1.4,birth,mother_age_band,0-14,father_age_band,35-39,2
+1.4,birth,mother_age_band,0-14,father_age_band,40-44,0
+1.4,birth,mother_age_band,0-14,father_age_band,45-49,2
+1.4,birth,mother_age_band,0-14,father_age_band,50+,2
+1.4,birth,mother_age_band,0-14,father_age_band,No declarada,246
+1.4,birth,mother_age_band,15-19,father_age_band,TOTAL,13661
+1.4,birth,mother_age_band,15-19,father_age_band,0-14,1
+1.4,birth,mother_age_band,15-19,father_age_band,15-19,1373
+1.4,birth,mother_age_band,15-19,father_age_band,20-24,5391
+1.4,birth,mother_age_band,15-19,father_age_band,25-29,2283
+1.4,birth,mother_age_band,15-19,father_age_band,30-34,854
+1.4,birth,mother_age_band,15-19,father_age_band,35-39,291
+1.4,birth,mother_age_band,15-19,father_age_band,40-44,108
+1.4,birth,mother_age_band,15-19,father_age_band,45-49,58
+1.4,birth,mother_age_band,15-19,father_age_band,50+,69
+1.4,birth,mother_age_band,15-19,father_age_band,No declarada,3233
+1.4,birth,mother_age_band,20-24,father_age_band,TOTAL,31594
+1.4,birth,mother_age_band,20-24,father_age_band,0-14,0
+1.4,birth,mother_age_band,20-24,father_age_band,15-19,385
+1.4,birth,mother_age_band,20-24,father_age_band,20-24,7830
+1.4,birth,mother_age_band,20-24,father_age_band,25-29,10105
+1.4,birth,mother_age_band,20-24,father_age_band,30-34,4895
+1.4,birth,mother_age_band,20-24,father_age_band,35-39,1946
+1.4,birth,mother_age_band,20-24,father_age_band,40-44,837
+1.4,birth,mother_age_band,20-24,father_age_band,45-49,412
+1.4,birth,mother_age_band,20-24,father_age_band,50+,324
+1.4,birth,mother_age_band,20-24,father_age_band,No declarada,4860
+1.4,birth,mother_age_band,25-29,father_age_band,TOTAL,34041
+1.4,birth,mother_age_band,25-29,father_age_band,0-14,0
+1.4,birth,mother_age_band,25-29,father_age_band,15-19,85
+1.4,birth,mother_age_band,25-29,father_age_band,20-24,2410
+1.4,birth,mother_age_band,25-29,father_age_band,25-29,9228
+1.4,birth,mother_age_band,25-29,father_age_band,30-34,9869
+1.4,birth,mother_age_band,25-29,father_age_band,35-39,4662
+1.4,birth,mother_age_band,25-29,father_age_band,40-44,2016
+1.4,birth,mother_age_band,25-29,father_age_band,45-49,901
+1.4,birth,mother_age_band,25-29,father_age_band,50+,711
+1.4,birth,mother_age_band,25-29,father_age_band,No declarada,4159
+1.4,birth,mother_age_band,30-34,father_age_band,TOTAL,27276
+1.4,birth,mother_age_band,30-34,father_age_band,0-14,0
+1.4,birth,mother_age_band,30-34,father_age_band,15-19,17
+1.4,birth,mother_age_band,30-34,father_age_band,20-24,697
+1.4,birth,mother_age_band,30-34,father_age_band,25-29,3147
+1.4,birth,mother_age_band,30-34,father_age_band,30-34,8099
+1.4,birth,mother_age_band,30-34,father_age_band,35-39,6618
+1.4,birth,mother_age_band,30-34,father_age_band,40-44,3116
+1.4,birth,mother_age_band,30-34,father_age_band,45-49,1461
+1.4,birth,mother_age_band,30-34,father_age_band,50+,1146
+1.4,birth,mother_age_band,30-34,father_age_band,No declarada,2975
+1.4,birth,mother_age_band,35-39,father_age_band,TOTAL,12829
+1.4,birth,mother_age_band,35-39,father_age_band,0-14,0
+1.4,birth,mother_age_band,35-39,father_age_band,15-19,4
+1.4,birth,mother_age_band,35-39,father_age_band,20-24,150
+1.4,birth,mother_age_band,35-39,father_age_band,25-29,827
+1.4,birth,mother_age_band,35-39,father_age_band,30-34,2067
+1.4,birth,mother_age_band,35-39,father_age_band,35-39,3453
+1.4,birth,mother_age_band,35-39,father_age_band,40-44,2610
+1.4,birth,mother_age_band,35-39,father_age_band,45-49,1282
+1.4,birth,mother_age_band,35-39,father_age_band,50+,970
+1.4,birth,mother_age_band,35-39,father_age_band,No declarada,1466
+1.4,birth,mother_age_band,40-44,father_age_band,TOTAL,2920
+1.4,birth,mother_age_band,40-44,father_age_band,0-14,0
+1.4,birth,mother_age_band,40-44,father_age_band,15-19,1
+1.4,birth,mother_age_band,40-44,father_age_band,20-24,26
+1.4,birth,mother_age_band,40-44,father_age_band,25-29,119
+1.4,birth,mother_age_band,40-44,father_age_band,30-34,302
+1.4,birth,mother_age_band,40-44,father_age_band,35-39,509
+1.4,birth,mother_age_band,40-44,father_age_band,40-44,691
+1.4,birth,mother_age_band,40-44,father_age_band,45-49,473
+1.4,birth,mother_age_band,40-44,father_age_band,50+,405
+1.4,birth,mother_age_band,40-44,father_age_band,No declarada,394
+1.4,birth,mother_age_band,45-49,father_age_band,TOTAL,158
+1.4,birth,mother_age_band,45-49,father_age_band,0-14,0
+1.4,birth,mother_age_band,45-49,father_age_band,15-19,0
+1.4,birth,mother_age_band,45-49,father_age_band,20-24,1
+1.4,birth,mother_age_band,45-49,father_age_band,25-29,5
+1.4,birth,mother_age_band,45-49,father_age_band,30-34,22
+1.4,birth,mother_age_band,45-49,father_age_band,35-39,22
+1.4,birth,mother_age_band,45-49,father_age_band,40-44,31
+1.4,birth,mother_age_band,45-49,father_age_band,45-49,25
+1.4,birth,mother_age_band,45-49,father_age_band,50+,26
+1.4,birth,mother_age_band,45-49,father_age_band,No declarada,26
+1.4,birth,mother_age_band,50+,father_age_band,TOTAL,7
+1.4,birth,mother_age_band,50+,father_age_band,0-14,0
+1.4,birth,mother_age_band,50+,father_age_band,15-19,0
+1.4,birth,mother_age_band,50+,father_age_band,20-24,0
+1.4,birth,mother_age_band,50+,father_age_band,25-29,0
+1.4,birth,mother_age_band,50+,father_age_band,30-34,0
+1.4,birth,mother_age_band,50+,father_age_band,35-39,2
+1.4,birth,mother_age_band,50+,father_age_band,40-44,0
+1.4,birth,mother_age_band,50+,father_age_band,45-49,1
+1.4,birth,mother_age_band,50+,father_age_band,50+,0
+1.4,birth,mother_age_band,50+,father_age_band,No declarada,4
+1.4,birth,mother_age_band,No declarada,father_age_band,TOTAL,736
+1.4,birth,mother_age_band,No declarada,father_age_band,0-14,0
+1.4,birth,mother_age_band,No declarada,father_age_band,15-19,1
+1.4,birth,mother_age_band,No declarada,father_age_band,20-24,23
+1.4,birth,mother_age_band,No declarada,father_age_band,25-29,35
+1.4,birth,mother_age_band,No declarada,father_age_band,30-34,29
+1.4,birth,mother_age_band,No declarada,father_age_band,35-39,20
+1.4,birth,mother_age_band,No declarada,father_age_band,40-44,13
+1.4,birth,mother_age_band,No declarada,father_age_band,45-49,6
+1.4,birth,mother_age_band,No declarada,father_age_band,50+,6
+1.4,birth,mother_age_band,No declarada,father_age_band,No declarada,603
+1.3,birth,mother_characteristic,total,,Anuario de Estadisticas Vitales |,2025
+1.3,birth,mother_characteristic,total,,"y mes de ocurrencia,",2025
+1.3,birth,mother_characteristic,total,,Total en el pais,123759
+1.3,birth,mother_characteristic,estado civil de la madre,,Estado civil de la madre,123759
+1.3,birth,mother_characteristic,estado civil de la madre,,Soltera,105943
+1.3,birth,mother_characteristic,estado civil de la madre,,Casada,17138
+1.3,birth,mother_characteristic,estado civil de la madre,,No declarado,678
+1.3,birth,mother_characteristic,tipo de registro del nacimiento,,Tipo de registro del nacimiento,123759
+1.3,birth,mother_characteristic,tipo de registro del nacimiento,,Dentro del plazo,123466
+1.3,birth,mother_characteristic,tipo de registro del nacimiento,,Fuera del plazo,293
+1.3,birth,mother_characteristic,mes de ocurrencia,,Mes de ocurrencia,123759
+1.3,birth,mother_characteristic,mes de ocurrencia,,Enero,11908
+1.3,birth,mother_characteristic,mes de ocurrencia,,Febrero,9641
+1.3,birth,mother_characteristic,mes de ocurrencia,,Marzo,9782
+1.3,birth,mother_characteristic,mes de ocurrencia,,Abril,9790
+1.3,birth,mother_characteristic,mes de ocurrencia,,Mayo,9247
+1.3,birth,mother_characteristic,mes de ocurrencia,,Junio,8752
+1.3,birth,mother_characteristic,mes de ocurrencia,,Julio,10145
+1.3,birth,mother_characteristic,mes de ocurrencia,,Agosto,11048
+1.3,birth,mother_characteristic,mes de ocurrencia,,Septiembre,12447
+1.3,birth,mother_characteristic,mes de ocurrencia,,Octubre,11962
+1.3,birth,mother_characteristic,mes de ocurrencia,,Noviembre,10529
+1.3,birth,mother_characteristic,mes de ocurrencia,,Diciembre,8508

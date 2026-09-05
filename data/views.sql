@@ -318,8 +318,13 @@ GROUP BY 1,2,3,4,5,6;
 
 -- Held vs. planned, in the only unit that matters.
 CREATE VIEW v_coupling_yield AS
+-- dyad_type is part of the identity of a coupling: age x age among
+-- MARRYING couples and among PARENTS are different questions over
+-- different populations, and counting them once understates what the
+-- database can answer.
 SELECT 'held'    AS state, 'all loaded sources' AS dataset, NULL AS tier,
-       (SELECT COUNT(*) FROM (SELECT DISTINCT attr_a, attr_b FROM v_couplings))
+       (SELECT COUNT(*) FROM (SELECT DISTINCT dyad_type, attr_a, attr_b
+                              FROM v_couplings))
          AS distinct_couplings, NULL AS priority, NULL AS status
 UNION ALL
 SELECT 'planned', dataset, tier, est_couplings, priority, status
