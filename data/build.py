@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.join(HERE, "sources"))
 import reference as R                      # noqa: E402
 import acquisition as ACQ                  # noqa: E402
 import anuario_2025 as A25                 # noqa: E402
+import one_proyecciones as PROJ            # noqa: E402
 
 SCHEMA_VERSION = "2.0"
 
@@ -423,6 +424,43 @@ def reconcile(con):
 
 
 # =====================================================================
+# denominators
+# =====================================================================
+PROJ_YEARS = range(2013, 2031)
+
+
+def ingest_proyecciones(b):
+    """National population by sex and age band -- the exposure base.
+
+    Skipped with a warning rather than failing if the workbook is absent,
+    so the build still runs for anyone who has only the Anuario.
+    """
+    d = PROJ.DOCUMENT
+    path = os.path.join(HERE, "raw",
+                        "one-proyecciones-edades-simples-1950-2100.xlsx")
+    if not os.path.exists(path):
+        print(f"  note: {path} absent; population left empty")
+        return
+    b.c.execute(
+        "INSERT INTO source_document (source_id,institution,instrument,"
+        "publication,edition_year,url,local_path,sha256,retrieved_at,"
+        "page_count) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        (d["source_id"], d["institution"], d["instrument"], d["publication"],
+         d["edition_year"], d["url"], d["local_path"], d["sha256"],
+         datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+         d["page_count"]))
+    rows = [(d["source_id"], year, d["edition_year"], 1, sex, band, None, None,
+             "persons", persons)
+            for year, sex, band, persons in PROJ.read(path, PROJ_YEARS)]
+    b.c.executemany(
+        "INSERT INTO population (source_id,reference_year,edition_year,geo_id,"
+        "sex,age_band,nationality,marital_status,measure,value) "
+        "VALUES (?,?,?,?,?,?,?,?,?,?)", rows)
+    print(f"  population: {len(rows)} rows, "
+          f"{min(PROJ_YEARS)}-{max(PROJ_YEARS)}, national only")
+
+
+# =====================================================================
 # LAYER 2 -- couplings
 # =====================================================================
 def seed_acquisition(con):
@@ -439,6 +477,14 @@ def seed_acquisition(con):
                  "CONNECT); needs an allowlist change or a manual download",))
     con.execute("""UPDATE acquisition SET status='ingested', blocked_by=NULL
         WHERE dataset LIKE 'Anuario%' """)
+    # National projections are loaded; the PROVINCIAL breakdown is not --
+    # it lives in ONE's subnacional reports, which are PDFs.
+    con.execute("UPDATE acquisition SET status='ingested', blocked_by=?, "
+                "note=note||' NATIONAL loaded from the edades-simples "
+                "workbook; provincial still outstanding.' "
+                "WHERE dataset LIKE 'Estimaciones%'",
+                ("national done; provincial figures are in ONE's subnacional "
+                 "projection PDFs and still need extracting",))
     con.commit()
 
 
@@ -567,15 +613,26 @@ def register_known_issues(con):
          "faithful copy. The mechanism behind ONE's 3,599 excess is not "
          "recoverable from the publication and would need a query to ONE."),
 
-        ("coverage", "population", "high",
-         "No population denominators are loaded, so every pairing figure is "
-         "a count with no exposure base.",
-         "The `population` table is empty. Nothing in an Anuario carries "
-         "population at risk, so La Altagracia looks like an outlier purely "
-         "because more people marry there.",
-         "Load ONE Estimaciones y Proyecciones de Poblacion by province, sex "
-         "and five-year age group, and ENI immigrant stock by the same, into "
-         "`population`. v_pairing_rate starts returning rows at that point."),
+        ("coverage", "population", "medium",
+         "National denominators are loaded; PROVINCIAL and "
+         "MARITAL-STATUS denominators are not. Rates are crude "
+         "age-specific rates, not rates on the population at risk.",
+         "population holds 540 rows, 2013-2030, national only, from ONE's "
+         "edades-simples projections (bands sum to the published total "
+         "exactly; male+female equals both exactly). Two gaps remain. "
+         "(1) The denominator is the TOTAL population of that sex and age, "
+         "not the never-married population, so v_event_rate_by_age gives a "
+         "crude marriage rate, not a nuptiality rate -- an age band already "
+         "largely married has a smaller true population at risk and its "
+         "rate is understated. (2) Nothing is provincial, so La Altagracia "
+         "still cannot be interpreted, and nothing is by nationality, so "
+         "mixed-nationality pairing still has no exposure base.",
+         "Provincial: extract ONE's subnacional projection report "
+         "(2000-2030, 2016 revision) which covers 2025; it is a PDF. "
+         "Population at risk: marital-status distribution by sex, age and "
+         "province from the 2022 census or ENHOGAR. By nationality: ENI "
+         "immigrant stock. Each is a separate acquisition; the schema "
+         "already carries geo_id, nationality and marital_status columns."),
 
         ("coverage", "microdata", "high",
          "Three-way cross-tabs are unanswerable from published cuadros, in "
@@ -648,6 +705,7 @@ def main():
     b = Build(con)
     b.load_reference()
     ingest_anuario_2025(b)
+    ingest_proyecciones(b)
     con.commit()
 
     con.execute("UPDATE source_table SET transcription_verified=1, "

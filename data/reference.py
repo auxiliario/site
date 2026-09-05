@@ -105,6 +105,8 @@ VOCAB = [
 # ------------------------------------------------------------- age bands
 # (band, lower, upper, is_residual, sort_order)
 AGE_BANDS = [
+    # Present for population denominators; no marriage cuadro uses it.
+    ("0-14", 0, 14, 0, 0),
     ("15-19", 15, 19, 0, 1),
     ("20-24", 20, 24, 0, 2),
     ("25-29", 25, 29, 0, 3),

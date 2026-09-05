@@ -15,6 +15,7 @@ DROP VIEW IF EXISTS v_anomalies;
 DROP VIEW IF EXISTS v_reconciliation;
 DROP VIEW IF EXISTS v_series_restatement;
 DROP VIEW IF EXISTS v_pairing_rate;
+DROP VIEW IF EXISTS v_event_rate_by_age;
 DROP VIEW IF EXISTS v_coverage;
 
 -- Full provenance + trust for any fact. Start every session here.
@@ -153,24 +154,64 @@ JOIN fact b
 WHERE a.value IS NOT NULL AND b.value IS NOT NULL
   AND ABS(b.value - a.value) > 1e-9;
 
--- Population-adjusted pairing rates. Deliberately empty today: it
--- returns one row per pairing cell only once `population` is loaded.
--- That emptiness is the honest answer to "what is the rate?" -- the
--- denominators are not in any Anuario.
+-- Population-adjusted pairing rates, over the couplings layer (which
+-- carries sex per side, so the right denominator can be selected).
+-- Returns rows only where a matching exposure base exists: age_band
+-- pairings do, nationality pairings do not until ENI immigrant stock is
+-- loaded, and nothing does at province level until the subnacional
+-- projections are extracted. That emptiness is the honest answer.
 CREATE VIEW v_pairing_rate AS
-SELECT p.reference_year, p.vital_event, p.attribute,
-       p.side_a_value, p.side_b_value, p.count,
-       pop.value                                        AS exposure_base,
-       ROUND(p.count * 100000.0 / NULLIF(pop.value,0),2) AS per_100k_exposed,
-       p.trust
-FROM v_pairing p
-JOIN fact f       ON f.fact_id = p.fact_id
+SELECT d.reference_year, d.dyad_type, a.attribute,
+       d.role_a, a.value_text AS side_a_value,
+       d.role_b, b.value_text AS side_b_value,
+       SUM(d.weight)                                        AS events,
+       pop.value                                            AS exposure_side_a,
+       ROUND(SUM(d.weight) * 100000.0 / NULLIF(pop.value,0), 2)
+                                                            AS per_100k_side_a
+FROM dyad d
+JOIN dyad_attribute a ON a.dyad_id = d.dyad_id AND a.side = 'a'
+JOIN dyad_attribute b ON b.dyad_id = d.dyad_id AND b.side = 'b'
 JOIN population pop
-  ON  pop.reference_year = p.reference_year
-  AND COALESCE(pop.geo_id,-1) = COALESCE(f.geo_id,-1)
-  AND (pop.nationality = p.side_a_value OR pop.nationality IS NULL)
-  AND pop.measure = 'persons'
-WHERE p.is_marginal = 0;
+  ON  pop.reference_year = d.reference_year
+  AND COALESCE(pop.geo_id,-1) = COALESCE(d.geo_id,-1)
+  AND pop.sex        = d.sex_a
+  AND pop.age_band   = a.value_text
+  AND pop.measure    = 'persons'
+  AND pop.nationality IS NULL
+WHERE a.attribute = 'age_band'
+GROUP BY 1,2,3,4,5,6,7, pop.value;
+
+-- The headline rate: events per 1,000 people of that sex and age. Both
+-- sides in one view, so bride and groom schedules are directly
+-- comparable. Residual bands are excluded -- there is no population at
+-- risk for 'No declarada'.
+CREATE VIEW v_event_rate_by_age AS
+WITH sides AS (
+  SELECT d.reference_year, d.dyad_type, d.geo_id, 'a' AS side,
+         d.role_a AS role, d.sex_a AS sex, x.value_text AS age_band, d.weight
+  FROM dyad d JOIN dyad_attribute x
+    ON x.dyad_id = d.dyad_id AND x.side='a' AND x.attribute='age_band'
+  UNION ALL
+  SELECT d.reference_year, d.dyad_type, d.geo_id, 'b',
+         d.role_b, d.sex_b, x.value_text, d.weight
+  FROM dyad d JOIN dyad_attribute x
+    ON x.dyad_id = d.dyad_id AND x.side='b' AND x.attribute='age_band'
+)
+SELECT s.reference_year, s.dyad_type, s.role, s.sex, s.age_band,
+       SUM(s.weight)                                   AS events,
+       pop.value                                       AS population,
+       ROUND(SUM(s.weight) * 1000.0 / NULLIF(pop.value,0), 2) AS per_1000
+FROM sides s
+JOIN age_band_ref ab ON ab.band = s.age_band AND ab.is_residual = 0
+JOIN population pop
+  ON  pop.reference_year = s.reference_year
+  AND COALESCE(pop.geo_id,-1) = COALESCE(s.geo_id,-1)
+  AND pop.sex      = s.sex
+  AND pop.age_band = s.age_band
+  AND pop.measure  = 'persons'
+  AND pop.nationality IS NULL
+GROUP BY 1,2,3,4,5, pop.value
+ORDER BY ab.sort_order;
 
 -- What is actually in here. First query for anyone new to the file.
 CREATE VIEW v_coverage AS

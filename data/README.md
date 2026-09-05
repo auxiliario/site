@@ -132,6 +132,8 @@ schema.sql              tables, constraints, indexes, vocabulary trigger
 views.sql               analysis views (reapply without a rebuild)
 reference.py            geography, controlled vocabulary, category lookups
 sources/anuario_2025.py cells transcribed exactly as printed
+sources/one_proyecciones.py population denominators (single ages)
+raw/                    source workbooks, for a reproducible build
 build.py                loaders + reconciliation + trust derivation
 validate.py             structural checks
 queries.sql             eight worked couples queries

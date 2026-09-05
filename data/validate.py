@@ -110,6 +110,31 @@ def main():
                 "WHERE st.trust<>'verified'"),
           "v_pairing_symmetry_trusted serves only reconciling tables")
 
+    print("\n== denominators ==")
+    if one("SELECT COUNT(*) FROM population") == 0:
+        warn(False, "population is empty (no rates computable)")
+    else:
+        check(not q("""SELECT reference_year, sex FROM population
+                       WHERE measure='persons' AND age_band<>'TOTAL'
+                       GROUP BY reference_year, sex, geo_id
+                       HAVING ABS(SUM(value) - (
+                         SELECT p2.value FROM population p2
+                         WHERE p2.reference_year=population.reference_year
+                           AND p2.sex=population.sex
+                           AND p2.age_band='TOTAL')) > 0.5"""),
+              "population age bands sum to the published total")
+        check(not q("""SELECT reference_year FROM population p
+                       WHERE age_band='TOTAL' AND sex='both'
+                       AND ABS(p.value - (SELECT SUM(v.value) FROM population v
+                          WHERE v.reference_year=p.reference_year
+                            AND v.age_band='TOTAL'
+                            AND v.sex IN ('male','female'))) > 0.5"""),
+              "male + female equals both, every year")
+        check(not q("SELECT 1 FROM population WHERE value < 0"),
+              "no negative populations")
+        print(f"   rate rows available: "
+              f"{one('SELECT COUNT(*) FROM v_event_rate_by_age')}")
+
     print("\n== couplings layer ==")
     check(not q("SELECT 1 FROM dyad d LEFT JOIN source_document sd "
                 "USING(source_id) WHERE sd.source_id IS NULL"),
